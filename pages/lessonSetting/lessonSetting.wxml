@@ -1,0 +1,24 @@
+<import src="../commen/player/player.wxml"/>
+<!--pages/lessonSetting/lessonSetting.wxml-->
+<view class='lessonSettingWraper' style='padding-top:{{navHeight}}px'>
+  <view class='navBar'>
+    <navbar page-name="课程设置"></navbar>
+  </view>
+    <view class='settingItem'>
+      <view class='settingTitle'>打卡通知</view>
+      <view class='settingSub'>关注服务号，获取每日打卡提醒</view>
+      <switch class="switch-btn" color="#F86442" checked="{{isChecked}}" bindchange="changeSwitch"/>
+    </view>
+    <!-- <view class="contact-mask" wx:if="{{contactFlag}}">
+        <view class="wrap">
+            <view class="txt">请在客服消息中回复“a{{courseId}}”，关注服务号后获取打卡提醒服务</view>
+            <view class="btn">
+                <view class="close" bindtap="cancelContact">取消</view>
+                <view>去客服消息</view>
+                <button open-type="contact" bindtap="hideContact">去客服消息</button>
+            </view>
+        </view>
+    </view> -->
+    <template is="player" data="{{player}}"/>
+    <remaindModel isModelShow="{{contactFlag}}" bind:myevent="cancelContact"  bind:openevent="clickOpen"  ></remaindModel>
+</view>

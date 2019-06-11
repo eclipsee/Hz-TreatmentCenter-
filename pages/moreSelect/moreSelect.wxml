@@ -1,0 +1,87 @@
+<!--pages/moreSelect.wxml-->
+
+<wxs module='util' src='../../utils/util.wxs'></wxs>
+
+<view class='moreSelectWrapper' style='padding-top:{{navHeight}}px'>
+    <view class='navBar'>
+      <navbar page-name="精选回答"></navbar>
+    </view>
+  <image class='titleImg' src="../../images/moreTitle.png"></image>
+  <view class='productWrapper' wx:if="{{products.length>0}}">
+    <view class="productAnswer" wx:for='{{products}}'  wx:for-item='item' wx:key='{{index}}'>
+      <!-- 问答题答案 -->
+      <view  class='.analysis-answer {{"analysis-answer" + index}}' style='{{style1[index]}}'>
+            <view class='commentTitle'>
+                <image class='commentHeadImg fl' src='{{products[index].headImage}}'></image>
+                <view class='commentHeadTop fl' >
+                      <view>
+                      <view class='commentNickname'>{{products[index].nickName}}
+                      <text class='detail-titleEssence' wx:if='{{products[index].isEssence == true}}'>精选</text>
+                      </view>
+                        <!-- <view class='commentNickname'>我冷静下来就特别想大人尤其是打你的</view> -->         
+                  </view>
+                  <view class='checkinTxt'>已打卡{{products[index].checkInCount}}次</view>
+              </view>
+            </view>
+              <view class="{{item.mediaType == 'image'  ? 'answerItem' : (item.mediaType == 'audio' ? 'audioItem' : (item.mediaType == 'video' ? 'videoItem' : ''))}}" wx:for='{{item.answer}}'  wx:for-item='item' wx:for-index='itemIndex' >
+                <text selectable="true" wx:if='{{item.mediaType=="text"}}' style=" word-break: break-all" class='question-title'>{{item.text}} </text>
+                  <view class='answer-audio' wx:if='{{item.mediaType=="audio"}}'>
+                      <audio-box src='{{util.chooseURI(item)}}' duration='{{item.duration}}'></audio-box>
+                  </view>
+                  <image class='answer-image' src='{{util.chooseURI(item)}}' wx:if='{{item.mediaType=="image"}}' bindtap='previewImg' data-src='{{util.chooseURI(item)}}' mode='widthFix'></image>
+                  <view class='answer-video' data-index="{{index}}" wx:if='{{item.mediaType=="video"}}' >
+                      <video class='videoPreview' 
+                      id='prew_video'
+                      autoplay="{{isPlay == '0'}}" 
+                      bindfullscreenchange="bindVideoScreenChange"
+                      bindpause='bindpause'
+                      src='{{util.chooseURI(item)}}' wx:if="{{isVideoShow[index] == '1'}}"></video>
+                    <image src='../../images/videoDefaultSmall.png'  wx:if="{{isVideoShow[index] != '1'}}" class='videoImg'  bindtap='previewVideoFn' data-index = '{{index}}'></image>
+                  </view>
+              </view>
+      </view>
+        <!-- 展开收起 question-instructionSub  -->
+          <view class="to-get-all" bindtap="showAll" data-index="{{index}}"  wx:if='{{ isShow1[index] == "true"}}'>
+            <text class='to-get-all-Txt'>{{showAllFlag[index]==false?'展开全部':'收起全部'}}</text>
+            <image src='../../images/more.png' class='{{showAllFlag[index]==false?"":"less"}}'></image>
+          </view>
+      <!-- 问答题评论 -->
+      <view class="analysis-comment"  wx:if='{{item.teacherComment.comment.length > 0}}' >
+            <view class='trangle'></view>
+            <view style='margin-bottom:20rpx'>
+                <image class='commentHeadImg' src='{{item.teacherComment.headImage}}'></image>
+                <view class='commentNickname'>{{item.teacherComment.nickName}}点评</view>
+            </view>
+            <view class="spreadContent {{'spreadContent' + index}}" style="{{style2[index]}}">
+                  <view class="{{comment.mediaType == 'image'  ? 'answerItem' : (comment.mediaType == 'audio' ? 'audioItem' : (comment.mediaType == 'video' ? 'videoItem' : ''))}}" wx:for='{{item.teacherComment.comment}}'  wx:for-item='comment' wx:key='{{index}}'>
+             <text selectable="true" wx:if='{{comment.mediaType=="text"}}' style=" word-break: break-all" class='question-title'>{{comment.text}}</text>
+              <image class='answer-image' src='{{comment.mediaURI}}' wx:if='{{comment.mediaType=="image"}}' bindtap='previewImg' data-src='{{comment.mediaURI}}' mode='widthFix'></image>
+              <view class='audio-box' wx:if='{{comment.mediaType=="audio"}}'>
+                <audio-box src='{{util.chooseURI(comment)}}' duration='{{comment.duration}}'></audio-box>
+              </view>
+              <view class='answer-image' wx:if='{{comment.mediaType=="video"}}'  >
+                <video class='videoPreview' 
+                  id='prew_video'
+                  autoplay="{{isPlay == '0'}}" 
+                  bindfullscreenchange="bindVideoScreenChange"
+                  bindpause='bindpause'
+                  src='{{util.chooseURI(comment)}}' wx:if="{{isVideoShow == '1'}}"></video>
+                  <image src='../../images/videoDefault.png' bindtap='previewVideoFn'   wx:if="{{isVideoShow == '0'}}" class='videoImg'></image>
+              </view>
+            </view>
+          </view>
+             <!-- 展开收起-->
+       <view class='to-get-all' bindtap='showAllComment' data-index="{{index}}" wx:if="{{isShow2[index] == 'true'}}" >
+          <text class='to-get-all-Txt'>{{showAllCommentFlag[index]==false?'展开全部':'收起全部'}}</text>
+          <image src='../../images/more.png' class='{{showAllCommentFlag[index]==false?"":"less"}}'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='nolesson' wx:if="{{products.length == 0}}">
+    <image class='nolessonImg' src='../../images/no-lesson-default.png'></image>
+    <view class='nolessonTxt'>暂时没有精选回答哦～</view>
+  </view>
+  
+</view>

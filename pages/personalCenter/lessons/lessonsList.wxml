@@ -1,0 +1,30 @@
+<import src="../../commen/player/player.wxml"/>
+<view  style='padding-top:{{navHeight}}px'>
+ <view class='navBar'>
+    <navbar page-name="我的课程"></navbar>
+    </view>
+    <scroll-view bindscrolltolower="loadMore" scroll-y="true" class="list-wrap" bindscroll="scroll" wx:if="{{products.length}}">
+        <view class="lesson {{ item.status == 'inactive' ? 'disable' : ''}}" wx:for="{{products}}" bindtap="toLessonsDetail" data-status="{{item.status}}" id="{{item.id}}" wx:key="{{key}}">
+            <image style="position:relative" src="{{item.coverUrl}}"><view class='headImgShadow' hover-class="hoverBtn"></view></image>
+            <view class="les-info">
+                <view class="title">{{item.title}}</view>
+                <text class="join-time">{{item.status == 'inactive' ? '已下架' : item.joinTime}}</text>
+            </view>
+        </view>
+        <!--<view class="lesson disable">
+            <image src="https://fdfs.xmcdn.com/group46/M06/0F/A8/wKgKlltyhIXwHUKeAAQgNGNgWqM753_web_large.jpg" alt=""></image>
+            <view class="les-info">
+                <view class="title">美国育儿博士：轻松有效带好孩子轻松有效带</view>
+                <text class="join-time">今天加入</text>
+            </view>
+        </view>-->
+        <view class="toast" wx:if="{{reachBottomFlag}}">已经到底啦~</view>
+    </scroll-view>
+    <view wx:if="{{pages == 0}}" class="no-task">
+        <view class="img">
+            <image class="cover fl" src="https://fdfs.xmcdn.com/group49/M07/2F/1F/wKgKl1u9nRfTviJDAAAsMPcGX9Y685.png" alt=""> </image>
+        </view>
+        <view class="txt">暂未报名课程</view>
+    </view>
+    <template is="player" data="{{player}}"/>
+</view>

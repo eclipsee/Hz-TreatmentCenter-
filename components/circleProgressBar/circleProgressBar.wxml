@@ -1,0 +1,7 @@
+<view class='score-rate-wrapper'>
+  <canvas class='progress' canvas-id='progressBg' style='width:150rpx;height:150rpx;'></canvas>
+  <canvas class='progress' canvas-id='progressBar' style='width:150rpx;height:150rpx;'></canvas>
+  <view class='score-rate'>
+    <text>{{progressTip}}</text>
+  </view>
+</view>

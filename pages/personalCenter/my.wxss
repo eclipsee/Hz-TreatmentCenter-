@@ -1,0 +1,102 @@
+.page-my {
+  background: #Fff;
+  height: 100%;
+  color: #333;
+  box-sizing: border-box;
+}
+.top{
+  width: 100%;
+  height: 320rpx;
+  padding: 60rpx 40rpx 0;
+  box-sizing: border-box;
+  background-image: -webkit-linear-gradient(top, #fff, #F0F2F5); 
+  
+}
+.top button{
+  position:absolute;
+  top:0rpx;
+  left:0rpx;
+  border:1px slid #ccc;
+  width:330rpx;
+  height:140rpx;
+  opacity:0;
+}
+.top .userinfo{
+  width: 100%;
+  height: 150rpx;
+  display:flex;
+  align-items:center;
+  position: relative;
+}
+.page-my .user-headimg{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 100%;
+  border: 2rpx solid #fff;
+}
+.userinfo .user-name{
+  font-size: 40rpx;
+  color:#333;
+  margin-left:20rpx;
+}
+.lesson-info{
+  
+}
+.lesson-card{
+  width: 702rpx;
+  height: 220rpx;
+  background: #fff;
+  box-shadow: 0 10px 30px 0 rgba(175, 183, 200, 0.2);
+  border-radius: 16rpx;
+  margin: -63rpx auto 0;
+  box-sizing: border-box;
+  color: #999;
+  display:flex;
+  align-items:center;
+  text-align: center;
+}
+.lesson-card .total{
+  flex: 1;
+  border-right: 0.5rpx solid #EDEDED;
+}
+.lesson-card text{
+  font-size: 48rpx;
+  color: #333;
+}
+.lesson-card .dsce{
+  font-size: 28rpx;
+  color: #999;
+}
+.lesson-card .study-day{
+  flex: 1;
+}
+.item-group{
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  margin-top: 30rpx;
+  position: relative;
+}
+.item {
+  display: flex;
+  align-items: center;
+  height: 120rpx;
+  border-bottom: 0.5rpx solid #EDEDED;
+  font-size: 32rpx;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAXBAMAAADJv2OxAAAAHlBMVEUAAACmpqampqampqampqampqampqampqampqampqbo7KXzAAAACXRSTlMAD8jDDM2XmBmmsumGAAAAN0lEQVQI12NgEGQAA8YgATAtOlMRTGfOnAQWcJ4JEWCxJFmAY+bM6XA+Qp4wF2Y/3D0I98HcCwB+qB0gHW7NFwAAAABJRU5ErkJggg==) no-repeat calc(100% - 20rpx) center;
+  background-size: 14rpx 23rpx;
+  position: relative;
+}
+.item-group button{
+  position:absolute;
+  top:0rpx;
+  left:0rpx;
+  opacity:0;
+  width: 100%;
+  z-index: 23;
+}
+.item image{
+  margin-right: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+    

@@ -1,0 +1,31 @@
+<import src="../commen/player/player.wxml"/>
+<view class="page-my" style='padding-top:{{navHeight}}px'>
+    <view class='navBar'>
+      <navbar page-name="个人中心" showHome="0"></navbar>
+    </view>
+    <view class="top">
+      <view class="userinfo">
+         <image src="{{headImg}}" alt="" class="user-headimg"></image>
+         <text class="user-name">{{nickName}}</text>
+         <button wx:if="{{!islogin}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"></button>
+      </view>
+    </view>
+    <view class="lesson-info">
+      <view class="lesson-card">
+        <view class="total">
+          <text>{{sessionCount || 0}}</text>
+          <view class="dsce">课程总数</view>
+        </view>
+        <view class="study-day">
+          <text>{{checkinCount || 0}}</text>
+          <view class="dsce">打卡天数</view>
+        </view>
+      </view>
+      <view class="item-group">
+        <button class="item" wx:if="{{!islogin}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"></button>
+        <view wx:if="{{!islogin}}" class="item"><image src="//fdfs.xmcdn.com/group47/M0B/F8/4E/wKgKk1urNt2gLPzyAAABt-zm5JM003.png"></image>所有课程</view>
+        <view wx:else class="item" bindtap="toMyLessons"><image src="//fdfs.xmcdn.com/group47/M0B/F8/4E/wKgKk1urNt2gLPzyAAABt-zm5JM003.png"></image>所有课程</view>
+      </view>
+    </view>
+    <template is="player" data="{{player}}"/>
+</view>

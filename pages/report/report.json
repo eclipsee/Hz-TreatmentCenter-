@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "举报",
+  "usingComponents": {
+    "navbar": "../../components/navBar/navBar"
+  }
+}

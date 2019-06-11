@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "我的课程",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle":"dark",
+  "usingComponents": {
+    "navbar": "../../../components/navBar/navBar"
+  }
+}

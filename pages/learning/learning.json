@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "audio-player": "../../components/audioPlayer/audioPlayer",
+    "video-player": "../../components/videoPlayer/videoPlayer",
+    "next-btn":"../../components/nextBtn/nextBtn",
+    "navbar": "../../components/navBar/navBar"
+  },
+  "navigationBarTitleText": "正在学习"
+}

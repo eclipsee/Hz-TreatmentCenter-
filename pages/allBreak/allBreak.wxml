@@ -1,0 +1,22 @@
+<!--pages/allBreak/allBreak.wxml-->
+<view class='allBreakWrapper'  style='padding-top:{{navHeight}}px'>
+<view class='navBar'>
+  <navbar page-name="所有关卡"></navbar>
+  </view>
+  <view class='topBackground'>
+  </view>
+  <view class='allBreak'>
+    <view class='breakTitle'>
+      <view class='txt1'>所有关卡</view>
+      <view class='txt2'>共{{items.length}}关</view>
+    </view>
+    <view class='breakList'>
+        <view  class='breakItem' bindtap='toLessonDetail' wx:for="{{items}}" wx:for-item='option' wx:key="{{index}}" data-index='{{index}}'>
+          <view class='isCheckin' wx:if='{{option.doneCheckin == true}}'>已打卡</view>
+          <view class='noCheckin'  wx:if='{{option.doneCheckin == false}}'>{{option.canDoCheckin == true ? '未打卡' : '锁定'}}</view>
+          <view class='{{option.canDoCheckin == false && option.doneCheckin == false  ?"breakNumNo" : "breakNum"}}'>第{{index + 1}}关</view>
+          <view class='breakBottom' wx:if="{{checked == index}}"></view>
+        </view>
+    </view>
+  </view>
+</view>

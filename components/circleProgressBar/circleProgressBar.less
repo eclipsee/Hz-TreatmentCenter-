@@ -1,0 +1,37 @@
+.score-rate-wrapper {
+  position: relative;
+  height: 128rpx;
+  width: 128rpx;
+  display: inline-block;
+  .progress-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-color: #ededed;
+  }
+  .score-rate {
+    position: absolute;
+    width: 100rpx;
+    height: 100rpx;
+    margin-top: 50%;
+    margin-left: 50%;
+    top: -50rpx;
+    left: -50rpx;
+    border-radius: 100%;
+    background-color: #fff;
+    text {
+      width: 100%;
+      display: inline-block;
+      line-height: 100rpx;
+      color: #f86442;
+      font-weight: bold;
+      font-size: 28rpx;
+      text-align: center;
+    }
+  }
+}
+canvas {
+  position: absolute;
+  z-index: 100;
+}

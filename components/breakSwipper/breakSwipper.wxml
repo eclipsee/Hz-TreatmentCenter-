@@ -1,0 +1,20 @@
+<!--components/calendar.wxml-->
+<view class="calendar">
+  <view class="calendar-month">
+    <view class='title'>所有关卡</view>
+    <view class="allNum">（共{{calendarItems.length}}关）</view>
+    <view class="toBreakList" catchtap='toBreakList'>查看更多</view>
+    <image  class="toIcon" src="../../images/toIcon.png"></image>
+  </view>
+  <view class="scroll_box"> 
+    <scroll-view class="scroll-view_x" scroll-x scroll-left="{{leftX}}" style="width: auto;overflow:hidden;">
+      <view class="item_list" wx:for="{{calendarItems}}" wx:for-item='option' wx:key="{{index}}"  bindtap="checkedDate"  data-item="{{option}}" data-num="{{index}}" >
+        <view class="breakIndex">第{{index + 1}}关</view>
+        <image src='../../images/hasDoneIcon.png' class='hasDoneIcon' wx:if="{{option.doneCheckin}}"></image>
+        <image src='../../images/not-startted.png' wx:if="{{option.canDoCheckin == false && option.doneCheckin == false}}"  class='lockIcon' ></image>
+        <view class="{{option.tasks[0].taskContent.title.length>0 ? 'lessonTitle' : 'lessonTitleNo'}}">{{option.tasks[0].taskContent.title.length>0 ? option.tasks[0].taskContent.title : '老师还未上传任务'}}</view>
+        <view class='bottomDone' wx:if='{{index == checked}}'></view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

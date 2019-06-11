@@ -1,0 +1,108 @@
+.audio-view {
+  background: linear-gradient(to right, #ff8b6d, #f86442);
+  padding: 30rpx 20rpx;
+  border-radius: 20rpx;
+  height: 90rpx;
+  box-sizing: border-box;
+  position: relative;
+  color: #fff;
+}
+.audio-view text {
+  position: absolute;
+  left: 445rpx;
+  top: 30rpx;
+  font-size:24rpx;
+}
+.audio-view .playIcon{
+  width:44rpx;
+  height:45rpx;
+  position: absolute;
+  top:25rpx;
+  left:23rpx;
+}
+.audio-view .waitingIcon{
+  width:32rpx;
+  height:32rpx;
+  position: absolute;
+  top:31rpx;
+  left:31rpx;
+}
+.audio-view .trumpet {
+  position: absolute;
+  width: 30rpx;
+  height: 24rpx;
+  top: 35rpx;
+}
+
+.progress-wrapper {
+  position:absolute;
+  left:80rpx;
+  top:21rpx;
+  width:365rpx;
+}
+.progress-wrapper .progress {
+  position: relative;
+  width:327rpx;
+  height:50rpx;
+  left:25rpx;
+  overflow: show!important;
+}
+.progress-wrapper .progress .progress-bg {
+  width: 327rpx;
+  background-color: rgba(255, 255, 255, 0.3);
+  /* background:linear-gradient(90deg,rgba(255,139,109,1) 0%,rgba(248,100,66,1) 100%); */
+  height: 4rpx;
+  position: absolute;
+  top:25rpx;
+  overflow: show!important;
+}
+.progress-wrapper .progress .progress-control {
+  position: absolute;
+  top:25rpx;
+  left:-24rpx;
+  width: 100%;
+  overflow: show!important;
+}
+.progress-wrapper .progress .progress-control .progress-bar {
+  height: 4rpx;
+  background-color: #fff;
+  display: inline-block;
+  vertical-align: top;
+  overflow: show!important;
+}
+.progress-pointer-inner{
+   width: 45rpx;
+  height: 45rpx;
+  border-radius: 100%;
+  /* background: radial-gradient(#ff8b6d, #f86442); */
+  /* background: #fff; */
+  position: absolute;
+  top: -18rpx;
+  /* right:-12rpx; */
+  display: inline-block;
+}
+.progress-wrapper .progress .progress-control .progress-pointer {
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 100%;
+  /* background: radial-gradient(#ff8b6d, #f86442); */
+  background: #fff;
+  position: absolute;
+  top: 9rpx;
+  /* right:-12rpx; */
+  display: inline-block;
+}
+.progress-wrapper .time {
+  /* margin-top: 16rpx; */
+  font-size: 28rpx;
+  /* position: relative; */
+  /* top: 16rpx; */
+}
+.progress-wrapper .time text:nth-child(1) {
+  color: #f86442;
+}
+.progress-wrapper .time text:nth-child(2) {
+  position: absolute;
+  right: 60rpx;
+  color: #999999;
+}

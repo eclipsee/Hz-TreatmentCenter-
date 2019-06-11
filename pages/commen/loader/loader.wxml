@@ -1,0 +1,7 @@
+<template name="loader">
+  <view class='loader-master' wx:if="{{!loader.hidden}}">
+    <image src='/images/loading.gif' alt=''></image>
+  </view>
+</template>
+<!-- style='left:{{player.moveLeft * 2-56}}rpx;top:{{player.moveTop*2-56}}rpx' -->
+            

@@ -1,0 +1,41 @@
+/* pages/signInResault/signInResault.wxss */
+.wraper{
+  width:100%;
+  height:100%;
+  background: #F0F2F5;
+  padding-top: 295rpx;
+  box-sizing: border-box;
+}
+.successImg{
+  display: block;
+  width:190rpx;
+  height:190rpx;
+  margin: 0 auto;
+}
+.sucTxt{
+  font-family: PingFangSC-Semibold;
+  font-size: 36rpx;
+  color:#333;
+  text-align: center;
+  margin-top: 18rpx;
+}
+.sucSub{
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color:#999;
+  text-align: center;
+  margin-top: 25rpx;
+  margin-bottom: 96rpx;
+}
+.signInBtn{
+  width:630rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  margin: 30rpx auto;
+  background: #F86442;
+  border-radius: 60rpx;
+  color:#ffffff;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  text-align: center;
+}

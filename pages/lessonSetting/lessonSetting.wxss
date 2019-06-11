@@ -1,0 +1,82 @@
+/* pages/lessonSetting/lessonSetting.wxss */
+view{
+  box-sizing: border-box;
+}
+.lessonSettingWraper{
+  width:100%;
+  box-sizing: border-box;
+}
+.settingItem{
+  box-sizing: border-box;
+  width:100%;
+  height:120rpx;
+  padding: 16rpx 30rpx;
+  border-bottom: 1rpx solid #EDEDED;
+  position: relative
+}
+.settingTitle{
+  font-size: 34rpx;
+}
+.settingSub{
+  font-size: 26rpx;
+  color:#888;
+  margin-top:10rpx;
+}
+.switch-btn{
+ position: absolute;
+ right:20rpx;
+ top:30rpx;
+}
+
+.contact-mask{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.7);
+	z-index: 20;
+}
+.contact-mask .wrap{
+	width: 520rpx;
+	/*height: 200rpx;*/
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background: #fff;
+	border-radius: 7rpx;
+  box-sizing: border-box;
+}
+.contact-mask .wrap .txt{
+	padding:50rpx 50rpx 0;
+	text-align:center;
+	font-size:30rpx;
+	line-height:1.5;
+  color: #333;
+	height: 150rpx;
+}
+.contact-mask .wrap .btn{
+	position: relative;
+	border-top: 1rpx solid #e8e8e8;
+	/*height: 70rpx;*/
+}
+.contact-mask .wrap .btn view{
+	display: inline-block;
+	width: 49%;
+	font-size: 36rpx;
+	text-align: center;
+	line-height: 100rpx;
+  color:#F86442;
+}
+.contact-mask .wrap .btn .close{
+  color: #333;
+	border-right: 1rpx solid #e8e8e8;
+}
+.contact-mask .wrap button{
+	position: absolute;
+  width: 50%;
+	top: 0;
+	right: 0;
+	opacity: 0;
+}

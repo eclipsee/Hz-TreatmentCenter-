@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "audio-box": "../../components/audioBox/audioBox",
+    "navbar": "../../components/navBar/navBar"
+  },
+  "navigationBarTitleText": "精选回答"
+}

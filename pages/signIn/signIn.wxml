@@ -1,0 +1,52 @@
+<!--pages/signIn/signIn.wxml  style='height:{{scrollHeight}}px'  -->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class='containerSign'  style='padding-top:{{navHeight}}px'>
+  <view class='navBar'>
+      <navbar page-name="课程报名"></navbar>
+  </view>
+  <scroll-view class='{{pagetype == "1" ? "wraper1" :"wraper"}} {{pagetype == "1" && (isIphoneX ? "heightPx" : "heightFull") || (isIphoneX ? "height11" : "height22")}} ' scroll-y="true">
+      <view class='lessonAlbum'>
+        <view class='albumWraper'>
+            <image class='albumBg' src='../../images/audio-bg.png'></image>
+            <image class='albumImg' src='{{coverUrl}}' ></image>
+        </view>
+        <view class='albumTitle'>{{title}}</view>
+        <view class='albumSubtitle'>{{shortDesc}}</view>
+      </view>
+      <view class='{{isIphoneX ? "lessonIntroPx" : "lessonIntro"}}'>
+        <view class='introTitle'>
+          <view class='leftLine fl'></view>
+          <view class='titleTxt fl'>课程介绍</view>
+          <view  class='rightLine fl'></view>
+        </view>
+         <view class='htmlWrapper'>
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+            <!-- <view class='wxParse-ol'>
+              <view class='wxParse-li'>
+              
+              课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍</view>
+              <view class='wxParse-li'>课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍</view>
+              <view class='wxParse-li'>课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍</view>
+            </view> -->
+          </view>
+      </view>
+  </scroll-view>
+  <view wx:if='{{pagetype != "1"}}'  class='{{isIphoneX ? "signInBtnWraperPx" : "signInBtnWraper"}}'> 
+      <button  wx:if='{{actionType == 2 && status == "active"}}'  class='signInBtn' bindtap='toLessonDetail'>开始学习</button>
+      <button  wx:if='{{actionType == 3 && status == "active"}}'  class='signInBtn' bindtap='bindTapGroup'>绑定此群</button>
+  <form bind:submit="testSubmit" report-submit="true">
+    <view  wx:if='{{status == "active" && actionType == 1}}' class='{{isIphoneX ? "aaPx" : "aa"}}'>
+      <button  formType="submit"   wx:if='{{status == "active" && actionType == 1}}'>
+        <form  bind:submit="testSubmit" report-submit="true">
+          <button  wx:if='{{status == "active" && actionType == 1}}' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" >
+            <view  class='{{isIphoneX ? "aaPx" : "aa"}}'>免费报名
+            </view>
+          </button>
+        </form>
+      </button>
+    </view>
+  </form>
+      <button  wx:if='{{status == "inactive"}}'  class='signInBtnInactive'>课程已下架</button>
+      <button  wx:if='{{status == "expired"}}'  class='signInBtnInactive'>课程已结束</button>
+</view>
+</view>

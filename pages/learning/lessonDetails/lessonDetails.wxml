@@ -1,0 +1,92 @@
+<import src="../../commen/player/player.wxml"/>
+<scroll-view class="lesson-details" style='padding-top:{{navHeight}}px'>
+  <view class='navBar'>
+    <navbar page-name="课程详情"></navbar>
+  </view>
+    <view class="ablum clearfix"  >
+        <view class="fl {{courseInfo.coverUrl.length >0 ? '' : 'coverWrapper'}}" style="display:inline-block">
+            <image class="cover fl" src="{{courseInfo.coverUrl}}"   bindtap="toLessons" id="{{courseInfo.id}}"> <view class='headImgShadow' hover-class="hoverBtn"></view></image>
+        </view>
+        <view class="fl content">
+            <view style='height:140rpx;'>
+            <view class="{{startTime.length > 0 ? 'title' : 'titleOnly'}}"  style="word-break:break-all"  bindtap="toLessons" id="{{courseInfo.id}}">{{courseInfo.title}}</view>
+            <view class="more">
+                <view  wx:if="{{startTime.length > 0}}" class="checkinDate" style='height:30rpx;' id="{{courseInfo.id}}">
+                    <!-- <text>课程介绍</text>
+                    <image src="https://fdfs.xmcdn.com/group48/M09/5B/71/wKgKlVurOiHiCQKoAAAArktos7g260.png"></image> -->
+                    打卡日期：{{startTime}}至{{endTime}}
+                </view>
+            </view>
+            </view>
+            
+            <view class='btnWrapper'>
+                <view class="setting" bindtap="toSetting" hover-class="hoverBtn"> <image src="../../../images/settingIcon.png" class="remaindIcon"></image> <text class="remaindTxt">提醒</text> </view>
+                <view class="join-group" wx:if="{{courseInfo.wxGroup}}" bindtap="switchContact" hover-class="hoverBtn"><image src="../../../images/groupIcon.png" class="groupIcon"></image> <text class="remaindTxt">加群</text></view>
+            </view> 
+        </view>
+    </view>
+    <view class="contact-mask" wx:if="{{contactFlag}}">
+        <view class="wrap">
+            <view class="txt">在客服消息中，发送“{{courseId}}”获取群二维码</view>
+            <view class="btn">
+                <view class="close" bindtap="switchContact">取消</view>
+                <view>去客服消息</view>
+                <button open-type="contact" bindtap="hideContact">去客服消息</button>
+            </view>
+        </view>
+    </view>
+    <view class="main">
+     <view class='activityBarWrapper'  bindtap='toActivityDetail'   wx:if="{{hasActivity == true}}">
+          <view class='activityBar'>
+            <image src="../../../images/activityBg.png"  class='activityImg'></image>
+            <view class='activityTxt'>
+              <text>{{activityName}}</text> 
+            </view>
+            <image src='../../../images/checkinActivity.png' class='checkinActivity'></image>
+        </view>
+        </view>
+        <breakSwipper wx:if='{{courseType == "stage"}}' courseId='{{courseId}}' currentItemId='{{currentItemId}}' currentChecked="{{checked}}"  isCourseOver="{{isCourseOver}}"  calendarItems="{{calendarItems}}" bind:myevent="toggleBreakTask"></breakSwipper>
+        <calendar startTime='{{startTime}}' checkedTime='{{checkedTime}}' wx:if='{{courseType == "calendar"}}'  isCourseOver="{{isCourseOver}}" endTime='{{endTime}}' calendarItems="{{calendarItems}}" bind:myevent="toggleTask"></calendar>
+        <view class="plan">
+            <text class="title">任务</text>
+            <view class="list" wx:if="{{checkedItem.tasks.length}}">
+                <view wx:for="{{checkedItem.tasks}}" wx:key="{{index}}">
+                    <view class="li" bindtap="checkedTask" data-taskid="{{item.id}}" 
+                    data-index="{{index}}" data-taskstatus="{{item.taskStatus}}" 
+                    data-tasktype="{{item.taskType}}">
+                        <image 
+                             class="type {{ item.taskType == 'course' ? 'learning' : 'work'}}"
+                             src="{{item.taskType === 'quiz' ? '../../../images/quiz.png' : '../../../images/lesson.png'}}"
+                        >
+
+                        </image>
+                        <text>{{item.taskContent.title || '作业'}}</text>
+                        <image wx:if="{{item.taskStatus == 'done'}}" class="status" 
+                            src="../../../images/done.png">
+                        </image>
+                        <image wx:if="{{item.taskStatus == 'inprocess'}}" class="status" 
+                            src="../../../images/in-progress.png">
+                        </image>
+                        <image wx:if="{{item.taskStatus == 'not_startted'}}" class="status" 
+                            src="../../../images/not-startted.png">
+                        </image>
+                    </view>
+                    <image class="line" wx:if="{{index != checkedItem.tasks.length-1}}"
+                        src="../../../images/divide-line2.png"
+                    ></image>
+                </view>
+                
+            </view>
+            <view class="no-task"  wx:if="{{notask == true}}">
+                <view class="img">
+                    <image class="cover fl" src='../../../images/no-lesson-default.png' alt=""> </image>
+                </view>
+                <view class="txt">老师还未上传任务</view>
+            </view>
+        </view>
+    </view>
+    <!-- <view class="toindex" bindtap="toTodayTask">
+        <image class="cover fl" src="../../../images/index-icon.png" alt=""> </image>
+    </view> -->
+   <template is="player" data="{{player}}"/>
+</scroll-view>

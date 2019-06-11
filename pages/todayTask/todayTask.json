@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "calendar":"../../components/calendar/calendar",
+    "audio-player":"../../components/audioPlayer/audioPlayer",
+    "navbar": "../../components/navBar/navBar"
+  },
+  "navigationBarTitleText": "马上打卡",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle":"dark"
+}

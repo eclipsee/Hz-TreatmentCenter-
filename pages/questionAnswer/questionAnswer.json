@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "circle-progress-bar": "../../components/circleProgressBar/circleProgressBar",
+    "next-btn": "../../components/nextBtn/nextBtn",
+    "audio-box": "../../components/audioBox/audioBox",
+    "video-box": "../../components/videoBox/videoBox",
+    "navbar": "../../components/navBar/navBar"
+  },
+  "navigationBarTitleText": "作业解析"
+}

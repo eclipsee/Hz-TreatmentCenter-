@@ -1,0 +1,234 @@
+/* pages/signIn/signIn.wxss */
+@import "../../wxParse/wxParse.wxss";
+.containerSign{
+  /* padding-bottom:150rpx; */
+  background-color: #fff;
+}
+.wraper{
+  width:100%;
+  position:relative;
+  z-index:999;
+  padding-bottom: 160rpx;
+}
+.wraper1{
+  width:100%;
+  position:relative;
+  z-index:999;
+  padding-bottom: 34rpx;
+}
+.heightPx{
+  /* height:1408rpx; */
+}
+.heightFull{
+  /* height:1195rpx; */
+}
+.height11{
+  /* height:1270rpx; */
+  padding-bottom:194rpx;
+
+}
+.height22{
+  /* height:1055rpx; */
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.lessonAlbum{
+  width:100%;
+  /* min-height: 456rpx; */
+  background:linear-gradient(#FFFFFF,#F0F2F5);
+  padding-bottom:74rpx;
+}
+.lessonAlbum .albumWraper{
+  width:360rpx;
+  height:200rpx;
+  margin:0  auto ;
+  padding-top: 20rpx;
+  position: relative
+}
+.lessonAlbum .albumWraper .albumBg{
+  height:200rpx;
+  width:360rpx;
+}
+.lessonAlbum .albumWraper .albumImg{
+  width:200rpx;
+  height:200rpx;
+  position: absolute;
+  left:80rpx;
+}
+.lessonAlbum .albumTitle{
+  width:650rpx;
+  margin: 52rpx auto 0;
+  font-family: PingFangSC-Medium;
+  font-size: 36rpx;
+  color:#333333;
+  text-align: center;
+
+}
+.lessonAlbum .albumSubtitle{
+  width:650rpx;
+  margin: 20rpx auto 0;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color:#666666;
+  text-align: center;
+}
+.lessonIntro{
+  width:100%;
+  min-height: 600rpx;
+  background: #fff;
+  border-radius: 30rpx;
+  padding-top: 46rpx;
+  margin-top: -24rpx;
+}
+.lessonIntroPx{
+  min-height: 745rpx;
+  width:100%;
+  background: #ffffff;
+  border-top-left-radius:24rpx;
+  border-top-right-radius:24rpx;
+  padding-top: 46rpx;
+  margin-top: -24rpx;
+}
+ .introTitle{
+  width:308rpx;
+  height:44rpx;
+  margin: 0 auto;
+  margin-bottom: 30rpx;
+}
+ .introTitle .leftLine{
+  width:60rpx;
+  height: 3rpx;
+  background:linear-gradient(to left,#D8D8D8,#FFFFFF);
+  position: relative;
+  top:20rpx;
+}
+ .introTitle .rightLine{
+  width:60rpx;
+  height: 3rpx;
+  background:linear-gradient(to right,#D8D8D8,#FFFFFF);position: relative;
+  top:20rpx;
+}
+ .introTitle .titleTxt{
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  margin: 0 30rpx;
+}
+.htmlWrapper{
+  width:630rpx;
+  margin: 0 auto;
+}
+.signInBtnWraper{
+  width:100%;
+  height:120rpx;
+  background: #fff;
+  z-index:1000;
+  position: fixed;
+  bottom: 0;
+}
+.signInBtnWraperPx{
+  width:100%;
+  height:120rpx;
+  background: #fff;
+  padding-bottom:34rpx;
+  z-index:1000;
+  position: fixed;
+  bottom: 0;
+}
+.signInBtn{
+  width:630rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  margin: 20rpx auto;
+  background: #F86442;
+  border-radius: 60rpx;
+  color:#ffffff;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  text-align: center;
+}
+.signInBtnInactive{
+  width:630rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  margin: 20rpx auto;
+  background: #CCCCCC;
+  border-radius: 60rpx;
+  color:#ffffff;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  text-align: center;
+}
+
+.signInBtn22{
+  width:630rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  margin: 20rpx auto;
+  background: #F86442;
+  border-radius: 60rpx;
+  color:#ffffff;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  text-align: center;
+  position: absolute;
+  top:-300rpx;
+}
+
+  .btn{
+    width: 20rpx;
+    height: 20rpx;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    position: fixed;
+    background:blue;
+    bottom: 68rpx;
+  }
+  .btnPx{
+    width: 20rpx;
+    height: 20rpx;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    position: fixed;
+    background:blue;
+    bottom: 136rpx;
+  }
+  button::after{
+    border:none;
+  }
+  .aa{
+    width:630rpx;
+    height:80rpx;
+    line-height: 80rpx;
+    margin: 20rpx auto;
+    background-color: #F86442;
+    border-radius: 40rpx;
+    color:#ffffff;
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+    text-align: center;
+    position:fixed;
+    bottom: 0;
+    left:60rpx;
+    z-index:999;
+  }
+  .aaPx{
+    width:630rpx;
+    height:80rpx;
+    line-height: 80rpx;
+    margin: 20rpx auto;
+    background-color: #F86442;
+    border-radius: 40rpx;
+    color:#ffffff;
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+    text-align: center;
+    position:fixed;
+    bottom: 36rpx;
+    left:60rpx;
+  }

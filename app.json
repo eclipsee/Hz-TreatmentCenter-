@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/todayTask/todayTask",
+    "pages/signIn/signIn",
+    "pages/share/share",
+    "pages/learning/lessonDetails/lessonDetails",
+    "pages/learning/learning",
+    "pages/personalCenter/my",
+    "pages/signInResult/signInResult",
+    "pages/question/question",
+    "pages/questionAnswer/questionAnswer",
+    "pages/logs/logs",
+    "pages/personalCenter/lessons/lessonsList",
+    "pages/report/report",
+    "pages/moreSelect/moreSelect",
+    "pages/lessonSetting/lessonSetting",
+    "pages/activityDetail/activityDetail",
+    "pages/checkinResult/checkinResult",
+    "pages/webview/webview",
+    "pages/allBreak/allBreak"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "马上打卡",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom",
+    "backgroundColor": "#F0F2F5"
+  },
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "tabBar": {
+    "selectedColor": "#F54D26",
+    "backgroundColor": "#fff",
+    "color": "#999",
+    "list": [
+      {
+        "pagePath": "pages/todayTask/todayTask",
+        "text": "今日任务",
+        "iconPath": "images/icon-task-noselect.png",
+        "selectedIconPath": "images/icon-task-select.png"
+      },
+      {
+        "pagePath": "pages/personalCenter/my",
+        "text": "个人中心",
+        "iconPath": "images/icon-personal-noselect.png",
+        "selectedIconPath": "images/icon-personal-select.png"
+      }
+    ]
+  }
+}

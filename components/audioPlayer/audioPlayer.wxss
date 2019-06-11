@@ -1,0 +1,124 @@
+.audio-wrapper {
+  background: linear-gradient(to bottom, #ffffff, #f0f2f5);
+  padding: 40rpx 60rpx;
+  box-sizing: border-box;
+}
+.audio-wrapper .audio-img-wrapper {
+  position: relative;
+}
+.audio-wrapper .audio-img-wrapper .audio-img-bg {
+  margin: 0 auto;
+  width: 540rpx;
+  height: 300rpx;
+  display: block;
+}
+.audio-wrapper .audio-img-wrapper .audio-img {
+  position: absolute;
+  width: 300rpx;
+  height: 300rpx;
+  top: 0;
+  left: 166rpx;
+}
+.audio-wrapper .progress-wrapper {
+  margin-top: 68rpx;
+  height:90rpx;
+}
+.audio-wrapper .progress-wrapper .progress {
+  position: relative;
+  height:50rpx;
+  overflow: show!important;
+}
+.audio-wrapper .progress-wrapper .progress .progress-bg {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 4rpx;
+  position: absolute;
+  top:25rpx;
+  overflow: show!important;
+}
+.audio-wrapper .progress-wrapper .progress .progress-control {
+  position: absolute;
+  top:25rpx;
+  width: 100%;
+  overflow: show!important;
+}
+.audio-wrapper .progress-wrapper .progress .progress-control .progress-bar {
+  height: 4rpx;
+  background-color: #f86442;
+  display: inline-block;
+  vertical-align: top;
+  overflow: show!important;
+  position: relative;
+  z-index: 200;
+}
+.audio-wrapper .progress-wrapper .progress .progress-control .progress-bar-buffer {
+  position: absolute;
+  height: 4rpx;
+  background-color: rgba(0, 0, 0,0.25);
+  display: inline-block;
+  vertical-align: top;
+  overflow: show!important;
+  z-index: 100;
+}
+.audio-wrapper .progress-wrapper .progress .progress-control .pointer-wrapper{
+  width: 60rpx;
+  height: 60rpx;
+  background: transparent;
+  position: absolute;
+  top: -30rpx;
+  display: inline-block;
+}
+.audio-wrapper .progress-wrapper .progress .progress-control .pointer-wrapper .progress-pointer {
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 100%;
+  background: radial-gradient(#ff8b6d, #f86442);
+  display: inline-block;
+  top: 20rpx;
+  position: absolute;
+  z-index: 300;
+}
+.audio-wrapper .progress-wrapper .progress .progress-control .pointer-wrapper .touch{
+  width: 40rpx;
+  height: 40rpx;
+  top: 12rpx;
+  transition: all 0.2s ease-in-out
+}
+.audio-wrapper .progress-wrapper .time {
+  /* margin-top: 16rpx; */
+  font-size: 28rpx;
+  /* position: relative; */
+  /* top: 16rpx; */
+}
+.audio-wrapper .progress-wrapper .time text:nth-child(1) {
+  color: #f86442;
+}
+.audio-wrapper .progress-wrapper .time text:nth-child(2) {
+  position: absolute;
+  right: 60rpx;
+  color: #999999;
+}
+.audio-wrapper .audio-player-btn {
+  width: 160rpx;
+  height: 160rpx;
+  margin: 16rpx auto 0;
+  display: block;
+}
+
+/* .pointer-Wrapper {
+          background-color: transparent;
+          width: 0.6rem;
+          height: 0.6rem;
+          position: absolute;
+          top: -0.3rem;
+          display: inline-block;
+          .progress-pointer {
+            width: 0.24rem;
+            height: 0.24rem;
+            border-radius: 100%;
+            background: radial-gradient(#ff8b6d, #f86442);
+            display: inline-block;
+            top: 0.2rem;
+            position: absolute;
+          }
+        } */

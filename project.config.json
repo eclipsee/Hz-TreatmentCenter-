@@ -1,0 +1,121 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.3.1",
+	"appid": "wx1a95b0a2ef72071f",
+	"projectname": "xmkp-checkin",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 2,
+			"list": [
+				{
+					"id": 0,
+					"name": "打卡分享页",
+					"pathName": "pages/share/share",
+					"query": "from=openNew&courseId=1747&itemId=1593&uid=204034",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群1",
+						"shareName": "gDkDk8QcfbYVTX4K-VxwrVXcB-PM-zqmgK1L7HK0_Ng@cr4dev",
+						"shareKey": "WHZFuSriu-lUIhudjIGdKcddJoELzAOCReCNNZennvuf_vmC-T-edcBQ7YjNzqr_W9xsBHGXAjkg2Z8OrY241A~~"
+					}
+				},
+				{
+					"id": 1,
+					"name": "作业解析页",
+					"pathName": "pages/questionAnswer/questionAnswer",
+					"query": "courseId=1765&itemId=1614&questionIndex=10",
+					"scene": "1011"
+				},
+				{
+					"id": 2,
+					"name": "课程报名页",
+					"pathName": "pages/signIn/signIn",
+					"query": "courseId=1280",
+					"scene": 1044,
+					"shareInfo": {
+						"groupName": "测试模拟群7",
+						"shareName": "gDkDk8QcfbYVTX4K-VxwreZ2sWmANuNXMPy12pQ_nsg@cr4dev",
+						"shareKey": "McOf4QF6byQ2W1SxyhqDlOV-YDadtysLF_4nkIvWcY3oDjYurj_DqGU1eKrPxABVcGg4IhrTBkiDJW6vekpBAg~~"
+					}
+				},
+				{
+					"id": 3,
+					"name": "精选回答页面",
+					"pathName": "pages/moreSelect/moreSelect",
+					"query": "courseId=1224&taskRef=1218&sequence=1&source=notification",
+					"scene": "1011"
+				},
+				{
+					"id": 4,
+					"name": "课程设置页",
+					"pathName": "pages/lessonSetting/lessonSetting",
+					"query": "courseId=1398",
+					"scene": "1011"
+				},
+				{
+					"id": 5,
+					"name": "活动详情页",
+					"pathName": "pages/activityDetail/activityDetail",
+					"query": "courseId=1275",
+					"scene": "1011"
+				},
+				{
+					"id": 6,
+					"name": "课程详情页",
+					"pathName": "pages/learning/lessonDetails/lessonDetails",
+					"query": "courseId=1659",
+					"scene": "1011"
+				},
+				{
+					"id": 7,
+					"name": "挑战成功页",
+					"pathName": "pages/checkinResult/checkinResult",
+					"query": "courseId=1415&activityId=37",
+					"scene": "1011"
+				},
+				{
+					"id": -1,
+					"name": "所有关卡",
+					"pathName": "pages/allBreak/allBreak",
+					"query": "",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群1",
+						"shareName": "gDkDk8QcfbYVTX4K-VxwrVXcB-PM-zqmgK1L7HK0_Ng@cr4dev",
+						"shareKey": "WHZFuSriu-lUIhudjIGdKcddJoELzAOCReCNNZennvuf_vmC-T-edcBQ7YjNzqr_W9xsBHGXAjkg2Z8OrY241A~~"
+					}
+				}
+			]
+		}
+	}
+}

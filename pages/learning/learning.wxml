@@ -1,0 +1,28 @@
+<wxs module='util' src='../../utils/util.wxs'></wxs>
+<import src="../../wxParse/wxParse.wxml"/>
+<import src="../commen/loader/loader.wxml"/>
+
+<view class='learning-wrapper'  style='padding-top:{{navHeight}}px'>
+<view class='navBar'>
+  <navbar page-name="正在学习"></navbar>
+</view>
+    <video-player wx:if='{{item.tasks[item.currentTaskIndex].taskContent.lessonType == "video"}}' class='video-area' src='{{item.tasks[item.currentTaskIndex].taskContent.lessonURI}}' duration='{{item.tasks[item.currentTaskIndex].taskContent.duration}}' bind:onPlayerReady='playerReady' bind:onPlayerLoad="playerLoad"></video-player>
+
+  <scroll-view>
+    <audio-player src='{{util.chooseURI(item.tasks[item.currentTaskIndex].taskContent)}}' cover-url='{{item.coverUrl}}' wx:if='{{item.tasks[item.currentTaskIndex].taskContent.lessonType == "audio"}}' duration='{{item.tasks[item.currentTaskIndex].taskContent.duration}}' title='{{item.tasks[item.currentTaskIndex].taskContent.title}}' taskId='{{item.tasks[item.currentTaskIndex].id}}'></audio-player>
+    <view class='content-master'>
+      <view class='content-wrapper'>
+        <view class='content-desc'>
+          <text>{{item.tasks[item.currentTaskIndex].taskContent.title}}</text>
+        </view>
+        <view class='content'>
+          <!-- <text class='t-content'>{{item.tasks[item.currentTaskIndex].taskContent.lessonContent}}</text> -->
+          <template is="wxParse" data="{{wxParseData:lessonContent.nodes}}"/>
+        </view>
+        <text class='report-btn' bindtap='report'>举报</text>
+      </view>
+    </view>
+  </scroll-view>
+   <next-btn class='next-btn' status='{{btnStatus}}' bindtap='runNext' data-status='{{btnStatus}}'></next-btn>
+    <template is="loader" data="{{loader}}"/>
+</view>

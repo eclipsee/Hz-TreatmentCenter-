@@ -1,0 +1,185 @@
+
+<wxs module='util' src='../../utils/util.wxs'></wxs>
+
+<view class='content-wrapper {{focus==true?"content-wrapper11":""}}'  style='padding-top:{{navHeight}}px'>
+ <view class='navBar'>
+      <navbar page-name="答题作业"></navbar>
+  </view>
+  <view class='question-wrapper' class='{{questions[currentQuestion].questionType != "subjective" ? "question-wrapper-master" : "question-wrapper"}}'>
+    <view class='question-type'>
+      <view class='type'>
+      <text>{{questions[currentQuestion].questionType === 'singleSelection'?'单选题':(questions[currentQuestion].questionType === 'subjective'?'问答题':'多选题')}}</text>
+      </view>
+      <text class='txt-progress'><text class='current'>{{currentQuestion+1}}</text>/{{questions.length}}</text>
+    </view>
+    <!-- 选择题题目 -->
+    <view wx:if ='{{questions[currentQuestion].questionType != "subjective"}}' class='question-instruction' style='{{style}}'>
+      <text>{{questions[currentQuestion].questionContent.text}}</text>
+      <image class='.image-box-option' wx:if='{{questions[currentQuestion].questionContent.mediaType === "image"}}' src='{{questions[currentQuestion].questionContent.mediaURI}}' catchtap='previewImg' data-src='{{questions[currentQuestion].questionContent.mediaURI}}' mode='widthFix'></image>
+      <view class='audio-box-title' wx:if='{{questions[currentQuestion].questionContent.mediaType === "audio"}}'>
+        <audio-box src='{{util.chooseURI(questions[currentQuestion].questionContent)}}' duration='{{questions[currentQuestion].questionContent.duration}}' lessonId='{{item.courseId}}' workId='{{item.tasks[item.currentTaskIndex].id}}' pageName="question"></audio-box>
+      </view>
+      <view class='video-box' wx:if='{{questions[currentQuestion].questionContent.mediaType === "video"}}'>
+        <video-box src='{{util.chooseURI(questions[currentQuestion].questionContent)}}' duration='{{questions[currentQuestion].questionContent.duration}}'></video-box>
+      </view>
+    </view>
+    <!-- 问答题题目 question-instruction -->
+    <view>
+    <view  style='{{style}}'>
+    <view class='question-subjective {{"question-subjective"+currentQuestion}}' wx:if ='{{questions[currentQuestion].questionType === "subjective"}}'>
+    <view wx:for="{{questions[currentQuestion].questionContent}}" wx:for-item='option' wx:key='{{index}}' wx:for-index='itemIndex'>
+        <text  class='subjectiveTxt' wx:if ='option.mediaType == "text"'>{{option.text}}</text>
+     <image class='image-box' wx:if='{{option.mediaType === "image"}}' src='{{option.mediaURI}}' bindtap='previewImg' data-src='{{option.mediaURI}}' mode='widthFix'></image>
+      <view class='audio-box-title' wx:if='{{option.mediaType === "audio"}}'>
+        <audio-box stat='{{audioStatus}}' src='{{util.chooseURI(option)}}' duration='{{option.duration}}'  lessonId='{{item.courseId}}' workId='{{item.tasks[item.currentTaskIndex].id}}' pageName="question"></audio-box>
+      </view>
+      <!-- <view class='video-box' wx:if='{{item.mediaType === "video"}}' bindtap='isTextFn'>
+        <video-box src='{{item.mediaURI}}' duration='{{item.duration}}'></video-box>
+        <!-- <image src='../../images/pic.png'></image> -->
+      <!-- </view>  -->
+      <view class='previewImageTopItem' data-src="{{util.chooseURI(option)}}" data-index="{{itemIndex}}"  wx:if='{{option.mediaType === "video"}}' >
+        <!-- <image src='{{item}}' class='imageItem'></image> -->
+        <!-- <video-box src='{{item}}'></video-box> -->
+        <video class='previewVideoTop' 
+        id='{{"prew_video" + itemIndex}}'
+        custom-cache="{{false}}"
+        src='{{playVideoSrc}}'
+        autoplay='{{isPlay == "true"}}'
+        duration='{{option.duration}}'
+        bindfullscreenchange='bindfullscreenchange'
+        bindpause='bindpause'
+        bindended="{{bindendedComment}}"
+         wx:if="{{isVideoTop == itemIndex}}" controls='true'></video>
+        <image src='../../images/videoDefault.png' bindtap='previewVideoTopFn'  data-src="{{util.chooseURI(option)}}" data-index="{{itemIndex}}"   wx:if="{{isVideoTop != itemIndex}}" class='videoImgTop'></image>
+      </view>
+    </view>
+    </view>
+    </view>
+    <!-- 展开题目提示 -->
+      <view class='spreadQuestion' bindtap='spreadFn'   wx:if ='{{questions[currentQuestion].questionType === "subjective" && isShow}}' >
+        <text >{{isSpread==false?'展开全部':'收起全部'}}</text>
+        <image src='../../images/more.png' class='{{isSpread==false?"":"less"}}'></image>
+      </view>
+    </view>
+  </view>
+<view wx:if='{{questions[currentQuestion].questionType !== "subjective"}}' class='option-bg-master'>
+    <view class='option-wrapper'>
+      <view class='option' wx:for='{{questions[currentQuestion].options}}' wx:key='{{index}}' wx:for-key='{{index}}' wx:for-item='option' bindtap='chooseAnswer' data-number='{{option.number}}' data-index='{{index}}'>
+        <view class='option-header'>
+          <text >{{option.number}}</text>
+          <image src='{{questionsAnswer[currentQuestion][index]==="choosed"?"../../images/choose.png":"../../images/unchoose.png"}}' mode='widthFix'></image>
+        </view>
+        <view class='option-content'>
+          <text >{{option.content.text}}</text>
+          <image class='image-box-option'  wx:if='{{option.content.mediaType==="image"}}' src='{{option.content.mediaURI}}' bindtap='previewImg' data-src='{{option.content.mediaURI}}' mode='widthFix'></image>
+          <view class='audio-box ' wx:if='{{option.content.mediaType==="audio"}}'>
+            <audio-box src='{{util.chooseURI(option.content)}}' duration='{{option.content.duration}}'  lessonId='{{item.courseId}}' workId='{{item.tasks[item.currentTaskIndex].id}}' pageName="question"></audio-box>
+          </view>
+          <view class='video-box'   wx:if='{{option.content.mediaType==="video"}}'>
+            <video-box src='{{util.chooseURI(option.content)}}' duration='{{option.content.duration}}'></video-box>
+          </view>
+        </view>
+    </view>
+  </view>
+</view>
+
+
+<view wx:if='{{questions[currentQuestion].questionType === "subjective"}}' class='option-bg-subjective'>
+    <view class='option-wrapper'>
+    <!-- <view contentEditable='true' catchtap='bindTextAreaBlur' class="fakeText" id="textInput" data-text="dhjhashdjs">但是减肥会不会觉得是</view> -->
+  <!-- <text >请输入你的回答</text> --> 
+    <view class="section" bindtap="bindButtonTap" wx:if='{{isText == true}}'>
+      <textarea   wx:if='{{!recordShow}}' focus='{{focus}}' class="answerTitle" placeholder="请输入你的回答" value='{{txtContent}}' placeholder-style="color:#bebebe;" auto-height maxlength='-1' bindinput='bindTextAreaBlur' />
+      <view wx:if='{{recordShow&&txtContent.length > 0}}'  class="answerTitle">{{txtContent}}</view>
+      <view wx:if='{{recordShow&&txtContent.length == 0}}'  class="answerTitle1">请输入你的回答</view>
+     </view> 
+  </view>
+</view>
+
+<!-- 上传录音预览   -- -->
+ <view class='previewRecord'  wx:if ='{{recordArr.length > 0}}' >
+    <view class='audio-box-record' wx:key='{{index}}' wx:for-item='option'   wx:for-index='index' wx:for="{{recordArr}}" wx:for-index='index'>
+            <audio-box src='{{option.path}}' duration='{{option.duration}}' lessonId='{{item.courseId}}' workId='{{item.tasks[item.currentTaskIndex].id}}' pageName="question"></audio-box>
+          </view>
+           <image  data-index="{{index}}" src="../../images/deletePic.png" class='deleteRecord'  bindtap='deleteRecord' ></image>
+</view>
+<!-- <view class='previewRecord' >
+    <view class='audio-box-record'>
+      <audio-box ></audio-box>
+    </view>
+    <image  data-index="{{index}}" src="../../images/deletePic.png" class='deleteRecord'  bindtap='deleteRecord' ></image> -->
+
+<!-- 上传图片或者视频预览 -->
+<view class='previewWrapper' wx:if ='{{imgArr.length > 0 || videoArr.length>0}}'>
+   <view class='previewItem' wx:key='{{index}}' wx:for-item='item'   wx:for-index='index' wx:for="{{imgArr}}" wx:for-index='index' wx:if ='{{imgArr.length > 0}}'>
+      <view class='previewImageItem' data-index="{{index}}" >
+        <image src='{{item}}' class='imageItem' data-src='{{item}}'  bindtap='previewImg'></image>
+      </view>
+      
+      <image src="../../images/deletePic.png" class='deletePic' data-index="{{index}}" bindtap='deleteImg'></image>
+   </view>
+   <view class='previewItem' wx:for-item='item' wx:key='{{index}}' wx:for-index='itemIndex' wx:for="{{videoArr}}" wx:if ='{{videoArr.length>0}}'>
+      <view class='previewImageItem' data-index="{{index}}">
+        <!-- <image src='{{item}}' class='imageItem'></image> -->
+        <!-- <video-box src='{{item}}'></video-box> -->
+        <video class='previewVideo' 
+        id='prew_video'
+        bindpause='bindpause'
+        bindended="{{bindendedComment}}"
+        autoplay='{{isPlay == "true"}}'
+        custom-cache="{{false}}"
+        bindfullscreenchange='bindfullscreenchange1'
+        src='{{item}}' wx:if="{{isVideoShow == '1'}}"></video>
+        <image src='../../images/videoDefaultSmall.png'  data-index="{{index}}"  bindtap='previewVideoFn'  wx:if="{{isVideoShow == '0'}}" class='videoImg'></image>
+      </view>
+      <image src="../../images/deletePic.png" class='deletePic' data-index="{{index}}"  bindtap='deleteVideo'></image>
+      
+   </view>
+</view>
+<view class='{{isIphoneX ? "bottomBtnWrapperPx" :"bottomBtnWrapper"}}' wx:if ='{{questions[currentQuestion].questionType == "subjective"}}' >
+<view class="bottomBtnWrapper11Border"></view>
+  <view class='bottomBtn'>
+    <image  wx:if='{{imgArr.length<2}}' src='../../images/pic.png' class='picBtn' bindtap='addPicture' />
+    <image  wx:if='{{imgArr.length>=2}}' src='../../images/pic_no.png' class='picBtn' bindtap='addPicture' />
+    <image  wx:if='{{videoArr.length<1}}' src='../../images/video.png' class='picBtn' bindtap='addVideo'/>
+    <image wx:if='{{videoArr.length>=1}}' src='../../images/video_no.png' class='picBtn' bindtap='addVideo'/>
+    <image wx:if='{{recordArr.length<1}}'   src='../../images/record.png' class='picBtn' bindtap='showRecordBox' />
+    <image wx:if='{{recordArr.length>=1}}'  src='../../images/record_no.png' class='picBtn' bindtap='showRecordBox' />
+  </view>
+</view>
+
+<view class="shadow" bindtap='closeRecordBox' wx:if='{{recordShow}}'>
+</view>
+
+<view class='recordBox' wx:if='{{recordShow}}'>
+    <view class='recordBoxTop'></view>
+  <view class='recordTime'>{{recordMinute}}:{{recordSecond}}/10:00</view>
+  <view class='recordControl'>
+    <view class='recordMiddle'>
+        <image wx:if='{{recordStatus == "0"}}' src='../../images/recordBegin.png' class='recordMiddleImg' bindtap='recordStart'></image>
+        <image wx:if='{{recordStatus == "1"}}' src='../../images/recoreStop.png' class='recordMiddleImg' bindtap='recordStop'></image>
+        <view class='recordMiddleTxt'>{{recordStatus == "0" ? "点击开始录制" : "点击结束录音"}}</view>
+    </view>
+  </view>
+</view>
+
+
+<!-- <cover-view class='recordBox' wx:if='{{recordShow}}'>
+    <cover-view class='recordBoxTop'></cover-view>
+  <cover-view class='recordTime'>{{recordMinute}}:{{recordSecond}}/10:00</cover-view>
+  <cover-view class='recordControl'>
+    <cover-view class='recordMiddle'>
+        <cover-image wx:if='{{recordStatus == "0"}}' src='../../images/recordBegin.png' class='recordMiddleImg' bindtap='recordStart'></cover-image>
+        <cover-image wx:if='{{recordStatus == "1"}}' src='../../images/recoreStop.png' class='recordMiddleImg' bindtap='recordStop'></cover-image>
+        <cover-view class='recordMiddleTxt'>{{recordStatus == "0" ? "点击开始录制" : "点击结束录音"}}</cover-view>
+    </cover-view>
+  </cover-view>
+</cover-view> -->
+
+
+<view class='{{isIphoneX ? "bottomBtnWrapper11Px" :"bottomBtnWrapper11"}}' wx:if ='{{questions[currentQuestion].questionType == "subjective"}}' >
+  <button  bindtap='{{btnDisable ? "" : "runNext"}}' data-status='{{btnStatus}}' class="next-btn {{btnDisable?'disable':''}}" >{{btnTxt[btnStatus]}}</button>
+</view>
+  <next-btn wx:if="{{questions[currentQuestion].questionType != 'subjective'}}" status='{{btnStatus}}'  bindtap='{{btnDisable ? "" : "runNext"}}'data-status='{{btnStatus}}' disable='{{btnDisable}}'></next-btn>
+
+</view>

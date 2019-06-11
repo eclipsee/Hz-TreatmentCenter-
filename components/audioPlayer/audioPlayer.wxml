@@ -1,0 +1,24 @@
+<view class="audio-wrapper" wx:if='true'>
+  <audio id='myAudio' style='display:none' bindtimeupdate='onUpdateProgress' src='{{src}}'></audio>
+  <view class='audio-img-wrapper'>
+    <image class='audio-img-bg' src='../../images/audio-bg.png'></image>
+    <image class='audio-img' src='{{coverUrl}}'></image>
+  </view>
+  <view class='progress-wrapper'>
+    <view class='progress' bindtap='setProgress'>
+      <view class='progress-bg'></view>
+      <view class='progress-control'>
+      <view class='progress-bar-buffer' id='progressCurrentBuffer' style='width:{{progressBarBufferWidth}}'></view>
+        <view class='progress-bar' id='progressCurrent' style='width:{{progressBarWidth}}'></view>
+        <view class='pointer-wrapper' catchtouchmove='changeProgress' catchtouchstart='startProgress' catchtouchend='endProgress'>
+          <view class='progress-pointer{{touched?" touch":""}}'></view>
+        </view>
+      </view>
+    </view>
+    <view class='time'>
+      <text>{{currentTime}}</text>
+      <text>{{durationStr}}</text>
+    </view>
+  </view>
+  <image bindtap="togglePlay" class="audio-player-btn" src='{{!isPlaying?"../../images/audio-play.png":"../../images/audio-pause.png"}}'></image>
+</view>
