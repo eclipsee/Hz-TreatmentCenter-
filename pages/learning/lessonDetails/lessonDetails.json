@@ -1,9 +1,0 @@
-{
-  "usingComponents": {
-    "calendar":"../../../components/calendar/calendar",
-    "breakSwipper":"../../../components/breakSwipper/breakSwipper",
-    "navbar": "../../../components/navBar/navBar"
-  },
-  "navigationBarTitleText": "课程详情",
-  "backgroundTextStyle":"dark"
-}

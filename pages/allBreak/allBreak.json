@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "所有关卡",
-  "usingComponents": {
-    "navbar": "../../components/navBar/navBar"
-  }
-}

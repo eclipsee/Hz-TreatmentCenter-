@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "活动详情",
-  "usingComponents": {
-    "navbar": "../../components/navBar/navBar"
-  }
-}

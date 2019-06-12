@@ -1,86 +1,42 @@
-import logger from 'logger/logger.js';
-
-var XMPlayer = require('./pages/commen/player/XMPlayer.js');
-var player = new XMPlayer();
+import { store } from "./store/test.js";
 
 //app.js
 App({
-  logger: logger,
-  player: player,
-  onLaunch: function (options) {
-    var _this = this;
-    // if (options.scene == 1044) {
-    //   _this.globalData.shareTicket = options.shareTicket;
-    //   console.log("shareTicket111", _this.globalData.shareTicket)
-    // }
-  },
- 
-  onShow: function (options) {
-    let that = this;
-    that.globalData.scene = options.scene;
-    if (options.scene == 1044) {
-      that.globalData.shareTicket = options.shareTicket;
-    } else {
-      that.globalData.shareTicket = "";
-    }
-    wx.getSystemInfo({
+  onLaunch: function () {
+    // 展示本地存储能力
+    var logs = wx.getStorageSync('logs') || []
+    logs.unshift(Date.now())
+    wx.setStorageSync('logs', logs)
+
+    // 登录
+    wx.login({
       success: res => {
-        let modelmes = res.model;
-        if (modelmes.search('iPhone X') != -1) {
-          that.globalData.isIphoneX = true
-        }
-        if (modelmes.search('iPhone') != -1) {
-          that.globalData.isIphone = true
-        }
-        this.globalData.navHeight = res.statusBarHeight + 46;
-      },
-      fail(err) {
-        console.log(err);
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
+    // 获取用户信息
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              // 可以将 res 发送给后台解码出 unionId
+              this.globalData.userInfo = res.userInfo
 
-    //判断是否登录
-    that.globalData.Authorization = wx.getStorageSync('Authorization')
-    if (that.globalData.Authorization) {
-      that.globalData.isLogin = true;
-      wx.getUserInfo({
-        success: res => {
-          that.globalData.userInfo = res.userInfo;
-          wx.setStorage({
-            key: "avatarUrl",
-            data: res.userInfo.avatarUrl
+              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+              // 所以此处加入 callback 以防止这种情况
+              if (this.userInfoReadyCallback) {
+                this.userInfoReadyCallback(res)
+              }
+            }
           })
-          wx.setStorage({
-            key: "nickName",
-            data: res.userInfo.nickName
-          })
-          // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-          // 所以此处加入 callback 以防止这种情况
-          if (that.userInfoReadyCallback) {
-            that.userInfoReadyCallback(res)
-          }
         }
-      })
-    }else{
-      that.globalData.isLogin = false;
-    }
-    that.globalData.openid = wx.getStorageSync('openid')
+      }
+    })
   },
-  
   globalData: {
     userInfo: null,
-    isIphoneX:false,
-    Authorization:'',
-    context:{},
-    openid:"",
-    isLogin:false,
-    scene: 0,
-    shareTicket:"",
-    isIphone:false,
-    count:'0',
-    openGid:"",
-    item:null,
-    navHeight:0
-  },
-
+    store:store
+  }
 })

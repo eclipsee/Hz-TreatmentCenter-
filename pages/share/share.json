@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "打卡分享",
-  "enablePullDownRefresh": false,
-  "backgroundTextStyle": "dark",
-  "usingComponents": {
-    "navbar": "../../components/navBar/navBar",
-    "remaindModel": "../../components/remaindModel/remaindModel"
-  }
-}

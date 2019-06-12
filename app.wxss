@@ -1,11 +1,4 @@
 /**app.wxss**/
-/* @import "/wxParse/wxParse.wxss"; */
-@import "/pages/commen/player/player.wxss";
-@import "/pages/commen/loader/loader.wxss";
-
-page{
-  height: 100%;
-}
 .container {
   height: 100%;
   display: flex;
@@ -15,15 +8,3 @@ page{
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
-.navBar{
-  width:100%;
-  position:fixed;
-  top:0;
-  left:0;
-  z-index:1001;
-  background:#fff;
-
-}
-.hoverBtn{
-  background: rgba(0,0,0,0.05)
-}

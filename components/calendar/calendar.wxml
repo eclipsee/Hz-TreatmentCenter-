@@ -1,26 +1,16 @@
 <!--components/calendar.wxml-->
 <view class="calendar">
-  <view class="calendar-month">
-  {{sYearB}}年{{sMonthB}}月
-  <!-- <view class='doneIcon'></view>
-  <view class='doneText'>当天打卡</view>
-  <view class='replaceIcon'></view>
-  <view class='replaceText'>补卡</view> -->
-  </view>
-  <!-- <view class="calendar-date" wx:if="{{startTime.length > 0}}">打卡日期：{{startTime}}至{{endTime}}</view> -->
   <view class="calendar-title">
     <text wx:for="{{weekdays}}" wx:key="{{index}}">{{item}}</text>
   </view>
-  <view style="left:{{movedis}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" class="calendar-content">
+  <scroll-view class="calendar-content">
+    <view class="month-item" wx:for="{{months}}" wx:key="{{index}}">
+      <text>{{item.nth + '月'}}</text>
       <view class="month-days">
-        <view class="days-item" wx:for="{{weeklist}}" wx:key="{{index}}">
-          <text bindtap="checkedDate" data-item="{{item}}" data-num="{{index}}" class="day {{item.topicItemDate ? 'hasClass':''}}  {{item.isSee ? 'noClass':''}}" >
-              {{item.d}}
-              <text class="checked" wx:if="{{index == checked}}"></text>
-          </text>
-          <image class="replaceTop" src="../../images/replace.png" wx:if="{{item.checkinStatus == '3'}}"></image>
-              <image class="replaceTop" src="../../images/doneCheckin.png" wx:if="{{item.checkinStatus == '2'}}"></image>
-        </view>
+        <text wx:for="{{item.daysArray}}" wx:key="{{index}}">
+          {{item.nthDay}}
+       </text>
+      </view>
     </view>
-  </view>
+  </scroll-view>
 </view>

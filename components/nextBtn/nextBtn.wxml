@@ -1,3 +1,0 @@
-<view class='btn' style='{{isIphoneX?"padding-bottom:36rpx;":""}}'>
-<button class="next-btn {{disable?'disable':''}}">{{btnStatus[status]}}</button>
-</view>

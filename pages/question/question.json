@@ -1,9 +1,0 @@
-{
-  "usingComponents": {
-    "next-btn": "../../components/nextBtn/nextBtn",
-    "audio-box": "../../components/audioBox/audioBox",
-    "video-box": "../../components/videoBox/videoBox",
-    "navbar": "../../components/navBar/navBar"
-  },
-   "navigationBarTitleText": "答题作业"
-}

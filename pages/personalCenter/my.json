@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "个人中心",
-  "enablePullDownRefresh": true,
-  "backgroundTextStyle":"dark",
-  "usingComponents": {
-    "navbar": "../../components/navBar/navBar"
-  }
-}

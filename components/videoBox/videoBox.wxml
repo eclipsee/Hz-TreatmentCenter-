@@ -1,7 +1,0 @@
-
-<view class='video-wrapper'>
-    <video src='{{src}}'  class='video-cover' id='myVideo' bindfullscreenchange='onFullscreenChange' bindended="{{bindendedComment}}" bindtimeupdate='bindtimeupdate' custom-cache='{{false}}' autoplay='{{isPlay}}' wx:if="{{status == '1'}}"
-         bindpause='bindpause'></video>
-  <image wx:if="{{status == '0'}}" class='video-cover' src='../../images/videoDefault.png'  catchtap='playVideo'></image>
-  <!-- <image class='video-btn' src='../../images/play-btn.png'></image> -->
-</view>

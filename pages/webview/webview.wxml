@@ -1,8 +1,0 @@
-<!-- <view style="padding-top:{{navHeight}}px">
-  <view class='navBar'>
-     <navbar page-name="今日任务" showHome="0"></navbar>
-  </view>
-<web-view src="{{toUrl}}"></web-view>
-</view> -->
-
-<web-view src="{{toUrl}}"></web-view>

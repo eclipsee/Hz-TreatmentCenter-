@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "课程设置",
-  "usingComponents": {
-    "navbar": "../../components/navBar/navBar",
-    "remaindModel": "../../components/remaindModel/remaindModel"
-  }
-}

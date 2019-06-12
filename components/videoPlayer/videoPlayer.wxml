@@ -1,9 +1,0 @@
-<view class='videoWrapper'>
-    <video id='myVideo' src='{{src}}' bindtimeupdate='onUpdateProgress' bindended='endPlaying' bindplay='startPlay' bindpause='startPause' bindfullscreenchange='listenFullScreen' bindtouchstart='touchStart' bindwaiting='onWaiting' binderror="onError" custom-cache='{{false}}' autoplay='{{true}}'>
-  <!-- <cover-image class='{{nativeControl == true ? "loading-btn-full" : "loading-btn"}}' src='../../images/audioLoading.gif' wx:if="{{playState == 2}}"></cover-image> -->
-    <cover-image class="mask" src='../../images/cover.png' style='display:{{hidden?"block":"none"}}'></cover-image>
-    <cover-view class='loadingMaster'>
-    <cover-image class="loading" src='../../images/loading.png' style='display:{{hidden?"block":"none"}}'></cover-image>
-    </cover-view>
-    </video>
-</view>

@@ -1,0 +1,5 @@
+<!-- <calendar></calendar> -->
+<view>{{text}}</view>
+<view>{{text}}</view>
+
+<button bindtap='changeText'>点击改变文字</button>
