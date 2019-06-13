@@ -1,0 +1,10 @@
+<!--pages/publish/publish.wxml-->
+<view class="wrapper">
+  <view class="moodChoose">
+      <view class="moodlist">
+        <view class="moodItem">
+        </view>
+      </view>
+      <view class="moodlist"></view>
+  </view>
+</view>

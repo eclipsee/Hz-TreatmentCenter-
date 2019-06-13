@@ -1,0 +1,22 @@
+/* pages/publish/publish.wxss */
+.wrapper{
+  width:100vw;
+  height: 100vh;
+  background: #eee;
+  position: relative;
+}
+.moodChoose{
+  width:100vw;
+  height: 50vh;
+  position: absolute;
+  bottom: 0;
+  background: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.moodlist{
+  width:100vw;
+  height: 25vh;
+  display: flex;
+  justify-content: space-between;
+}
