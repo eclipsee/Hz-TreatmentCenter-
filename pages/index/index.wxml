@@ -4,10 +4,12 @@
     <view class="calendar" bindtap="onClickCalendar"></view>
   </view>
   <view class="body">
-    <view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="i">
-      <view></view>
-    </view>
-    <button class="btn" type="primary" loading="{{loading}}" disabled="{{disabled}}" bindtap="onClickCatch">
+    <block wx:for="{{emotionList}}" wx:for-item="i" wx:key="i">
+      <view class="{{i % 2 ? 'emotion' : 'emotion1'}}" animation="{{i % 2 ? animationData : animationData1}}">
+        <image src="../../img/{{i}}.png" class="{{i % 2 ? 'image' : 'image1'}}" style="" animation="{{i % 2 ? animationData : animationData1}}"></image>
+      </view>
+    </block>
+    <button class="catchbtn" loading="{{loading}}" disabled="{{disabled}}" bindtap="onClickCatch">
       捕捞
     </button>
   </view>
