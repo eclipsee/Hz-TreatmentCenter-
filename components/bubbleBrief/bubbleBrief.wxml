@@ -1,0 +1,13 @@
+<!--components/bubble/bubbleBrief.wxml-->
+<view class="bubble-brief">
+  <view class="user-info">
+    <image class="avatar" src="{{user.avatar}}"></image>
+    <text>{{user.username}}</text>
+  </view>
+  <view class="bubble-title">
+    #{{bubble.title}}
+  </view>
+  <view class="bubble-wrap">
+    <bubble bubble="{{bubble}}"></bubble>
+  </view>
+</view>

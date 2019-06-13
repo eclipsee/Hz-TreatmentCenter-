@@ -1,0 +1,6 @@
+<!--pages/bubbleDetail/index.wxml-->
+<view>
+  <bubble-brief user="{{user}}" bubble="{{bubble}}"></bubble-brief>
+  <replies></replies>
+</view>
+

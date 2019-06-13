@@ -1,0 +1,4 @@
+<!--components/bubble/bubble.wxml-->
+<view class="bubble">
+  <view>70s</view>
+</view>

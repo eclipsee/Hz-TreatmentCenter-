@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "情绪泡泡",
+  "usingComponents": {
+    "bubble-brief":"../../components/bubbleBrief/bubbleBrief",
+    "replies": "../../components/replies/replies"
+  }
+}
