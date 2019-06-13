@@ -12,12 +12,14 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
-	"appid": "wxf225cba38a68e149",
-	"projectname": "xmkp-checkin",
+	"appid": "wx5bd1ae0648f2128e",
+	"projectname": "Hz-TreatmentCenter-",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
