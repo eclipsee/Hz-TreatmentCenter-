@@ -1,14 +1,18 @@
 <view class="index-page">
   <view class="header">
-    <view class="catch" bindtap="onClickCatch"></view>
-    <view class="calendar" bindtap="onClickCalendar"></view>
+    <image class="catch" bindtap="onClickCatch" src="../../img/emotion.png"></image>
+    <image class="calendar" bindtap="onClickCalendar" src="../../img/calendar.png"></image>
+    <image class="newo" bindtap="onClickCalendar" src="../../img/new.png"></image>
   </view>
   <view class="body">
-    <block wx:for="{{emotionList}}" wx:for-item="i" wx:key="i">
-      <view class="{{i % 2 ? 'emotion' : 'emotion1'}}" animation="{{i % 2 ? animationData : animationData1}}">
-        <image src="../../img/{{i}}.png" class="{{i % 2 ? 'image' : 'image1'}}" style="" animation="{{i % 2 ? animationData : animationData1}}"></image>
+    <block wx:for="{{emotionList}}" wx:for-item="item" wx:for-index="idx" wx:key="{{item.key}}">
+      <view class="{{item.viewClass}}" animation="{{item.image % 2 ? animationData : animationData1}}">
+        <image src="../../img/{{item.image}}.png" class="{{item.imageClass}}"></image>
       </view>
     </block>
+    <view>
+      <image src="../../img/7.png" class="{{item.imageClass}}"></image>
+    </view>
     <button class="catchbtn" loading="{{loading}}" disabled="{{disabled}}" bindtap="onClickCatch">
       捕捞
     </button>
