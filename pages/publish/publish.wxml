@@ -1,10 +1,42 @@
 <!--pages/publish/publish.wxml-->
 <view class="wrapper">
+  <view class="timeModule">
+    <image class="cloud1"  animation="{{animationDataCloud}}" src='../../img/cloud2.png'></image>
+     <image  class="cloud2"  animation="{{animationDataCloud}}"  src='../../img/cloud1.png'></image>
+     <view class="timeWrapper">
+      <view class="timeTxt">{{timeStr}}</view>
+      <view class="timeTxt2">选择你此刻的心情</view>
+      <view class="timeTxt2">用声音发送给更多的人听到吧～</view>
+     </view>
+  </view>
   <view class="moodChoose">
       <view class="moodlist">
         <view class="moodItem">
+          <image src='../../img/8.png'  animation="{{animationData}}"></image>
+          <view class="moodItemTxt">开心</view>
+        </view>
+        <view class="moodItem">
+          <image src='../../img/5.png'  animation="{{animationData}}"></image>
+          <view class="moodItemTxt">难过</view>
+        </view>
+        <view class="moodItem">
+          <image src='../../img/10.png'  animation="{{animationData}}"></image>
+          <view class="moodItemTxt">烦躁</view>
         </view>
       </view>
-      <view class="moodlist"></view>
+      <view class="moodlist">
+        <view class="moodItem">
+          <image src='../../img/4.png'  animation="{{animationData}}"></image>
+          <view class="moodItemTxt">纠结</view>
+        </view>
+        <view class="moodItem">
+          <image src='../../img/3.png'  animation="{{animationData}}"></image>
+          <view class="moodItemTxt">愤怒</view>
+        </view>
+        <view class="moodItem" >
+          <image src='../../img/6.png'  animation="{{animationData}}"></image>
+          <view class="moodItemTxt">苦恼</view>
+        </view>
+      </view>
   </view>
 </view>

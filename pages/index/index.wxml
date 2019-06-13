@@ -1,5 +1,14 @@
-<!-- <calendar></calendar> -->
-<view>{{text}}</view>
-<view>{{text}}</view>
-
-<button bindtap='changeText'>点击改变文字</button>
+<view class="index-page">
+  <view class="header">
+    <view class="catch" bindtap="onClickCatch"></view>
+    <view class="calendar" bindtap="onClickCalendar"></view>
+  </view>
+  <view class="body">
+    <view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="i">
+      <view></view>
+    </view>
+    <button class="btn" type="primary" loading="{{loading}}" disabled="{{disabled}}" bindtap="onClickCatch">
+      捕捞
+    </button>
+  </view>
+</view>

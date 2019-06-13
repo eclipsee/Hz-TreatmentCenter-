@@ -2,12 +2,15 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/publish/publish"
+    "pages/publish/publish",
+    "pages/emotionCalendar/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "赫兹治疗所",
     "navigationBarTextStyle": "black"
-  }
+
+  },
+  "sitemapLocation": "sitemap.json"
 }

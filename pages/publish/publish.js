@@ -6,7 +6,8 @@ Page({
    */
   data: {
     timeStr:'',
-
+    animationData: '',
+    animationDataCloud:''
   },
 
   /**
@@ -14,22 +15,109 @@ Page({
    */
   onLoad: function (options) {
     let timeStr = this.getNowFormatDate()
+    this.setData({
+      timeStr: timeStr
+    })
     console.log("timeStr", timeStr)
   },
 
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    var _this = this;
+    this.topAnimation()
+  },
+
+
+  //泡泡上下飘动画
+  topAnimation(){
+    var _this = this;
+    setInterval(function () {
+      let animation = wx.createAnimation({
+        duration: 1000,
+        timingFunction: "ease",
+        delay: 0,
+        transformOrigin: "50% 50%",
+      })
+      let y = Math.random(0,100)
+      animation.translate(0, -y * 10).step();     //边旋转边放大
+      animation.translate(0, 0).step();
+      //导出动画数据传递给组件的animation属性。
+      _this.setData({
+        animationData: animation.export(),
+      })
+
+      let animationCloud = wx.createAnimation({
+        duration: 1000,
+        timingFunction: "ease",
+        delay: 0,
+        transformOrigin: "50% 50%",
+      })
+      let x = Math.random(0, 100)
+      animationCloud.translate(x * 10,0).step();     //边旋转边放大
+      animationCloud.translate(0, 0).step();
+      //导出动画数据传递给组件的animation属性。
+      _this.setData({
+        animationDataCloud: animationCloud.export(),
+      })
+    }, 1000)  //每隔3秒打印一次
+   
+  },
+
+  click: function () {
+
+    //创建动画
+    var animation = wx.createAnimation({
+      duration: 4000,
+      timingFunction: "ease",
+      delay: 0,
+      transformOrigin: "50% 50%",
+    })
+
+    //设置动画
+    // animation.rotate(90).step();     //旋转90度
+    //animation.scale(1.5).step();        //放大1.5倍
+    //animation.translate(-30,-50).step();        //偏移x,y,z
+    //animation.skew(30,50).step();        //倾斜x,y
+
+    animation.rotate(45).scale(0.8).translate(10, 10).step();     //边旋转边放大
+
+
+    //导出动画数据传递给组件的animation属性。
+    this.setData({
+      animationData: animation.export(),
+    })
+
+  },
+
   getNowFormatDate() {
-      let date = new Date();
-      let seperator1 = "-";
-      let month = date.getMonth() + 1;
-      let strDate = date.getDate();
-      if(month >= 1 && month <= 9) {
-        month = "0" + month;
-      }
-      if (strDate >= 0 && strDate <= 9) {
-        strDate = "0" + strDate;
-      }
-      let currentdate =  month + '月' + strDate + '日';
-      return currentdate;
+    let date = new Date();
+    let seperator1 = "-";
+    let month = date.getMonth() + 1;
+    let strDate = date.getDate();
+    let strHour = date.getHours();
+    let strMinutes = date.getMinutes();
+    console.log("strMinutes", strHour,strMinutes)
+    let strHourString = ''
+    if(month >= 1 && month <= 9) {
+      month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+      strDate = "0" + strDate;
+    }
+    if (strMinutes >= 0 && strMinutes <= 9) {
+      strMinutes = "0" + strMinutes;
+    }
+    if (strHour > 12){
+      strHourString = (strHour - 12) + ':' +  strMinutes + ' PM'
+    }else{
+      strHourString = strHour + strMinutes + ' AM'
+    }
+    console.log("strHourString", strHourString)
+    let currentdate = month + '月' + strDate + '日' + strHourString;
+    return currentdate;
   },
 
   /**
@@ -39,12 +127,6 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
 
   /**
    * 生命周期函数--监听页面隐藏

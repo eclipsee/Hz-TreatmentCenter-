@@ -2,21 +2,88 @@
 .wrapper{
   width:100vw;
   height: 100vh;
-  background: #eee;
+  /* background: #fff; */
+  background: rgba(220,234,240,1);
   position: relative;
 }
+.timeModule{
+  box-sizing: border-box;
+  width:100vw;
+  height: 50vh;
+  position: relative;
+  padding-top: 140rpx;
+}
+.timeWrapper{
+   width:70vw;
+  height:44vw;
+  margin: 0 15vw;
+  background: rgba(220,234,240,1);
+  /* background: #fff; */
+  border-radius: 28rpx;
+}
+.timeTxt{
+  width:100%;
+  text-align: center;
+  font-size: 24px;
+  /* color:#dedede; */
+  color:#fff;
+  margin-bottom: 50rpx;
+}
+.timeTxt2{
+  width:100%;
+  text-align: center;
+  font-size: 18px;
+  /* color:#dedede; */
+  color:#fff;
+}
+
+.timeModule .cloud1{
+  width:16vw;
+  height:8.67vw;
+  position: absolute;
+  top:40rpx;
+  right:75rpx;
+}
+.timeModule .cloud2{
+  width:16vw;
+  height:8.67vw;
+  position: absolute;
+  top:105rpx;
+  left:45rpx;
+}
+
 .moodChoose{
+  box-sizing: border-box;
   width:100vw;
   height: 50vh;
   position: absolute;
   bottom: 0;
   background: #fff;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  /* background:rgba(220,234,240,1); */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding-top: 5vh;
 }
 .moodlist{
   width:100vw;
-  height: 25vh;
+  height: 15vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+.moodlist:nth-child(2){
+  margin-top: 6vh
+}
+.moodItem{
+  width:24vw;
+  height:100%;
+}
+.moodItem image{
+  width:24vw;
+  height:24vw;
+}
+.moodItemTxt{
+  width:100%;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
 }
