@@ -1,6 +1,5 @@
 /**index.wxss**/
 .header {
-
   background-color: #fff;
   height: 120rpx;
   display: flex;
@@ -21,8 +20,20 @@
 }
 
 .catchimage {
+  position: fixed;
+  width: 100vw;
+  /* height: 100vw; */
+  bottom: 500rpx;
+}
+
+.catchone {
+  position: fixed;
   width: 1rpx;
   height: 1rpx;
+  bottom: 700rpx;
+  right: 50%;
+  opacity: 1;
+  transform: scale(1)
 }
 
 .image0 {
@@ -36,8 +47,8 @@
 }
 
 .image3 {
-  width: 90rpx;
-  height: 90rpx;
+  width: 65rpx;
+  height: 65rpx;
 }
 
 .image2 {

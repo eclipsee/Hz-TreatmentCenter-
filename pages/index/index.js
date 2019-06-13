@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    catchOne: 1,
     loading: false,
     disabled: false,
     emotionList: []
@@ -92,25 +93,45 @@ Page({
   drawCatch() {
     var animation = wx.createAnimation({
       duration: 5000,
-      timingFunction: 'ease',
+      timingFunction: 'linear',
       delay: 0
     })
 
     animation
       .opacity(0)
-      .bottom(350)
-      .scale(350)
+      .scale(1000)
       .step()
 
     return animation
   },
 
   // 跳转至情绪日历
-  onClickCalendar: function() {
+  onClickCalendar() {
     wx.navigateTo({
       url: '../emotionCalendar/index'
     })
   },
 
-  onClickCatch: function() {}
+  onClickCatch() {
+    const catchOne = Math.ceil(1 + Math.random() * (12 + 1 - 1))
+    this.setData({
+      catchOne
+    })
+
+    const animationOne = this.drawCatch()
+    this.setData({
+      animationOne
+    })
+    setTimeout(() => {
+      wx.navigateTo({
+        url: '../emotionCalendar/index'
+      })
+    }, 5000)
+  },
+
+  onClickNew() {
+    wx.navigateTo({
+      url: '../emotionCalendar/index'
+    })
+  }
 })

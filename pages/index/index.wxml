@@ -2,7 +2,7 @@
   <view class="header">
     <image class="catch" bindtap="onClickCatch" src="../../img/emotion.png"></image>
     <image class="calendar" bindtap="onClickCalendar" src="../../img/calendar.png"></image>
-    <image class="newo" bindtap="onClickCalendar" src="../../img/new.png"></image>
+    <image class="newo" bindtap="onClickNew" src="../../img/new.png"></image>
   </view>
   <view class="body">
     <block wx:for="{{emotionList}}" wx:for-item="item" wx:for-index="idx" wx:key="{{item.key}}">
@@ -10,9 +10,8 @@
         <image src="../../img/{{item.image}}.png" class="{{item.imageClass}}"></image>
       </view>
     </block>
-    <view>
-      <image src="../../img/7.png" class="{{item.imageClass}}"></image>
-    </view>
+    <image src="../../img/7.png" class="catchimage"></image>
+    <image src="../../img/{{catchOne}}.png" class="catchone" animation="{{animationOne}}"></image>
     <button class="catchbtn" loading="{{loading}}" disabled="{{disabled}}" bindtap="onClickCatch">
       捕捞
     </button>
