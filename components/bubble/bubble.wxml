@@ -1,4 +1,14 @@
 <!--components/bubble/bubble.wxml-->
-<view class="bubble">
-  <view>70s</view>
+<view class="bubble {{size}}">
+  <view class="process">
+    <view class="left">
+      <view class="circle" style="transform: rotate({{-135 + (time < bubble.duration/2 ? 0 : (time > bubble.duration ? bubble.duration/2 : time - bubble.duration/2)) * (360/bubble.duration)}}deg);"></view>
+    </view>
+    <view class="right">
+      <view class="circle" style="transform: rotate({{-135 + (time >= bubble.duration/2 ?  bubble.duration/2 : time) * (360/bubble.duration)}}deg);"></view>
+    </view>
+  </view>
+  <image wx:if="{{!playing}}" class="playBtn" src="../../img/play.png" bindtap="togglePlay" />
+  <image wx:if="{{playing}}" class="playBtn" src="../../img/pause.png" bindtap="togglePlay" />
+  <view class="duration">{{bubble.duration}}s</view>
 </view>
