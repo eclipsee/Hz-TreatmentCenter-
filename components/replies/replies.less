@@ -1,0 +1,30 @@
+.comment-audio {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    .avatar{
+      width: 40px;
+      height: 40px;
+      margin-bottom: 6px;
+      border-radius: 100%;
+    }
+    .name {
+      font-size: 12px;
+      color: #666;
+    }
+  }
+  .bubble-wrap {
+    margin-top: -20px;
+    margin-left: 20px;
+  }
+}
+
+.comment-audio.right {
+  flex-direction: row-reverse;
+  .bubble-wrap {
+    margin-right: 20px;
+  }
+}

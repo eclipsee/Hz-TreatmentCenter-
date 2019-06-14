@@ -1,2 +1,12 @@
 <!--components/replies/replies.wxml-->
-<text>components/replies/replies.wxml</text>
+<view>
+  <view class="comment-audio {{item.isSelf ? 'right' : ''}}" wx:for="{{comments}}" wx:if="{{comments.length}}">
+    <view class="user-info">
+      <image class="avatar" src="{{item.user.avatar}}" />
+      <text class="name">{{item.user.username}}</text>
+    </view>
+    <view class="bubble-wrap">
+      <bubble size="small" bubble="{{item.bubble}}"></bubble>
+    </view>
+  </view>
+</view>

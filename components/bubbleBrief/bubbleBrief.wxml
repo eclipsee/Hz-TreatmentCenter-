@@ -5,7 +5,8 @@
     <text>{{user.username}}</text>
   </view>
   <view class="bubble-title">
-    #{{bubble.title}}
+   <view> #{{bubble.title}}</view>
+   <view>此处是星星</view>
   </view>
   <view class="bubble-wrap">
     <bubble bubble="{{bubble}}"></bubble>
