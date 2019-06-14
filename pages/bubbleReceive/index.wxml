@@ -18,11 +18,11 @@
   </view>
   <view class="bottom-btns">
     <view class="btn-wrap" bindtap="goReply">
-      <image class="icon" src="" />
+      <image class="icon" src="../../img/icons/envelope.png" />
       <text>回应</text>
     </view>
     <view class="btn-wrap">
-      <image class="icon" src="" />
+      <image class="icon" src="../../img/icons/circle-arrow.png" />
       <text>换一个</text>
     </view>
   </view>

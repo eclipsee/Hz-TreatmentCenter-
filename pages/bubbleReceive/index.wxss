@@ -42,7 +42,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 20rpx 40rpx;
+  padding: 20rpx 60rpx;
   display: flex;
   justify-content: space-between;
 }
@@ -56,6 +56,5 @@
 .bubble-receive .bottom-btns .btn-wrap .icon {
   width: 80rpx;
   height: 80rpx;
-  background-color: #eee;
   margin-bottom: 20rpx;
 }
