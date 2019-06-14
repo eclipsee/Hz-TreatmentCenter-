@@ -9,7 +9,6 @@ Page({
   },
 
   goReply() {
-    console.log('trigger');
     wx.navigateTo({ url: '../bubbleDetail/index' });
   },
 
