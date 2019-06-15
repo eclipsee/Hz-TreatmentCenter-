@@ -1,4 +1,4 @@
-export const music = [
+export default [
   {
     id: 1,
     title: '爱情呢语',

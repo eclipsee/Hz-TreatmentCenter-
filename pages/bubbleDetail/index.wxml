@@ -17,7 +17,7 @@
         <image class="icon" src="../../img/icons/arrow-right.png" />
       </view>
     </view>
-    <view class="reply-content" style="height: {{isExpand ? '400rpx' : '0rpx'}}">
+    <view class="reply-content" style="height: {{isExpand ? '460rpx' : '0rpx'}}">
       <reply-keyboard bindrandomevent="randomReplay" currentItem="{{currentReplay}}" type="{{replyType}}"></reply-keyboard>
     </view>
   </view>

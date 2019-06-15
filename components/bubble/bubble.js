@@ -25,7 +25,6 @@ Component({
 
   ready() {
     this.audioCtx = wx.createInnerAudioContext();
-    this.audioCtx.src = this.data.bubble.url;
     this.audioCtx.onEnded(() => {
       clearInterval(this.data.timer);
       this.setData({ playing: false, time: 0 });
@@ -46,6 +45,7 @@ Component({
         this.audioCtx.pause();
         clearInterval(this.data.timer);
       } else {
+        this.audioCtx.src = this.data.bubble.url;
         this.audioCtx.play();
         timer = setInterval(() => {
           this.setData({ time: this.data.time + 1 });

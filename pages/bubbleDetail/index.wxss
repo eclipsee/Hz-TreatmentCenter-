@@ -5,12 +5,14 @@
   right: 0;
 }
 .bubble-detail .bottom-replies .btns-wrap {
-  padding: 20rpx 40rpx;
+  padding: 20rpx 40rpx 10rpx;
   background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 .bubble-detail .bottom-replies .btns-wrap .close,
 .bubble-detail .bottom-replies .btns-wrap .more {

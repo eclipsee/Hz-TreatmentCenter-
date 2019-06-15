@@ -4,8 +4,9 @@
     <view class="title">{{currentItem.title}}</view>
     <view class="content" wx:if="{{type !== 'cure'}}">{{currentItem.content}}</view>
     <view class="content" wx:if="{{type === 'cure'}}">
-      <text>{{type}}</text>
-      <bubble bubble="{{ {url: currentItem.url, duration: 10} }}"></bubble>
+      <view class="bubble">
+        <bubble bubble="{{currentItem}}"></bubble>
+      </view>
     </view>
     <view class="actions">
       <view class="txt">{{currentItem.name}}</view>

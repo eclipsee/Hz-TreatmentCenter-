@@ -14,6 +14,11 @@
 }
 .reply-keyboard .content-card .content {
   color: #999;
+  height: 120rpx;
+  overflow: scroll;
+}
+.reply-keyboard .content-card .content .bubble {
+  text-align: center;
 }
 .reply-keyboard .content-card .actions {
   margin-top: 20rpx;
