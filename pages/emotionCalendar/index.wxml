@@ -1,22 +1,51 @@
-<!-- logs.wxml -->
 <view class="history-page">
   <header></header>
-  <view class="body">
-    <view class="flex">
-      <view class="left"></view>
-      <view class="right"></view>
+  <block class="body">
+    <view class="flex between userinfo">
+      <view class="flex left">
+        <image src="../../img/avatar/user4.png" class="icon-image"></image>
+        <view>猫耳朵</view>
+      </view>
+      <view class="flex right">
+        <image src="../../img/icons/score.png" class="icon-image"></image>
+        <view>
+          <view>乐天派</view>
+          <view>积分500</view>
+        </view>
+      </view>
     </view>
-    <view class="flex">
-      <view>2019年6月</view>
-      <view>回忆</view>
-      <view>月报告</view>
+    <view class="content">
+      <view class="flex between">
+        <view class="mothonselect">2019年</view>
+        <view class="flex around">
+          <view>回忆</view>
+          <view>月报告</view>
+        </view>
+      </view>
+      <block wx:for="{{voiceList}}" wx:for-item="item" wx:for-index="idx" wx:key="{{idx}}">
+        <view class="flex item">
+          <view class="date">
+            <view class="day">{{item.day}}</view>
+            <view class="time">{{item.time}}</view>
+          </view>
+          <bubble url="{{item.voice}}" class="bubble" />
+          <view class="itemC flex">
+            <view class="itemcontent">
+              <view>{{item.title}}</view>
+              <view class="flex between emotion">
+                <view class="isok">{{item.status ? '已治愈': ''}}</view>
+                <view class="isok bc" style="background-image: url('../../img/icons/palm.png')" wx:if="{{item.type}}">
+                  {{item.agree}}
+                </view>
+                <view class="isok bc" style="background-image: url('../../img/icons/message.png')" wx:else>
+                  {{item.mlenth}}
+                </view>
+              </view>
+            </view>
+            <image src="../../img/icons/arrow-down.png" class="icon-arrow"></image>
+          </view>
+        </view>
+      </block>
     </view>
-    <view class="content"></view>
-    <view class="flex">
-      <view>5月30日
-        6:30PM</view>
-      <bubble />
-      <view></view>
-    </view>
-  </view>
+  </block>
 </view>

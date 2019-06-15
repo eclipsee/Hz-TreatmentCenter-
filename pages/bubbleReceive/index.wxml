@@ -18,10 +18,10 @@
   </view>
   <view class="bottom-btns">
     <view class="btn-wrap" bindtap="goReply">
-      <image class="icon" src="../../img/icons/envelope.png" />
+      <image class="icon" src="../../img/icons/message.png" />
       <text>回应</text>
     </view>
-    <view class="btn-wrap">
+    <view class="btn-wrap" bindtap="randomBubble">
       <image class="icon" src="../../img/icons/circle-arrow.png" />
       <text>换一个</text>
     </view>

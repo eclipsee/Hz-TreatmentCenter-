@@ -1,8 +1,129 @@
-.log-list {
+.history-page {
+  font-size: 28rpx;
+  line-height: 1.6em;
+}
+
+.icon-image {
+  width: 45rpx;
+  height: 45rpx;
+  padding-right: 15rpx;
+}
+
+.flex {
   display: flex;
-  flex-direction: column;
-  padding: 40rpx;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
 }
-.log-item {
-  margin: 10rpx;
+
+.left {
+  padding-left: 20rpx;
+  justify-content: flex-start;
+  align-items: center;
 }
+
+.right {
+  padding-right: 20rpx;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.between {
+  justify-content: space-between;
+}
+
+.around {
+  justify-content: space-around;
+}
+
+.around view {
+  width: 80rpx;
+}
+
+.userinfo {
+  margin: 30rpx 20rpx;
+  background-color: #FFEC7A;
+  padding: 35rpx 20rpx;
+  border-radius: 10rpx;
+}
+
+.content {
+  margin: 0 20rpx;
+}
+
+.mothonselect {
+  font-size: 36rpx;
+  text-align: center;
+  width: 35%;
+}
+
+.item {
+  padding: 20rpx 0;
+  align-items: center;
+}
+
+.date {
+  width: 15%;
+}
+
+.day {
+  font-size: 20rpx;
+}
+
+.time {
+  font-size: 18rpx;
+}
+
+.bubble {
+  position: relative;
+  width: 25%;
+  z-index: 100;
+}
+
+.bubble::after {
+  position: absolute;
+  content: '';
+  width: 2rpx;
+  height: 100rpx;
+  z-index: 1;
+  background-color: #fff;
+  bottom: -100rpx;
+  left: calc(50% - 30rpx);
+}
+
+.item:last-of-type .bubble::after {
+  display: none;
+}
+
+.itemC {
+  width: 60%;
+  background-color: #fff;
+  border-radius: 10rpx;
+  padding: 20rpx 10rpx;
+}
+
+.itemcontent {
+  width: calc(100% - 50rpx);
+}
+
+.icon-arrow {
+  width: 30rpx;
+  height: 30rpx;
+  transform: rotateZ(270deg)
+}
+
+.isok {
+  width: 50%;
+}
+
+.bc {
+  text-align: right;
+  width: 100rpx;
+  padding-left: 50rpx;
+  background-repeat: no-repeat;
+  background-size: 35rpx 35rpx;
+  background-position: calc(100% - 25rpx) center;
+  -moz-background-size: 35rpx 35rpx;
+}
+
+.emotion {}

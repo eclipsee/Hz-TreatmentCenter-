@@ -1,6 +1,25 @@
 <!--pages/bubbleDetail/index.wxml-->
-<view>
+<view class="bubble-detail">
   <bubble-brief user="{{user}}" bubble="{{bubble}}"></bubble-brief>
   <replies comments="{{comments}}"></replies>
+  <view class="bottom-replies">
+    <view class="btns-wrap">
+      <view class="close" data-type="close" bindtap="changeType" wx:if="{{isExpand}}">
+        <image class="icon" src="../../img/icons/arrow-down.png" />
+      </view>
+      <view class="btns">
+       <view class="btn {{item.value === replyType ? 'active' : ''}}" data-type="{{item.value}}" bindtap="changeType" wx:for="{{replyTypes}}">
+        <image class="icon" src="{{item.icon}}" />
+        <text>{{item.name}}</text>
+       </view>
+      </view>
+      <view class="more" data-type="more" bindtap="changeType">
+        <image class="icon" src="../../img/icons/arrow-right.png" />
+      </view>
+    </view>
+    <view class="reply-content" style="height: {{isExpand ? '400rpx' : '0rpx'}}">
+      <reply-keyboard bindrandomevent="randomReplay" currentItem="{{currentReplay}}" type="{{replyType}}"></reply-keyboard>
+    </view>
+  </view>
 </view>
 

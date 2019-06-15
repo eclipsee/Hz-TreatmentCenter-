@@ -123,6 +123,12 @@
   top:50rpx;
   left:50rpx;
 }
+.recordTime{
+  font-size: 32rpx;
+  color:#7689b6;
+  text-align: center;
+  margin-top: 20rpx;
+}
 .moodChoose{
   box-sizing: border-box;
   width:100vw;

@@ -26,36 +26,36 @@
     </view>
   </view>
   <view class='record' bindtap="recordStart">
-      <image class='recordBg' animation="{{animationDataRotate}}"   src="../../img/1.png"></image>
+      <image class='recordBg' src="{{tag == '1' ? '../../img/1.png' : (tag == '2' ? '../../img/2.png' : (tag == '3' ? '../../img/3.png' : (tag == '4' ? '../../img/4.png' : (tag == '5' ? '../../img/5.png' : (tag == '6' ? '../../img/6.png' : '')))))}}"></image>
       <image class='recordIcon' src="{{isRecording == true ? '../../img/endIcon.png' : '../../img/startIcon.png'}}"></image>
   </view>
   <view class='recordTime'>{{recordMinute}}:{{recordSecond}}/10:00</view>
   <view class="moodChoose"  animation="{{animationPanel}}">
       <view class="moodlist">
-        <view class="moodItem" bindtap='chooseMood'>
-          <image src='../../img/1.png'  animation="{{animationData}}"></image>
+        <view class="moodItem" bindtap='chooseMood' data-tag='1'>
+          <image src='../../img/bubbles/1.png'  animation="{{animationData}}"></image>
           <view class="moodItemTxt">生气</view>
         </view>
-        <view class="moodItem">
-          <image src='../../img/2.png'  animation="{{animationData}}"></image>
+        <view class="moodItem" bindtap='chooseMood' data-tag='2'>
+          <image src='../../img/bubbles/2.png'  animation="{{animationData}}"></image>
           <view class="moodItemTxt">快乐</view>
         </view>
-        <view class="moodItem">
-          <image src='../../img/3.png'  animation="{{animationData}}"></image>
+        <view class="moodItem" bindtap='chooseMood' data-tag='3'>
+          <image src='../../img/bubbles/3.png'  animation="{{animationData}}"></image>
           <view class="moodItemTxt">伤心</view>
         </view>
       </view>
       <view class="moodlist">
-        <view class="moodItem">
-          <image src='../../img/4.png'  animation="{{animationData}}"></image>
+        <view class="moodItem" bindtap='chooseMood' data-tag='4'>
+          <image src='../../img/bubbles/4.png'  animation="{{animationData}}"></image>
           <view class="moodItemTxt">烦躁</view>
         </view>
-        <view class="moodItem">
-          <image src='../../img/5.png'  animation="{{animationData}}"></image>
+        <view class="moodItem" bindtap='chooseMood' data-tag='5'>
+          <image src='../../img/bubbles/5.png'  animation="{{animationData}}"></image>
           <view class="moodItemTxt">苦恼</view>
         </view>
-        <view class="moodItem" >
-          <image src='../../img/6.png'  animation="{{animationData}}"></image>
+        <view class="moodItem" bindtap='chooseMood' data-tag='6'>
+          <image src='../../img/bubbles/6.png'  animation="{{animationData}}"></image>
           <view class="moodItemTxt">纠结</view>
         </view>
       </view>

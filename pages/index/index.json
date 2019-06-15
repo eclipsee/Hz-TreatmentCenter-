@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "header": "../../components/header/index",
-    "bubble": "../../components/bubble/bubble"
+    "header": "../../components/header/index"
   }
 }

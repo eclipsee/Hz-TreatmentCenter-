@@ -27,6 +27,7 @@ Page({
     recordMinute: "00",
     recordSecond: "00",
     t1: {},
+    tag:1
 
   },
 
@@ -47,14 +48,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var _this = this;
+    let _this = this;
     this.topAnimation()
   },
 
 
   //泡泡上下飘动画
   topAnimation(){
-    var _this = this;
+    let _this = this;
     setInterval(function () {
       let animation = wx.createAnimation({
         duration: 1000,
@@ -86,8 +87,12 @@ Page({
     }, 1000)  //每隔3秒打印一次
   },
 
-  chooseMood: function () {
-    var _this = this;
+  chooseMood(event) {
+    let _this = this;
+    let tag = event.currentTarget.dataset.tag;
+    this.setData({
+      tag: event.currentTarget.dataset.tag
+    })
     setTimeout(function(){
       let animation = wx.createAnimation({
         duration: 1000,
@@ -154,7 +159,7 @@ Page({
 //点击录音按钮
   recordStart(){
     console.log("点击了录音")
-    var _this = this;
+    let _this = this;
     let isrecording = this.data.isRecording;
     if (isrecording == false){
       wx.getSetting({
@@ -218,9 +223,10 @@ Page({
       isRecording: true
     })
   },
-//录音结束
-  recordStop(){
-    var that = this;
+
+  //录音暂停
+  recordPause() {
+    let that = this;
     wx.setKeepScreenOn({
       keepScreenOn: false
     })
@@ -235,8 +241,38 @@ Page({
         that.uploadFile(res.tempFilePath);
       }
       that.setData({
-        recordStatus: '0',
-        recordShow: false,
+        recordSecond: '00',
+        recordMinute: '00',
+        isRecording: false
+      })
+      clearInterval(that.data.t1);
+    });
+
+    that.recorderManager.onError(function (res) {
+      // 停止录音之后，把录取到的音频放在res.tempFilePath
+      console.log("录制失败", res)
+    });
+    that.setData({
+      isRecording: false
+    })
+  },
+//录音结束
+  recordStop(){
+    let that = this;
+    wx.setKeepScreenOn({
+      keepScreenOn: false
+    })
+    that.recorderManager.stop();
+    that.recorderManager.onStop(function (res) {
+      if (that.data.recordDuration <= 0) {
+        wx.showToast({
+          title: "录音时长为0",
+          icon: 'none'
+        })
+      } else {
+        that.uploadFile(res.tempFilePath);
+      }
+      that.setData({
         recordSecond: '00',
         recordMinute: '00',
         isRecording: false
@@ -254,11 +290,8 @@ Page({
   },
 
   uploadFile(path) {
-    var that = this;
-    // var localUid = app.globalData.Authorization.split("&")[0]
-    // var localToken = app.globalData.Authorization.split("&")[1]
-    var authorize = encodeURIComponent('308503&51668374EE8D4NdV6664EBB7CE22ABF701A668130895ACAFD43CEBE5DEED04A7401C560B86C81BF6')
-  
+    let that = this;
+    let authorize = encodeURIComponent('308503&51668374EE8D4NdV6664EBB7CE22ABF701A668130895ACAFD43CEBE5DEED04A7401C560B86C81BF6')
     wx.uploadFile({
       url: 'https://upload.ximalaya.com/dtres/audio/upload?_token=' + authorize + "&callerSource=ambassador",
       filePath:path,
@@ -289,14 +322,14 @@ Page({
   },
 
   recordTime: function () {
-    var that = this;
-    var flag = that.data.timeFlag;
-    var a = 0;
-    var b = 0;
-    var x = 0;
-    var y = 0;
+    let that = this;
+    let flag = that.data.timeFlag;
+    let a = 0;
+    let b = 0;
+    let x = 0;
+    let y = 0;
     // t1 = setInterval(beginTime, 1000);
-    var t1 = setInterval(() => {
+    let t1 = setInterval(() => {
       beginTime()
     }, 1000);
     that.data.t1 = t1;
@@ -305,12 +338,12 @@ Page({
       that.data.recordDuration++;
       x++;
       if (x < 10) {
-        var seconds = '0' + x;
+        let seconds = '0' + x;
         that.setData({
           recordSecond: seconds
         })
       } else if (x >= 10 && x <= 59) {
-        var seconds = x;
+        let seconds = x;
         that.setData({
           recordSecond: seconds
         })
@@ -323,12 +356,12 @@ Page({
         a++;
       }
       if (a < 10) {
-        var minus = '0' + a;
+        let minus = '0' + a;
         that.setData({
           recordMinute: minus
         })
       } else if (a >= 10) {
-        var minus = a;
+        let minus = a;
         that.setData({
           recordMinute: minus
         })
@@ -338,24 +371,6 @@ Page({
     }
   },
 
-  rotateAntimation(){
-    var _this;
-    setInterval(function () {
-      let animation = wx.createAnimation({
-        duration: 1000,
-        timingFunction: "ease",
-        delay: 0,
-        transformOrigin: "50% 50%",
-      })
-      let y = Math.random(0, 100)
-      animation.translate(0, -y * 10).step();     //边旋转边放大
-      animation.translate(0, 0).step();
-      //导出动画数据传递给组件的animation属性。
-      _this.setData({
-        animationDataRotate: animation.export(),
-      })
-    }, 1000)  //每隔3秒打印一次
-  },
 
   getNowFormatDate() {
     let date = new Date();

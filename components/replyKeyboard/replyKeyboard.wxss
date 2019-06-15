@@ -1,0 +1,32 @@
+.reply-keyboard {
+  padding: 10rpx 30rpx;
+}
+.reply-keyboard .content-card {
+  background-color: #FFEC7A;
+  padding: 20rpx;
+  font-size: 24rpx;
+  border-radius: 8rpx;
+}
+.reply-keyboard .content-card .title {
+  margin-bottom: 30rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+.reply-keyboard .content-card .content {
+  color: #999;
+}
+.reply-keyboard .content-card .actions {
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.reply-keyboard .content-card .actions .btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.reply-keyboard .content-card .actions .btn .icon {
+  width: 50rpx;
+  height: 50rpx;
+}
