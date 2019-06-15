@@ -35,3 +35,15 @@
   width: 50rpx;
   height: 50rpx;
 }
+.reply-keyboard .content-card.voice {
+  margin-top: 100rpx;
+}
+.reply-keyboard .send-btn {
+  text-align: center;
+  background-color: #eee;
+  margin-top: 100rpx;
+}
+.reply-keyboard .send-btn .icon {
+  width: 100rpx;
+  height: 100rpx;
+}

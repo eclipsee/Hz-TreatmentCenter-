@@ -13,6 +13,9 @@ Page({
     isExpand: false,
     replyType: '',
     currentReplay: {},
+    recordSecond: '00',
+    recordStatus: '0',
+    recordMinute: '00',
     user: {
       username: 'lizifen',
       avatar: testAvatar,
@@ -62,7 +65,13 @@ Page({
     } else if (type === 'close')  {
       this.setData({ isExpand: false });
     } else {
-      this.setData({ replyType: type, isExpand: true }, () => {
+      this.setData({
+        recordSecond: '00',
+        recordStatus: '0',
+        recordMinute: '00',
+        replyType: type,
+        isExpand: true,
+      }, () => {
         this.randomReplay();
       });
     }

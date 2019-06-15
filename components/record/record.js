@@ -14,11 +14,11 @@ Component({
     },
     recordMinute: {
       type: String,
-      value: '00:00',
+      value: '00',
     },
     recordSecond: {
       type: String,
-      value: '00:00',
+      value: '00',
     }
   },
 

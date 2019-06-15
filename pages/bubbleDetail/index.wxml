@@ -17,8 +17,15 @@
         <image class="icon" src="../../img/icons/arrow-right.png" />
       </view>
     </view>
-    <view class="reply-content" style="height: {{isExpand ? '460rpx' : '0rpx'}}">
-      <reply-keyboard bindrandomevent="randomReplay" currentItem="{{currentReplay}}" type="{{replyType}}"></reply-keyboard>
+    <view class="reply-content" style="height: {{isExpand ? '660rpx' : '0rpx'}}">
+      <reply-keyboard
+        bindrandomevent="randomReplay"
+        currentItem="{{currentReplay}}"
+        type="{{replyType}}"
+        recordStatus="{{recordStatus}}"
+        recordMinute="{{recordMinute}}"
+        recordSecond="{{recordSecond}}"
+        ></reply-keyboard>
     </view>
   </view>
 </view>

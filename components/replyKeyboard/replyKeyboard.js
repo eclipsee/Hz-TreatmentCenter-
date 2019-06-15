@@ -12,6 +12,18 @@ Component({
       type: Object,
       value: {},
     },
+    recordSecond: {
+      type: String,
+      value: '00',
+    },
+    recordMinute: {
+      type: String,
+      value: '00',
+    },
+    recordStatus: {
+      type: String,
+      value: '0',
+    },
   },
 
   /**
@@ -27,6 +39,9 @@ Component({
   methods: {
     randomItem() {
       this.triggerEvent('randomevent', {});
+    },
+    sendVoice() {
+      console.log('sendVoice');
     },
   },
 });

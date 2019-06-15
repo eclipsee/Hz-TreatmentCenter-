@@ -16,9 +16,13 @@
       </view>
     </view>
   </view>
-  <view>
-    <text>重录</text>
-    <text>录音</text>
-    <text>发送</text>
+  <view class="content-card voice" wx:if="{{type === 'voice'}}">
+    <text>生活需要勇气～～</text>
+  </view>
+  <view wx:if="{{type !== 'cure'}}">
+    <record recordStatus="{{recordStatus}}" recordMinute="{{recordMinute}}" recordSecond="{{recordSecond}}"></record>
+  </view>
+  <view class="send-btn" wx:if="{{type === 'cure'}}">
+    <image class="icon" src="../../img/send.png" bindtap="sendVoice"></image>
   </view>
 </view>
