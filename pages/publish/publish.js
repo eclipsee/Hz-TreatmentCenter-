@@ -66,29 +66,8 @@ Page({
    
   },
 
-  click: function () {
-
-    //创建动画
-    var animation = wx.createAnimation({
-      duration: 4000,
-      timingFunction: "ease",
-      delay: 0,
-      transformOrigin: "50% 50%",
-    })
-
-    //设置动画
-    // animation.rotate(90).step();     //旋转90度
-    //animation.scale(1.5).step();        //放大1.5倍
-    //animation.translate(-30,-50).step();        //偏移x,y,z
-    //animation.skew(30,50).step();        //倾斜x,y
-
-    animation.rotate(45).scale(0.8).translate(10, 10).step();     //边旋转边放大
-
-
-    //导出动画数据传递给组件的animation属性。
-    this.setData({
-      animationData: animation.export(),
-    })
+  chooseMood: function () {
+    
 
   },
 
@@ -116,7 +95,7 @@ Page({
       strHourString = strHour + strMinutes + ' AM'
     }
     console.log("strHourString", strHourString)
-    let currentdate = month + '月' + strDate + '日' + strHourString;
+    let currentdate = month + '月' + strDate + '日 ' + strHourString;
     return currentdate;
   },
 

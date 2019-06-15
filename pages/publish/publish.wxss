@@ -11,7 +11,7 @@
   width:100vw;
   height: 50vh;
   position: relative;
-  padding-top: 140rpx;
+  padding-top: 200rpx;
 }
 .timeWrapper{
    width:70vw;
@@ -26,7 +26,7 @@
   text-align: center;
   font-size: 24px;
   /* color:#dedede; */
-  color:#fff;
+  color:#7689b6;
   margin-bottom: 50rpx;
 }
 .timeTxt2{
@@ -34,7 +34,7 @@
   text-align: center;
   font-size: 18px;
   /* color:#dedede; */
-  color:#fff;
+  color:#7689b6;
 }
 
 .timeModule .cloud1{
@@ -76,6 +76,13 @@
 .moodItem{
   width:24vw;
   height:100%;
+}
+.moodItem:active image{
+   width:26vw;
+  height:26vw;
+  position: relative;
+  top:-1vw;
+  left:-1vw;
 }
 .moodItem image{
   width:24vw;
