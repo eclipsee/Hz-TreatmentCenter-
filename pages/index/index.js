@@ -10,62 +10,83 @@ Page({
     emotionList: []
   },
 
-  onLoad: function() {
+  onLoad: function(options) {
+    const { flag } = options
+    if (flag)
+      wx.showToast({
+        title: '发布成功\t\n 先听别的，很快就会有回应啦～'
+      })
     this.drawEmotion()
     this.regularDraw()
   },
 
-  regularDraw() {
-    setInterval(() => {
-      this.setData({
-        emotionList: []
-      })
-      const animationData = this.drawStart('left').export()
-      const animationData1 = this.drawStart('right').export()
-      this.setData({
-        animationData,
-        animationData1
-      })
-      setTimeout(() => {
-        this.drawEmotion()
-      }, 0)
-    }, 5000)
+  onShow() {
+    const animationOne = this.drawCatchStart()
+    this.setData({
+      animationOne
+    })
   },
 
-  drawEmotion() {
+  regularDraw() {
+    let flag = 0
+    setInterval(() => {
+      const symbol = (flag % 3) + 1
+      this.setData({
+        [`emotionList${symbol}`]: []
+      })
+      this.drawAnimationList(false, symbol)
+      flag++
+      setTimeout(() => {
+        this.drawEmotion(symbol)
+      }, 0)
+    }, 1500)
+  },
+
+  drawEmotion(symbol) {
     const data = []
     for (let index = 0; index < 6; index++) {
-      const temp = Math.ceil(1 + Math.random() * (5 + 1 - 1))
+      const temp = Math.ceil(1 + Math.random() * (6 - 1))
       data.push({
         image: temp,
         key: Math.ceil(Math.random(10, 120) * 100),
         viewClass: index % 2 ? 'emotion' : 'emotion1',
-        imageClass: `image${temp % 4}`
+        imageClass: `image${temp % 6}`
       })
     }
     this.setData({
-      emotionList: data
+      [`emotionList${symbol}`]: data
     })
 
-    const animationData = this.drawAnimation('left').export()
-    const animationData1 = this.drawAnimation('right').export()
+    this.drawAnimationList(true, symbol)
+  },
 
-    this.setData({ animationData, animationData1 })
+  drawAnimationList(flag, symbol) {
+    const animationData = []
+    for (let index = 0; index < 6; index++) {
+      const temp = this[flag ? 'drawAnimation' : 'drawStart'](
+        index % 2 ? 'left' : 'right'
+      ).export()
+      animationData.push(temp)
+    }
+    this.setData({
+      [`animationData${symbol}`]: animationData
+    })
   },
 
   drawAnimation(type) {
     var animation = wx.createAnimation({
-      duration: 5000,
+      duration: 4500,
       timingFunction: 'ease',
       delay: 0
     })
 
-    const bottom = Math.ceil((3 + Math.random() * (5 + 1 - 3)) * 100)
-    const scale = 1.5 + Math.random() * (3 + 1 - 1)
+    const bottom = Math.ceil((3 + Math.random() * (6 - 3)) * 100)
+    const scale = 1 + Math.random() * 3
+    const rigth = 10 + Math.random() * 50
 
     animation
       .opacity(0)
-      [type](10)
+      [type](rigth)
       .bottom(bottom)
       .scale(scale)
       .step()
@@ -105,6 +126,21 @@ Page({
     return animation
   },
 
+  drawCatchStart() {
+    var animation = wx.createAnimation({
+      duration: 0,
+      timingFunction: 'linear',
+      delay: 0
+    })
+
+    animation
+      .opacity(1)
+      .scale(1)
+      .step()
+
+    return animation
+  },
+
   // 跳转至情绪日历
   onClickCalendar() {
     wx.navigateTo({
@@ -117,7 +153,6 @@ Page({
     this.setData({
       catchOne
     })
-
     const animationOne = this.drawCatch()
     this.setData({
       animationOne
@@ -126,7 +161,7 @@ Page({
       wx.navigateTo({
         url: '../emotionCalendar/index'
       })
-    }, 5000)
+    }, 3000)
   },
 
   onClickNew() {

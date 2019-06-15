@@ -1,8 +1,18 @@
 <view class="index-page">
   <header></header>
   <view class="body">
-    <block wx:for="{{emotionList}}" wx:for-item="item" wx:for-index="idx" wx:key="{{item.key}}">
-      <view class="{{item.viewClass}}" animation="{{item.image % 2 ? animationData : animationData1}}">
+    <block wx:for="{{emotionList1}}" wx:for-item="item" wx:for-index="idx" wx:key="{{item.key}}">
+      <view class="{{item.viewClass}}" animation="{{animationData1[idx]}}">
+        <image src="../../img/{{item.image}}.png" class="{{item.imageClass}}"></image>
+      </view>
+    </block>
+    <block wx:for="{{emotionList2}}" wx:for-item="item" wx:for-index="idx" wx:key="{{item.key}}">
+      <view class="{{item.viewClass}}" animation="{{animationData2[idx]}}">
+        <image src="../../img/{{item.image}}.png" class="{{item.imageClass}}"></image>
+      </view>
+    </block>
+    <block wx:for="{{emotionList3}}" wx:for-item="item" wx:for-index="idx" wx:key="{{item.key}}">
+      <view class="{{item.viewClass}}" animation="{{animationData3[idx]}}">
         <image src="../../img/{{item.image}}.png" class="{{item.imageClass}}"></image>
       </view>
     </block>
