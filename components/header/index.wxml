@@ -3,11 +3,11 @@
     <view class="catch" bindtap="onClickCatch" style="background-image: url('../../img/icons/spaceship.png')">
       情绪泡泡
     </view>
-    <view class="calendar" bindtap="onClickCalendar" style="background-image: url('../../img/icons/music.png')">
+    <view class="calendar" bindtap="onClickCalendar" style="background-image: url('../../img/icons/calendar.png')">
       情绪日历
     </view>
   </view>
-  <view class="newo" bindtap="onClickNew" style="background-image: url('../../img/icons/spaceship.png')">
+  <view class="newo" bindtap="onClickNew" style="background-image: url('../../img/icons/release.png')">
     发布泡泡
   </view>
 </view>

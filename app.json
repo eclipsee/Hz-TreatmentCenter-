@@ -1,8 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/emotionCalendar/index",
-
+    "pages/index/index",
     "pages/logs/logs"
   ],
   "window": {
