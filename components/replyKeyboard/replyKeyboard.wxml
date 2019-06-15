@@ -1,0 +1,23 @@
+<!--components/replyKeyboard/replyKeyboard.wxml-->
+<view class="reply-keyboard">
+  <view class="content-card" wx:if="{{type !== 'voice'}}">
+    <view class="title">{{currentItem.title}}</view>
+    <view class="content" wx:if="{{type !== 'cure'}}">{{currentItem.content}}</view>
+    <view class="content" wx:if="{{type === 'cure'}}">
+      <text>{{type}}</text>
+      <bubble bubble="{{ {url: currentItem.url, duration: 10} }}"></bubble>
+    </view>
+    <view class="actions">
+      <view class="txt">{{currentItem.name}}</view>
+      <view class="btn" bindtap="randomItem">
+        <image class="icon" src="../../img/icons/circle-arrow.png" />
+        <text>换一条</text>
+      </view>
+    </view>
+  </view>
+  <view>
+    <text>重录</text>
+    <text>录音</text>
+    <text>发送</text>
+  </view>
+</view>

@@ -8,6 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isExpand: false,
+    replyType: '',
+    currentReplay: {},
     user: {
       username: 'lizifen',
       avatar: testAvatar,
@@ -23,13 +26,23 @@ Page({
       { user: { username: 'lizifen', avatar: testAvatar }, bubble: { url: testUrl, duration: 10, comment_type: 2 } },
       { user: { username: 'lizifen', avatar: testAvatar }, isSelf: true, bubble: { url: testUrl, duration: 10, comment_type: 3 } },
     ],
-    replyType: 0,
     replyTypes: [
-      { name: '语音', value: 1, icon: '../../img/1.png' },
-      { name: '歌曲', value: 2, icon: '../../img/icons/music.png' },
-      { name: '段子', value: 3, icon: '../../img/icons/joke.png' },
-      { name: '治愈音', value: 4, icon: '../../img/4.png' },
+      { name: '语音', value: 'voice', icon: '../../img/1.png' },
+      { name: '歌曲', value: 'music', icon: '../../img/icons/music.png' },
+      { name: '段子', value: 'joke', icon: '../../img/icons/joke.png' },
+      { name: '治愈音', value: 'cure', icon: '../../img/4.png' },
     ],
+    library: {
+      music: [{ name: '分手快乐', title: '你是TA永远得不到的爸爸', content: '分手快乐祝你快乐你可以找到更好的' }],
+      joke: [{ name: '这个笑话很好笑', title: '你笑了吗？', content: '哈哈哈哈哈哈哈哈哈哈哈哈' }],
+      cure: [{ name: '小海豚治愈不开心', title: '花莲海豚叫声', url: 'http://yss.yisell.com/yisell/ybys2018050819052088/sound/yisell_sound_2014031622091974505_88366.mp3' }],
+    },
+  },
+
+  randomReplay() {
+    if (this.data.replyType === 'voice') return {};
+    const options = this.data.library[this.data.replyType];
+    return options[0];
   },
 
   changeType(e) {
@@ -40,64 +53,12 @@ Page({
         content: '此处功能可以无限拓展',
         success() {},
       });
+    } else if (type === 'close')  {
+      this.setData({ isExpand: false });
     } else {
-      this.setData({ replyType: type - 1 });
+      this.setData({ replyType: type, isExpand: true }, () => {
+        this.setData({ currentReplay: this.randomReplay() });
+      });
     }
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
-})
+});
