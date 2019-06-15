@@ -101,11 +101,17 @@
   width:8.4vw;
   height:8.4vw;
 }
-.record{
+.recordWrapper{
   width:150rpx;
   height:150rpx;
   margin: 0 auto;
   margin-top:90rpx;
+  position: relative;
+}
+.record{
+  width:150rpx;
+  height:150rpx;
+  margin: 0 auto;
   border-radius: 75rpx;
   position: relative;
 }
@@ -122,6 +128,26 @@
   position: absolute;
   top:50rpx;
   left:50rpx;
+}
+.recordWrapper .restart{
+  width:50rpx;
+  height:50rpx;
+  line-height: 50rpx;
+  position: absolute;
+  top:50rpx;
+  left:-123rpx;
+  font-size: 16rpx;
+  text-align: center;
+}
+.recordWrapper .send{
+  width:50rpx;
+  height:50rpx;
+  line-height: 50rpx;
+  position: absolute;
+  top:50rpx;
+  left:223rpx;
+  font-size: 16rpx;
+  text-align: center;
 }
 .recordTime{
   font-size: 32rpx;

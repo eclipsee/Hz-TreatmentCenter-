@@ -1,0 +1,10 @@
+<!--components/record/record.wxml-->
+<view class='recordWrapper'>
+    <view class='record' bindtap="recordStart">
+      <image class='recordBg'   src="{{tag == '1' ? '../../img/1.png' : (tag == '2' ? '../../img/2.png' : (tag == '3' ? '../../img/3.png' : (tag == '4' ? '../../img/4.png' : (tag == '5' ? '../../img/5.png' : (tag == '6' ? '../../img/6.png' : '')))))}}"></image>
+      <image class='recordIcon' src="{{recordStatus == 0 ? '../../img/startIcon.png' : (recordStatus == 1 ? '../../img/pauseIcon.png' :'../../img/icons/play.png')}}"></image>
+    </view>
+    <image src='../../img/restart.png'  bindtap="recordRestart" class="restart">重录</image>
+    <image src='../../img/send.png' bindtap="recordSend"  class="send">发送</image>
+  </view>
+  <view class='recordTime'>{{recordMinute}}:{{recordSecond}}/10:00</view>
