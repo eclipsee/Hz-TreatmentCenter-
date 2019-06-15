@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/emotionCalendar/index",
-    "pages/logs/logs"
+    "pages/publish/publish",
+    "pages/emotionCalendar/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

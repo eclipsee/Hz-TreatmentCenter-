@@ -4,11 +4,12 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
@@ -39,14 +40,12 @@
 		},
 		"miniprogram": {
 			"current": 0,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages/emotionCalendar/index",
-					"pathName": "pages/emotionCalendar/index",
-					"scene": null
-				}
-			]
+			"list": [{
+				"id": -1,
+				"name": "发布情绪页面",
+				"pathName": "pages/publish/publish",
+				"scene": null
+			}]
 		}
 	}
 }
