@@ -14,7 +14,7 @@
     </view>
     <swiper class="reply-content" current="{{replyType}}">
       <swiper-item>
-        <text>1</text>
+        <recording></recording>
       </swiper-item>
       <swiper-item>
         <text>2</text>

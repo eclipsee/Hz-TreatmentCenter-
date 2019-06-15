@@ -26,8 +26,8 @@ Page({
     replyType: 0,
     replyTypes: [
       { name: '语音', value: 1, icon: '../../img/1.png' },
-      { name: '歌曲', value: 2, icon: '../../img/2.png' },
-      { name: '段子', value: 3, icon: '../../img/3.png' },
+      { name: '歌曲', value: 2, icon: '../../img/icons/music.png' },
+      { name: '段子', value: 3, icon: '../../img/icons/joke.png' },
       { name: '治愈音', value: 4, icon: '../../img/4.png' },
     ],
   },

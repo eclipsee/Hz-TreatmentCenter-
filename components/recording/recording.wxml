@@ -1,0 +1,6 @@
+<!--components/recording/recording.wxml-->
+<view class="recording">
+  <view class="re-record" wx:if="{{voice}}">重录</view>
+  <view class="record" bindtap="record">{{recording ? '停止录音' : '开始录音'}}</view>
+  <view class="send" wx:if="{{voice}}">发送</view>
+</view>

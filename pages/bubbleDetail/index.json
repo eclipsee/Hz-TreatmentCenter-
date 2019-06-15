@@ -2,6 +2,7 @@
   "navigationBarTitleText": "情绪泡泡",
   "usingComponents": {
     "bubble-brief":"../../components/bubbleBrief/bubbleBrief",
-    "replies": "../../components/replies/replies"
+    "replies": "../../components/replies/replies",
+    "recording": "../../components/recording/recording"
   }
 }
