@@ -27,10 +27,10 @@ Page({
       { user: { username: 'lizifen', avatar: testAvatar }, isSelf: true, bubble: { url: testUrl, duration: 10, comment_type: 3 } },
     ],
     replyTypes: [
-      { name: '语音', value: 'voice', icon: '../../img/1.png' },
+      { name: '语音', value: 'voice', icon: '../../img/icons/voice.png' },
       { name: '歌曲', value: 'music', icon: '../../img/icons/music.png' },
       { name: '段子', value: 'joke', icon: '../../img/icons/joke.png' },
-      { name: '治愈音', value: 'cure', icon: '../../img/4.png' },
+      { name: '治愈音', value: 'cure', icon: '../../img/icons/dog.png' },
     ],
     library: {
       music: [{ name: '分手快乐', title: '你是TA永远得不到的爸爸', content: '分手快乐祝你快乐你可以找到更好的' }],

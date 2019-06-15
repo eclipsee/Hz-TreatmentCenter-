@@ -12,6 +12,10 @@ Page({
     wx.navigateTo({ url: '../bubbleDetail/index' });
   },
 
+  randomBubble() {
+    console.log('randomBubble');
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
