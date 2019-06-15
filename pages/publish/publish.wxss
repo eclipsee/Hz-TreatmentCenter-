@@ -34,7 +34,7 @@
   text-align: center;
   font-size: 18px;
   /* color:#dedede; */
-  color:#7689b6;
+  color:#869fdb;
 }
 
 .timeModule .cloud1{
@@ -51,7 +51,41 @@
   top:105rpx;
   left:45rpx;
 }
-
+.moodContent{
+  width:100%;
+}
+.moodTitle{
+  width:642rpx;
+  text-align: center;
+  height:64rpx;
+  margin: 0 auto;
+}
+.moodTitle image{
+  width:130rpx;
+  height:62rpx;
+  float: left;
+  margin-right: 10rpx;
+}
+.moodTitle input{
+  width:480rpx;
+  height:64rpx;
+  float: left;
+  border-bottom: 1px solid #7689b6;
+  color:#7689b6;
+  font-size:20px;
+}
+.moodTitle2{
+  width:642rpx;
+  text-align: center;
+  height:64rpx;
+  margin: 40rpx  0 0 50rpx;
+}
+.moodTitle2 image{
+  width:192rpx;
+  height:62rpx;
+  float: left;
+  margin-right: 10rpx;
+}
 .moodChoose{
   box-sizing: border-box;
   width:100vw;

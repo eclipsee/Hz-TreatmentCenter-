@@ -7,7 +7,10 @@ Page({
   data: {
     timeStr:'',
     animationData: '',
-    animationDataCloud:''
+    animationDataCloud:'',
+    animationPanel:'',
+    isShowPanel:true
+
   },
 
   /**
@@ -63,12 +66,23 @@ Page({
         animationDataCloud: animationCloud.export(),
       })
     }, 1000)  //每隔3秒打印一次
-   
   },
 
   chooseMood: function () {
-    
-
+    var _this = this;
+    setTimeout(function(){
+      let animation = wx.createAnimation({
+        duration: 1000,
+        timingFunction: "ease",
+        delay: 0,
+        transformOrigin: "50% 50%",
+      })
+      animation.translate(0, 300).step();
+      //导出动画数据传递给组件的animation属性。
+      _this.setData({
+        animationPanel: animation.export(),
+      })
+    },500)
   },
 
   getNowFormatDate() {

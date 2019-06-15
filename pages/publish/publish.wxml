@@ -9,33 +9,42 @@
       <view class="timeTxt2">用声音发送给更多的人听到吧～</view>
      </view>
   </view>
-  <view class="moodChoose">
+  <view class="moodContent">
+    <view class="moodTitle">
+      <image src='../../img/title2.png'></image>
+      <input></input>
+    </view>
+    <view class="moodTitle2">
+      <image src='../../img/moodLevel.png'></image>
+    </view>
+  </view>
+  <view class="moodChoose"  animation="{{animationPanel}}">
       <view class="moodlist">
-        <view class="moodItem">
+        <view class="moodItem" bindtap='chooseMood'>
           <image src='../../img/8.png'  animation="{{animationData}}"></image>
-          <view class="moodItemTxt">开心</view>
+          <view class="moodItemTxt">生气</view>
         </view>
         <view class="moodItem">
           <image src='../../img/5.png'  animation="{{animationData}}"></image>
-          <view class="moodItemTxt">难过</view>
+          <view class="moodItemTxt">快乐</view>
         </view>
         <view class="moodItem">
           <image src='../../img/10.png'  animation="{{animationData}}"></image>
-          <view class="moodItemTxt">烦躁</view>
+          <view class="moodItemTxt">伤心</view>
         </view>
       </view>
       <view class="moodlist">
         <view class="moodItem">
           <image src='../../img/4.png'  animation="{{animationData}}"></image>
-          <view class="moodItemTxt">纠结</view>
+          <view class="moodItemTxt">烦躁</view>
         </view>
         <view class="moodItem">
           <image src='../../img/3.png'  animation="{{animationData}}"></image>
-          <view class="moodItemTxt">愤怒</view>
+          <view class="moodItemTxt">苦恼</view>
         </view>
         <view class="moodItem" >
           <image src='../../img/6.png'  animation="{{animationData}}"></image>
-          <view class="moodItemTxt">苦恼</view>
+          <view class="moodItemTxt">纠结</view>
         </view>
       </view>
   </view>
