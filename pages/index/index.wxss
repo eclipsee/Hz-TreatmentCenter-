@@ -54,6 +54,11 @@
   transform: scale(1)
 }
 
+.image5 {
+  width: 68rpx;
+  height: 68rpx;
+}
+
 .image0 {
   width: 60rpx;
   height: 60rpx;
@@ -67,6 +72,11 @@
 .image3 {
   width: 65rpx;
   height: 65rpx;
+}
+
+.image4 {
+  width: 75rpx;
+  height: 75rpx;
 }
 
 .image2 {
