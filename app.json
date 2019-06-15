@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/emotionCalendar/index",
     "pages/index/index",
     "pages/logs/logs",
     "pages/emotionCalendar/index"

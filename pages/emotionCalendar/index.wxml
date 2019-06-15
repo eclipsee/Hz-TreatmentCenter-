@@ -1,6 +1,22 @@
-<!--logs.wxml-->
-<view class="container log-list">
-  <block wx:for="{{logs}}" wx:for-item="log">
-    <text class="log-item">{{index + 1}}. {{log}}</text>
-  </block>
+<!-- logs.wxml -->
+<view class="history-page">
+  <header></header>
+  <view class="body">
+    <view class="flex">
+      <view class="left"></view>
+      <view class="right"></view>
+    </view>
+    <view class="flex">
+      <view>2019年6月</view>
+      <view>回忆</view>
+      <view>月报告</view>
+    </view>
+    <view class="content"></view>
+    <view class="flex">
+      <view>5月30日
+        6:30PM</view>
+      <bubble />
+      <view></view>
+    </view>
+  </view>
 </view>
