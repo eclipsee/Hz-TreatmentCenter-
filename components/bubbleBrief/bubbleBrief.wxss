@@ -11,7 +11,7 @@
 
 .bubble-brief .bubble-title {
   margin-left: 20rpx;
-  margin-top: -20rpx;
+  margin-top: -40rpx;
   font-size: 28rpx;
   color: #666;
 }

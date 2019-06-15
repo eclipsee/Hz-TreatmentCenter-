@@ -1,0 +1,19 @@
+.star {
+  position: relative;
+}
+.star .icon-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 260rpx;
+  display: flex;
+}
+.star .icon-wrap .icon {
+  margin-right: 6rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.star.small .icon-wrap .icon {
+  width: 30rpx;
+  height: 30rpx;
+}

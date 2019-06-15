@@ -6,7 +6,9 @@
   </view>
   <view class="bubble-title">
    <view> #{{bubble.title}}</view>
-   <view>此处是星星</view>
+   <view class="star-wrap">
+    <star rate="4" size="small"></star>
+   </view>
   </view>
   <view class="bubble-wrap">
     <bubble bubble="{{bubble}}"></bubble>

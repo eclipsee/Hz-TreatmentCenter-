@@ -1,5 +1,5 @@
 <!--components/bubble/bubble.wxml-->
-<view class="bubble {{size}}" style="background-image: url('../../img/2.png')">
+<view class="bubble {{size}}" style="background-image: url('../../img/bubbles/{{bubble.tag+1}}.png')">
   <view class="process">
     <view class="left">
       <view class="circle" style="transform: rotate({{-135 + (time < bubble.duration/2 ? 0 : (time > bubble.duration ? bubble.duration/2 : time - bubble.duration/2)) * (360/bubble.duration)}}deg);"></view>

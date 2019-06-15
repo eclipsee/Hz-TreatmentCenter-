@@ -40,14 +40,12 @@
 		},
 		"miniprogram": {
 			"current": 0,
-			"list": [
-				{
-					"id": -1,
-					"name": "发布情绪页面",
-					"pathName": "pages/publish/publish",
-					"scene": null
-				}
-			]
+			"list": [{
+				"id": -1,
+				"name": "发布情绪页面",
+				"pathName": "pages/publish/publish",
+				"scene": null
+			}]
 		}
 	}
 }

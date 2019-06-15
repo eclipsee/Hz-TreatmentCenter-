@@ -2,19 +2,21 @@
 <view class="bubble-receive">
   <view class="bubble-info">
     <view class="bubble-wrap">
-      <image class="bubble" src="../../img/1.png"></image>
+      <image class="bubble" src="../../img/bubbles/{{bubble.tag + 1}}.png"></image>
       <text>捕捉到一个</text>
-      <text>#悲伤泡泡</text>
+      <text>#{{bubble.tagName}}泡泡</text>
     </view>
   </view>
   <view class="user">
     <view class="info">
-      <image class="avatar" src="http://img.wxcha.com/file/201807/13/9bbc369f6e.jpg"></image>
-      <text class="name">lizifen</text>
+      <image class="avatar" src="{{bubble.user.avatar}}"></image>
+      <text class="name">{{bubble.user.username}}</text>
     </view>
-    <view class="title">#分手求安慰</view>
-    <view class="star">此处是星星</view>
-    <view class="replies">5条回应</view>
+    <view class="title">#{{bubble.title}}</view>
+    <view class="star-wrap">
+      <star rate="4"></star>
+    </view>
+    <view class="replies">{{bubble.comments.length}}条回应</view>
   </view>
   <view class="bottom-btns">
     <view class="btn-wrap" bindtap="goReply">

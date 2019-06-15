@@ -6,7 +6,7 @@ Component({
   properties: {
     size: {
       type: String,
-      value: 'small',
+      value: 'middle',
     },
     bubble: {
       type: Object,
