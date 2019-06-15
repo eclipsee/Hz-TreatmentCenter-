@@ -40,9 +40,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
-
-
     //点击录音按钮
     recordStart() {
       console.log("点击了录音", this.data.recordStatus)
@@ -102,6 +99,10 @@ Component({
       console.log("开始播放")
       this.data.audioContext.src = this.data.audioSrc
       this.data.audioContext.play();
+      this.setData({
+        isRecording: true,
+        recordStatus: 3
+      })
     },
 
     recordFn() {
