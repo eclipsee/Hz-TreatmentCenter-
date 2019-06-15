@@ -28,6 +28,7 @@ export const arrayList = [
     time: '6:30PM',
     status: true,
     type: true,
+    agree: 5,
     message: true,
     mlenth: 5,
     voice:

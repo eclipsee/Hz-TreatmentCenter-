@@ -24,9 +24,9 @@
       </view>
       <block wx:for="{{voiceList}}" wx:for-item="item" wx:for-index="idx" wx:key="{{idx}}">
         <view class="flex item">
-          <view class="time">
-            <view>{{item.day}}</view>
-            <view>{{item.time}}</view>
+          <view class="date">
+            <view class="day">{{item.day}}</view>
+            <view class="time">{{item.time}}</view>
           </view>
           <bubble url="{{item.voice}}" class="bubble" />
           <view class="itemC flex">

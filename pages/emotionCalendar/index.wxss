@@ -62,21 +62,37 @@
   align-items: center;
 }
 
-.time {
+.date {
   width: 15%;
+}
+
+.day {
+  font-size: 20rpx;
+}
+
+.time {
+  font-size: 18rpx;
 }
 
 .bubble {
   position: relative;
   width: 25%;
+  z-index: 100;
 }
 
 .bubble::after {
   position: absolute;
   content: '';
   width: 2rpx;
+  height: 100rpx;
+  z-index: 1;
   background-color: #fff;
-  bottom: 0rpx;
+  bottom: -100rpx;
+  left: calc(50% - 30rpx);
+}
+
+.item:last-of-type .bubble::after {
+  display: none;
 }
 
 .itemC {
