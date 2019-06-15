@@ -1,0 +1,29 @@
+.comment-audio {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 40rpx;
+}
+.comment-audio .user-info {
+  display: flex;
+  flex-direction: column;
+}
+.comment-audio .user-info .avatar {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 12rpx;
+  border-radius: 100%;
+}
+.comment-audio .user-info .name {
+  font-size: 24rpx;
+  color: #666;
+}
+.comment-audio .bubble-wrap {
+  margin-top: -40rpx;
+  margin-left: 40rpx;
+}
+.comment-audio.right {
+  flex-direction: row-reverse;
+}
+.comment-audio.right .bubble-wrap {
+  margin-right: 40rpx;
+}

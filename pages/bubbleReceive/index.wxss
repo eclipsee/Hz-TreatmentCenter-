@@ -1,0 +1,60 @@
+.bubble-receive {
+  padding: 0 40rpx;
+  position: relative;
+}
+.bubble-receive .bubble-info {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.bubble-receive .bubble-info .bubble-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 28rpx;
+  color: #666;
+}
+.bubble-receive .bubble-info .bubble-wrap .bubble {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 20rpx;
+  margin-top: 40rpx;
+}
+.bubble-receive .user {
+  display: flex;
+  margin-top: 200rpx;
+  flex-direction: column;
+  font-size: 28rpx;
+  color: #666;
+}
+.bubble-receive .user .info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.bubble-receive .user .info .avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.bubble-receive .bottom-btns {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx 60rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.bubble-receive .bottom-btns .btn-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 26rpx;
+  color: #666;
+}
+.bubble-receive .bottom-btns .btn-wrap .icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+}
