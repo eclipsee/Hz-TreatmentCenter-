@@ -19,12 +19,12 @@ Page({
       title: '分手求安慰',
       url: testUrl,
       duration: 10,
-      type: 1, // 1, 开心，2，悲伤，3，愤怒，4，语音回复，5，治愈音
+      tag: 1, // 1, 开心，2，悲伤，3，愤怒，4，语音回复，5，治愈音
     },
     comments: [
-      { user: { username: 'lizifen', avatar: testAvatar }, bubble: { url: testUrl, duration: 10, comment_type: 1 } },
-      { user: { username: 'lizifen', avatar: testAvatar }, bubble: { url: testUrl, duration: 10, comment_type: 2 } },
-      { user: { username: 'lizifen', avatar: testAvatar }, isSelf: true, bubble: { url: testUrl, duration: 10, comment_type: 3 } },
+      { user: { username: 'lizifen', avatar: testAvatar }, bubble: { url: testUrl, duration: 10, comment_type: 1, tag: 6 } },
+      { user: { username: 'lizifen', avatar: testAvatar }, bubble: { url: testUrl, duration: 10, comment_type: 2, tag: 6 } },
+      { user: { username: 'lizifen', avatar: testAvatar }, isSelf: true, bubble: { url: testUrl, duration: 10, comment_type: 3, tag: 6 } },
     ],
     replyTypes: [
       { name: '语音', value: 'voice', icon: '../../img/icons/voice.png' },

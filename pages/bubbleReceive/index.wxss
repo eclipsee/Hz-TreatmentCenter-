@@ -10,21 +10,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 28rpx;
-  color: #666;
+  font-size: 32rpx;
+  color: #343c50;
+  font-style: italic;
 }
 .bubble-receive .bubble-info .bubble-wrap .bubble {
   width: 200rpx;
   height: 200rpx;
   margin-bottom: 20rpx;
-  margin-top: 40rpx;
+  margin-top: 60rpx;
 }
 .bubble-receive .user {
   display: flex;
   margin-top: 200rpx;
   flex-direction: column;
-  font-size: 28rpx;
-  color: #666;
+  font-size: 30rpx;
+  color: #343c50;
 }
 .bubble-receive .user .info {
   display: flex;
@@ -36,6 +37,11 @@
   height: 80rpx;
   border-radius: 50%;
   margin-right: 20rpx;
+}
+.bubble-receive .user .replies {
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  color: #7689B6;
 }
 .bubble-receive .bottom-btns {
   position: fixed;

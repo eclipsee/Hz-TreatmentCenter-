@@ -1,10 +1,17 @@
 /* components/bubble/bubble.wxss */
-@small-size: 120rpx;
-@large-size: 200rpx;
-@middle-size: 160rpx;
-@small-process-width: 60rpx;
-@large-process-width: 100rpx;
-@middle-process-width: 80rpx;
+@small-size: 100rpx;
+@large-size: 160rpx;
+@middle-size: 120rpx;
+@small-process-width: 40rpx;
+@large-process-width: 80rpx;
+@middle-process-width: 60rpx;
+@small-btn: 40rpx;
+@large-btn: 80rpx;
+@middle-btn: 56rpx;
+@small-to-top: 30rpx;
+@large-to-top: 40rpx;
+@middle-to-top: 30rpx;
+
 
 .bubble {
   position: relative;
@@ -13,13 +20,13 @@
   height: @middle-size;
   border-radius: 100%;
   text-align: center;
-  background-size: 100%;
+  background-size: cover;
   .playBtn {
     position: relative;
     display: inline-block;
-    margin-top: 50rpx;
-    width: 60rpx;
-    height: 60rpx;
+    margin-top: @middle-to-top;
+    width: @middle-btn;
+    height: @middle-btn;
     z-index: 2;
   }
   .duration {
@@ -67,9 +74,9 @@
   width: @small-size;
   height: @small-size;
   .playBtn {
-    margin-top: 40rpx;
-    width: 40rpx;
-    height: 40rpx;
+    margin-top: @small-to-top;
+    width: @small-btn;
+    height: @small-btn;
   }
   .process {
     .circle {
@@ -87,9 +94,9 @@
   width: @large-size;
   height: @large-size;
   .playBtn {
-    margin-top: 50rpx;
-    width: 100rpx;
-    height: 100rpx;
+    margin-top: @large-to-top;
+    width: @large-btn;
+    height: @large-btn;
   }
   .process {
     .circle {
