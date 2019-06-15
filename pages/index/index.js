@@ -31,20 +31,21 @@ Page({
     let flag = 0
     setInterval(() => {
       const symbol = (flag % 3) + 1
+      const random = Math.ceil(Math.random() * 6)
       this.setData({
         [`emotionList${symbol}`]: []
       })
-      this.drawAnimationList(false, symbol)
+      this.drawAnimationList(false, symbol, random)
       flag++
       setTimeout(() => {
-        this.drawEmotion(symbol)
+        this.drawEmotion(symbol, random)
       }, 0)
     }, 1500)
   },
 
-  drawEmotion(symbol) {
+  drawEmotion(symbol, random) {
     const data = []
-    for (let index = 0; index < 6; index++) {
+    for (let index = 0; index < random; index++) {
       const temp = Math.ceil(1 + Math.random() * (6 - 1))
       data.push({
         image: temp,
@@ -57,12 +58,12 @@ Page({
       [`emotionList${symbol}`]: data
     })
 
-    this.drawAnimationList(true, symbol)
+    this.drawAnimationList(true, symbol, random)
   },
 
-  drawAnimationList(flag, symbol) {
+  drawAnimationList(flag, symbol, random) {
     const animationData = []
-    for (let index = 0; index < 6; index++) {
+    for (let index = 0; index < random; index++) {
       const temp = this[flag ? 'drawAnimation' : 'drawStart'](
         index % 2 ? 'left' : 'right'
       ).export()
