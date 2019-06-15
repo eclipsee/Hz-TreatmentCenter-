@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "calendar":"../../components/calendar/calendar",
-    "audio-player":"../../components/audioPlayer/audioPlayer"
+    "header": "../../components/header/index",
+    "bubble": "../../components/bubble/bubble"
   }
 }

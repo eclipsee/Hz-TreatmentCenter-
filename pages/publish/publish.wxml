@@ -11,25 +11,37 @@
   </view>
   <view class="moodContent">
     <view class="moodTitle">
-      <image src='../../img/title2.png'></image>
+      <image src='../../img/moodTtile.png'></image>
       <input></input>
     </view>
     <view class="moodTitle2">
       <image src='../../img/moodLevel.png'></image>
+      <view class="starWrapper">
+        <image src='{{star1 == true?"../../img/star.png": "../../img/starGrey.png" }}' bindtap='chooseStar' data-index="1" class="starGrey" ></image>
+        <image src='{{star2 == true?"../../img/star.png": "../../img/starGrey.png" }}'  bindtap='chooseStar' data-index="2"  class="starGrey" ></image>
+        <image src='{{star3 == true?"../../img/star.png": "../../img/starGrey.png" }}'  bindtap='chooseStar' data-index="3"  class="starGrey" ></image>
+        <image src='{{star4 == true?"../../img/star.png": "../../img/starGrey.png" }}'  bindtap='chooseStar' data-index="4"  class="starGrey" ></image>
+        <image src='{{star5 == true?"../../img/star.png": "../../img/starGrey.png" }}'  bindtap='chooseStar' data-index="5"  class="starGrey" ></image>
+      </view>
     </view>
   </view>
+  <view class='record' bindtap="recordStart">
+      <image class='recordBg' animation="{{animationDataRotate}}"   src="../../img/1.png"></image>
+      <image class='recordIcon' src="{{isRecording == true ? '../../img/endIcon.png' : '../../img/startIcon.png'}}"></image>
+  </view>
+  <view class='recordTime'>{{recordMinute}}:{{recordSecond}}/10:00</view>
   <view class="moodChoose"  animation="{{animationPanel}}">
       <view class="moodlist">
         <view class="moodItem" bindtap='chooseMood'>
-          <image src='../../img/8.png'  animation="{{animationData}}"></image>
+          <image src='../../img/1.png'  animation="{{animationData}}"></image>
           <view class="moodItemTxt">生气</view>
         </view>
         <view class="moodItem">
-          <image src='../../img/5.png'  animation="{{animationData}}"></image>
+          <image src='../../img/2.png'  animation="{{animationData}}"></image>
           <view class="moodItemTxt">快乐</view>
         </view>
         <view class="moodItem">
-          <image src='../../img/10.png'  animation="{{animationData}}"></image>
+          <image src='../../img/3.png'  animation="{{animationData}}"></image>
           <view class="moodItemTxt">伤心</view>
         </view>
       </view>
@@ -39,7 +51,7 @@
           <view class="moodItemTxt">烦躁</view>
         </view>
         <view class="moodItem">
-          <image src='../../img/3.png'  animation="{{animationData}}"></image>
+          <image src='../../img/5.png'  animation="{{animationData}}"></image>
           <view class="moodItemTxt">苦恼</view>
         </view>
         <view class="moodItem" >

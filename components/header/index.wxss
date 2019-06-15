@@ -1,0 +1,34 @@
+/**index.wxss**/
+.header {
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.headerCenter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  flex-grow: 4;
+}
+
+.calendar {
+  border-left: solid 2rpx #fff;
+}
+
+.newo,
+.catch,
+.calendar {
+  background-repeat: no-repeat;
+  background-size: 45rpx 45rpx;
+  background-position: top center;
+  -moz-background-size: 50rpx 50rpx;
+  padding: 5px;
+  font-size: 12rpx;
+  margin-top: 5rpx;
+  padding: 55rpx 15rpx 0 15rpx;
+  line-height: 20rpx;
+}

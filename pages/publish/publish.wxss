@@ -5,6 +5,7 @@
   /* background: #fff; */
   background: rgba(220,234,240,1);
   position: relative;
+  overflow: hidden;
 }
 .timeModule{
   box-sizing: border-box;
@@ -52,22 +53,29 @@
   left:45rpx;
 }
 .moodContent{
-  width:100%;
+  width:90%;
+  height: 200rpx;
+  padding-top: 40rpx;
+  border-radius: 20rpx;
+  background: #fff;
+  margin: 0 auto;
 }
 .moodTitle{
   width:642rpx;
   text-align: center;
   height:64rpx;
-  margin: 0 auto;
+  margin: 0 0 0 40rpx;
 }
 .moodTitle image{
   width:130rpx;
   height:62rpx;
   float: left;
-  margin-right: 10rpx;
+  margin-right: 24rpx;
+  position: relative;
+  top:6px;
 }
 .moodTitle input{
-  width:480rpx;
+  width:400rpx;
   height:64rpx;
   float: left;
   border-bottom: 1px solid #7689b6;
@@ -78,13 +86,42 @@
   width:642rpx;
   text-align: center;
   height:64rpx;
-  margin: 40rpx  0 0 50rpx;
+  margin: 40rpx  0 0 43rpx;
 }
 .moodTitle2 image{
   width:192rpx;
   height:62rpx;
   float: left;
   margin-right: 10rpx;
+}
+.starWrapper{
+  float: left;
+}
+.starWrapper .starGrey{
+  width:8.4vw;
+  height:8.4vw;
+}
+.record{
+  width:150rpx;
+  height:150rpx;
+  margin: 0 auto;
+  margin-top:90rpx;
+  border-radius: 75rpx;
+  position: relative;
+}
+.record .recordBg{
+  width:150rpx;
+  height:150rpx;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.record .recordIcon{
+  width:50rpx;
+  height:50rpx;
+  position: absolute;
+  top:50rpx;
+  left:50rpx;
 }
 .moodChoose{
   box-sizing: border-box;

@@ -35,7 +35,7 @@ Page({
   drawEmotion() {
     const data = []
     for (let index = 0; index < 6; index++) {
-      const temp = Math.ceil(Math.random(1, 12) * 10)
+      const temp = Math.ceil(1 + Math.random() * (5 + 1 - 1))
       data.push({
         image: temp,
         key: Math.ceil(Math.random(10, 120) * 100),
@@ -113,7 +113,7 @@ Page({
   },
 
   onClickCatch() {
-    const catchOne = Math.ceil(1 + Math.random() * (12 + 1 - 1))
+    const catchOne = Math.ceil(1 + Math.random() * (6 + 1 - 1))
     this.setData({
       catchOne
     })
