@@ -1,15 +1,17 @@
-.bubble-detail .btns-wrap {
+.bubble-detail .bottom-replies {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 20rpx 0;
+}
+.bubble-detail .bottom-replies .btns-wrap {
+  padding: 20rpx;
   background-color: white;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
-.bubble-detail .btns-wrap .btn {
+.bubble-detail .bottom-replies .btns-wrap .btn {
   font-size: 24rpx;
   color: #7689B6;
   display: flex;
@@ -18,14 +20,17 @@
   font-size: 20rpx;
   color: #7689b6;
 }
-.bubble-detail .btns-wrap .btn .icon {
+.bubble-detail .bottom-replies .btns-wrap .btn .icon {
   width: 80rpx;
   height: 80rpx;
 }
-.bubble-detail .btns-wrap .btn.small {
+.bubble-detail .bottom-replies .btns-wrap .btn.small {
   margin-top: -20rpx;
 }
-.bubble-detail .btns-wrap .btn.small .icon {
+.bubble-detail .bottom-replies .btns-wrap .btn.small .icon {
   width: 50rpx;
   height: 50rpx;
+}
+.bubble-detail .reply-content {
+  background-color: white;
 }

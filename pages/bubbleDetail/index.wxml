@@ -2,26 +2,33 @@
 <view class="bubble-detail">
   <bubble-brief user="{{user}}" bubble="{{bubble}}"></bubble-brief>
   <replies comments="{{comments}}"></replies>
-  <view class="btns-wrap">
-    <view class="btn">
-      <image class="icon" src="../../img/1.png" />
-      <text>语音</text>
+  <view class="bottom-replies">
+    <view class="btns-wrap">
+      <view class="btn" data-type="{{item.value}}" bindtap="changeType" wx:for="{{replyTypes}}">
+        <image class="icon" src="{{item.icon}}" />
+        <text>{{item.name}}</text>
+      </view>
+      <view class="btn small" data-type="more" bindtap="changeType">
+        <image class="icon" src="../../img/icons/arrow-right.png" />
+      </view>
     </view>
-    <view class="btn">
-      <image class="icon" src="../../img/2.png" />
-      <text>歌曲</text>
-    </view>
-    <view class="btn">
-      <image class="icon" src="../../img/3.png" />
-      <text>段子</text>
-    </view>
-    <view class="btn">
-      <image class="icon" src="../../img/1.png" />
-      <text>治愈音</text>
-    </view>
-    <view class="btn small">
-      <image class="icon" src="../../img/icons/arrow-right.png" />
-    </view>
+    <swiper class="reply-content" current="{{replyType}}">
+      <swiper-item>
+        <text>1</text>
+      </swiper-item>
+      <swiper-item>
+        <text>2</text>
+      </swiper-item>
+      <swiper-item>
+        <text>3</text>
+      </swiper-item>
+      <swiper-item>
+        <text>暂不开放</text>
+      </swiper-item>
+      <swiper-item>
+        <text>暂不开放</text>
+      </swiper-item>
+    </swiper> 
   </view>
 </view>
 
