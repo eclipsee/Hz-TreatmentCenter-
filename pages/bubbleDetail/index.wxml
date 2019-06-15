@@ -16,7 +16,7 @@
       <view class="more" data-type="more" bindtap="changeType">
         <image class="icon" src="../../img/icons/arrow-right.png" />
       </view>
-    </view>g
+    </view>
     <view class="reply-content" style="height: {{isExpand ? '400rpx' : '0rpx'}}">
       <reply-keyboard bindrandomevent="randomReplay" currentItem="{{currentReplay}}" type="{{replyType}}"></reply-keyboard>
     </view>

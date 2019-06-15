@@ -13,7 +13,9 @@
       <text class="name">{{bubble.user.username}}</text>
     </view>
     <view class="title">#{{bubble.title}}</view>
-    <view class="star">此处是星星</view>
+    <view class="star-wrap">
+      <star rate="4"></star>
+    </view>
     <view class="replies">{{bubble.comments.length}}条回应</view>
   </view>
   <view class="bottom-btns">

@@ -1,0 +1,9 @@
+<!--components/star/star.wxml-->
+<view class="star {{size}}">
+  <view class="icon-wrap">
+    <image class="icon" src="../../img/starGrey.png" wx:for="{{grayStars}}" wx:key="index" />
+  </view>
+  <view class="icon-wrap">
+    <image class="icon" src="../../img/star.png" wx:for="{{stars}}"  wx:key="index" />
+  </view>
+</view>
