@@ -174,7 +174,9 @@ Component({
         recordMinute: '00',
         recordStatus: 0
       })
-      this.triggerEvent('bubbles')
+      this.triggerEvent('bubbles', {
+        audioUrl: src
+      })
     },
 
     recordRestart() {
