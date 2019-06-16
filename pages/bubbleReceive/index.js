@@ -1,6 +1,5 @@
 // pages/bubble/bubbleFishing.js
 Page({
-
   /**
    * 页面的初始数据
    */
