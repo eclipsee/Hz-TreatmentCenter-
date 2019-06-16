@@ -6,38 +6,38 @@ Component({
   properties: {
     tag: {
       type: String,
-      value: '1',
+      value: '1'
     },
-    recordStatus:{
+    recordStatus: {
       type: String,
-      value: '0',
+      value: '0'
     },
     recordMinute: {
       type: String,
-      value: '00',
+      value: '00'
     },
     recordSecond: {
       type: String,
-      value: '00',
+      value: '00'
     },
     theme: {
       type: String,
-      value: '',
-    },
+      value: ''
+    }
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    recorderManager:null,
-    audioContext:null,
-    t1: {},
+    recorderManager: null,
+    audioContext: null,
+    t1: {}
   },
 
-  ready(){
-    this.recorderManager = wx.getRecorderManager();
-    this.data.audioContext = wx.createInnerAudioContext();
+  ready() {
+    this.recorderManager = wx.getRecorderManager()
+    this.data.audioContext = wx.createInnerAudioContext()
   },
 
   /**
@@ -46,63 +46,62 @@ Component({
   methods: {
     //点击录音按钮
     recordStart() {
-      console.log("点击了录音", this.data.recordStatus)
-      let _this = this;
-      let recordStatus = this.data.recordStatus;
+      console.log('点击了录音', this.data.recordStatus)
+      let _this = this
+      let recordStatus = this.data.recordStatus
       if (recordStatus == 0) {
         wx.getSetting({
           success(res) {
             // 进行授权检测，未授权则进行弹层授权
-            if (typeof res.authSetting["scope.record"] != "undefined") {
-              if (res.authSetting["scope.record"] == true) {
-                _this.recordFn();
-              } else if (res.authSetting["scope.record"] == false) {
+            if (typeof res.authSetting['scope.record'] != 'undefined') {
+              if (res.authSetting['scope.record'] == true) {
+                _this.recordFn()
+              } else if (res.authSetting['scope.record'] == false) {
                 wx.showModal({
-                  content:
-                    "检测到您没打开录音的权限，是否去设置打开？",
-                  confirmText: "确认",
-                  cancelText: "取消",
-                  success: function (res) {
+                  content: '检测到您没打开录音的权限，是否去设置打开？',
+                  confirmText: '确认',
+                  cancelText: '取消',
+                  success: function(res) {
                     //点击“确认”时打开设置页面
                     if (res.confirm) {
-                      console.log("用户点击确认");
+                      console.log('用户点击确认')
                       wx.openSetting({
-                        success: res => { }
-                      });
+                        success: res => {}
+                      })
                     } else {
-                      console.log("用户点击取消");
+                      console.log('用户点击取消')
                     }
                   }
-                });
+                })
               }
             } else {
               wx.authorize({
-                scope: "scope.record",
+                scope: 'scope.record',
                 success() {
                   //这里是用户同意授权后的回调
-                  _this.recordFn();
+                  _this.recordFn()
                 },
                 fail() {
                   //这里是用户拒绝授权后的回调
                 }
-              });
+              })
             }
           },
           fail(res) {
-            console.log(res);
+            console.log(res)
           }
         })
       } else if (recordStatus == 1) {
-        _this.recordPause();
+        _this.recordPause()
       } else if (recordStatus == 2) {
         _this.playFn()
       }
     },
 
     playFn() {
-      console.log("开始播放")
+      console.log('开始播放')
       this.data.audioContext.src = this.data.audioSrc
-      this.data.audioContext.play();
+      this.data.audioContext.play()
       this.setData({
         isRecording: true,
         recordStatus: 3
@@ -113,11 +112,11 @@ Component({
       wx.setKeepScreenOn({
         keepScreenOn: true
       })
-      this.recordTime();
+      this.recordTime()
       this.recorderManager.start({
-        duration: 600000,//指定录音的时长，单位 ms
-        format: 'mp3',//音频格式，有效值 aac/mp3
-      });
+        duration: 600000, //指定录音的时长，单位 ms
+        format: 'mp3' //音频格式，有效值 aac/mp3
+      })
       this.setData({
         isRecording: true,
         recordStatus: 1
@@ -126,19 +125,19 @@ Component({
 
     //录音暂停
     recordPause() {
-      let that = this;
+      let that = this
       wx.setKeepScreenOn({
         keepScreenOn: false
       })
-      that.recorderManager.stop();
-      that.recorderManager.onStop(function (res) {
+      that.recorderManager.stop()
+      that.recorderManager.onStop(function(res) {
         if (that.data.recordDuration <= 0) {
           wx.showToast({
-            title: "录音时长为0",
+            title: '录音时长为0',
             icon: 'none'
           })
         } else {
-          console.log("停止了停止了", res.tempFilePath)
+          console.log('停止了停止了', res.tempFilePath)
           // that.uploadFile(res.tempFilePath);
           that.setData({
             audioSrc: res.tempFilePath
@@ -148,13 +147,13 @@ Component({
           isRecording: false,
           recordStatus: 2
         })
-        clearInterval(that.data.t1);
-      });
+        clearInterval(that.data.t1)
+      })
 
-      that.recorderManager.onError(function (res) {
+      that.recorderManager.onError(function(res) {
         // 停止录音之后，把录取到的音频放在res.tempFilePath
-        console.log("录制失败", res)
-      });
+        console.log('录制失败', res)
+      })
       that.setData({
         isRecording: false
       })
@@ -162,109 +161,115 @@ Component({
 
     //录音发送
     recordSend() {
-      let src = this.data.audioSrc;
-      console.log("src", src)
-      this.uploadFile(src);
+      let src = this.data.audioSrc
+      console.log('src', src)
+      this.uploadFile(src)
       this.setData({
         recordSecond: '00',
         recordMinute: '00',
         recordStatus: 0
       })
+      this.triggerEvent('bubbles')
     },
 
     recordRestart() {
-      this.data.audioContext.pause();
-      this.data.audioContext.src = ""
+      this.data.audioContext.pause()
+      this.data.audioContext.src = ''
       this.setData({
         audioSrc: '',
         recordSecond: '00',
         recordMinute: '00',
         recordStatus: 0
       })
-      clearInterval(this.data.t1);
+      clearInterval(this.data.t1)
     },
 
     uploadFile(path) {
-      console.log("shangchuan")
-      let that = this;
-      let authorize = encodeURIComponent('308503&51668374EE8D4NdV6664EBB7CE22ABF701A668130895ACAFD43CEBE5DEED04A7401C560B86C81BF6')
+      console.log('shangchuan')
+      let that = this
+      let authorize = encodeURIComponent(
+        '308503&51668374EE8D4NdV6664EBB7CE22ABF701A668130895ACAFD43CEBE5DEED04A7401C560B86C81BF6'
+      )
       wx.uploadFile({
-        url: 'https://upload.ximalaya.com/dtres/audio/upload?_token=' + authorize + "&callerSource=ambassador",
+        url:
+          'https://upload.ximalaya.com/dtres/audio/upload?_token=' +
+          authorize +
+          '&callerSource=ambassador',
         filePath: path,
         name: 'myfile',
-        success: function (res) {
+        success: function(res) {
           if (res.statusCode == '200') {
-            console.log("datadata", res)
+            console.log('datadata', res)
           } else {
             wx.showToast({
               title: '上传失败，请重试',
-              icon: "none"
-            });
+              icon: 'none'
+            })
           }
           if (msg) {
             wx.showToast({
               title: msg,
-              icon: "none"
-            });
+              icon: 'none'
+            })
           }
         },
-        fail: function (res) {
+        fail: function(res) {
           wx.showToast({
-            title: "上传出错，请重试",
-            icon: "none"
-          });
+            title: '上传出错，请重试',
+            icon: 'none'
+          })
         }
       })
     },
 
-    recordTime: function () {
-      let that = this;
-      let flag = that.data.timeFlag;
-      let a = 0;
-      let b = 0;
-      let x = 0;
-      let y = 0;
+    recordTime: function() {
+      let that = this
+      let flag = that.data.timeFlag
+      let a = 0
+      let b = 0
+      let x = 0
+      let y = 0
       // t1 = setInterval(beginTime, 1000);
       let t1 = setInterval(() => {
         beginTime()
-      }, 1000);
-      that.data.t1 = t1;
+      }, 1000)
+      that.data.t1 = t1
 
       function beginTime() {
-        that.data.recordDuration++;
-        x++;
+        that.data.recordDuration++
+        x++
         if (x < 10) {
-          let seconds = '0' + x;
+          let seconds = '0' + x
           that.setData({
             recordSecond: seconds
           })
         } else if (x >= 10 && x <= 59) {
-          let seconds = x;
+          let seconds = x
           that.setData({
             recordSecond: seconds
           })
         } else if (x > 59) {
           // seconds = '00';
           that.setData({
-            recordSecond: "00"
+            recordSecond: '00'
           })
-          x = 0;
-          a++;
+          x = 0
+          a++
         }
         if (a < 10) {
-          let minus = '0' + a;
+          let minus = '0' + a
           that.setData({
             recordMinute: minus
           })
         } else if (a >= 10) {
-          let minus = a;
+          let minus = a
           that.setData({
             recordMinute: minus
           })
           this.recordStop()
-          clearInterval(t1);
+          clearInterval(t1)
         }
       }
-    },
+    }
   }
 })
