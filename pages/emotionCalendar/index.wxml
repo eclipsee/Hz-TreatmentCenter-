@@ -1,5 +1,5 @@
 <view class="history-page">
-  <header></header>
+  <header isHome="0"></header>
   <block class="body">
     <view class="flex between userinfo">
       <view class="flex left">
@@ -31,7 +31,7 @@
           <bubble bubble="{{item.bubble}}" class="bubble" size="xsmall" />
           <view class="itemC flex">
             <view class="itemcontent">
-              <view># {{item.title}}</view>
+              <view>#{{item.title}}</view>
               <view class="flex between emotion">
                 <view class="isok">{{item.closed ? '已治愈': ''}}</view>
                 <view class="isok bc" style="background-image: url('http://fdfs.xmcdn.com/group62/M01/17/A3/wKgMZ10FrVKjDnZ0AAAXPanjbYk453.png')" wx:if="{{item.tag === 1}}">

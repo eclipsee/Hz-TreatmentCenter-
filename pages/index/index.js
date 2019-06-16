@@ -14,8 +14,9 @@ Page({
     const { flag } = options
     if (flag)
       wx.showToast({
-        icon: '',
-        title: '发布成功\t\n先听别的，很快就会有回应啦～'
+        icon: 'none',
+        title: '发布成功\r\n先听别的，很快就会有回应啦～',
+        duration: 3000
       })
     this.drawEmotion(1, false)
     this.regularDraw()

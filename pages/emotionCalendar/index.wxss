@@ -107,7 +107,8 @@
   background-color: #fff;
   color: #8193BF;
   border-radius: 10rpx;
-  padding: 20rpx 10rpx;
+  padding: 20rpx 18rpx;
+  font-size: 26rpx;
 }
 
 .itemcontent {
