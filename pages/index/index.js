@@ -14,7 +14,8 @@ Page({
     const { flag } = options
     if (flag)
       wx.showToast({
-        title: '发布成功\t\n 先听别的，很快就会有回应啦～'
+        icon: '',
+        title: '发布成功\t\n先听别的，很快就会有回应啦～'
       })
     this.drawEmotion(1, false)
     this.regularDraw()
@@ -81,7 +82,7 @@ Page({
       delay: 0
     })
 
-    const bottom = Math.ceil((3 + Math.random() * (6 - 3)) * 100)
+    const bottom = Math.ceil(530 + Math.random() * 300)
     const scale = 1 + Math.random() * 3
     const rigth = 10 + Math.random() * 50
 
@@ -105,7 +106,7 @@ Page({
     animation
       .opacity(1)
       [type]('50%')
-      .bottom(200)
+      .bottom(230)
       .scale(1)
       .step()
 
