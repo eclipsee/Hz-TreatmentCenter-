@@ -161,7 +161,7 @@ Page({
       wx.navigateTo({
         url: '../bubbleReceive/index'
       })
-    }, 3000)
+    }, 1000)
   },
 
   onClickNew() {
