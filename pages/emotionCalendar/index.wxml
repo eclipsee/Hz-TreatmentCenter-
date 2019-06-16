@@ -3,15 +3,15 @@
   <block class="body">
     <view class="flex between userinfo">
       <view class="flex left">
-        <image src="../../img/avatar/user4.png" class="icon-image"></image>
-        <view>猫耳朵</view>
-      </view>
-      <view class="flex right">
-        <image src="../../img/icons/score.png" class="icon-image"></image>
+        <image src="../../img/avatar/user4.png" class="icon-image-l"></image>
         <view>
-          <view>乐天派</view>
-          <view>积分500</view>
+          <view style="font-size: 28rpx;">猫耳朵</view>
+          <view style="color: #626163">积分500</view>
         </view>
+      </view>
+      <view class="right">
+        <image src="../../img/icons/score.png" class="icon-image-r"></image>
+        <view>乐天派</view>
       </view>
     </view>
     <view class="content">
