@@ -164,6 +164,11 @@ Component({
       let src = this.data.audioSrc
       console.log('src', src)
       this.uploadFile(src)
+      setTimeout(function () {
+        wx.navigateTo({
+          url: '/pages/index/index?flag',
+        })
+      }, 500)
       this.setData({
         recordSecond: '00',
         recordMinute: '00',
@@ -192,7 +197,7 @@ Component({
       )
       wx.uploadFile({
         url:
-          'https://upload.ximalaya.com/dtres/audio/upload?_token=' +
+          'https://upload.test.ximalaya.com/dtres/audio/upload?_token=' +
           authorize +
           '&callerSource=ambassador',
         filePath: path,

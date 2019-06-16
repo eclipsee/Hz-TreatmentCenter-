@@ -25,9 +25,9 @@
       </view>
     </view>
   </view>
-  <view>
+  <view class='recordView'>
     <Record tag='{{tag}}' bind:bubbles="onBubbles" recordStatus='{{recordStatus}}' recordMinute='{{recordMinute}}' recordSecond='{{recordSecond}}'></Record>
-    <image class='publishOne' src="../../img/{{tag}}.png" animation="{{animationPublish}}"></image>
+    <image class='publishOne' src="../../img/bubbles/{{tag}}.png" animation="{{animationPublish}}"></image>
   </view>
   <!-- <view class='recordWrapper'>
     <view class='record' bindtap="recordStart">

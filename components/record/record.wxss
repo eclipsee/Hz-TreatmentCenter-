@@ -20,6 +20,7 @@
   position: absolute;
   top:0;
   left:0;
+  z-index:1
 }
 .record .recordIcon{
   width:50rpx;
@@ -27,6 +28,7 @@
   position: absolute;
   top:50rpx;
   left:50rpx;
+  z-index:2
 }
 .recordWrapper .restart{
   width:50rpx;

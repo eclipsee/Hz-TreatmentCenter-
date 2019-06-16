@@ -114,67 +114,10 @@
   width: 8.4vw;
   height: 8.4vw;
 }
-
-.recordWrapper {
-  width: 150rpx;
-  height: 150rpx;
-  margin: 0 auto;
-  margin-top: 90rpx;
+.recordView{
   position: relative;
 }
 
-.record {
-  width: 150rpx;
-  height: 150rpx;
-  margin: 0 auto;
-  border-radius: 75rpx;
-  position: relative;
-}
-
-.record .recordBg {
-  width: 150rpx;
-  height: 150rpx;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.record .recordIcon {
-  width: 50rpx;
-  height: 50rpx;
-  position: absolute;
-  top: 50rpx;
-  left: 50rpx;
-}
-
-.recordWrapper .restart {
-  width: 50rpx;
-  height: 50rpx;
-  line-height: 50rpx;
-  position: absolute;
-  top: 50rpx;
-  left: -123rpx;
-  font-size: 16rpx;
-  text-align: center;
-}
-
-.recordWrapper .send {
-  width: 50rpx;
-  height: 50rpx;
-  line-height: 50rpx;
-  position: absolute;
-  top: 50rpx;
-  left: 223rpx;
-  font-size: 16rpx;
-  text-align: center;
-}
-
-.recordTime {
-  font-size: 32rpx;
-  color: #7689b6;
-  text-align: center;
-  margin-top: 20rpx;
-}
 
 .moodChoose {
   box-sizing: border-box;
@@ -187,6 +130,7 @@
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   padding-top: 5vh;
+  z-index:3;
 }
 
 .moodlist {
@@ -226,10 +170,10 @@
 }
 
 .publishOne {
-  width: 1rpx;
-  height: 1rpx;
-  top: calc(50vh + 200rpx);
-  left: 50%;
-  border-radius: 50%;
-  position: fixed;
+  position: absolute;
+  width: 150rpx;
+  height: 150rpx;
+  top:0;
+  left:300rpx;
+  z-index:0;
 }

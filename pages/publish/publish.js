@@ -183,49 +183,19 @@ Page({
     return currentdate
   },
 
-  drawPublish() {
-    var animation = wx.createAnimation({
-      duration: 5000,
-      timingFunction: 'ease',
-      delay: 0
-    })
-
-    animation
-      .opacity(0)
-      .scale(2000)
-      .bottom(400)
-      .step()
-
-    return animation
-  },
-
-  drawPublishStart() {
-    var animation = wx.createAnimation({
-      duration: 0,
-      timingFunction: 'ease',
-      delay: 0
-    })
-
-    animation
-      .opacity(1)
-      .scale(1)
-      .top('calc(50vh + 200rpx)')
-      .step()
-
-    return animation
-  },
-
-  animationPublish() {
-    const animationPublish = this.drawPublishStart()
-    this.setData({
-      animationPublish
-    })
-  },
 
   onBubbles() {
-    const animationPublish = this.drawPublish()
+    let animationPub = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease',
+      delay: 0,
+      transformOrigin: '50% 50%'
+    })
+    animationPub.translate(0,-300).step() //边旋转边放大
+    animationPub.translate(0, 0).step()
+    //导出动画数据传递给组件的animation属性。
     this.setData({
-      animationPublish
+      animationPublish: animationPub.export()
     })
   },
 
