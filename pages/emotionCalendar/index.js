@@ -13,8 +13,8 @@ Page({
       .then(res => {
         const voiceList = (res || []).map(item => {
           const { update_time, tag, url } = item
-          const day = `${update_time.getDate()}年${update_time.getMonth() +
-            1}月`
+          const day = `${update_time.getMonth() +
+            1}月${update_time.getDate()}日`
           const time = `${update_time.getHours()}:${update_time.getMinutes()}PM`
           return {
             ...item,
