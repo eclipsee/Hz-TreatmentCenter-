@@ -17,7 +17,7 @@
       </view>
     </block>
     <!-- <image src="../../img/7.png" class="catchimage"></image> -->
-    <image wx:if="{{isCatch}}" src="../../img/{{catchOne}}.png" class="catchone" animation="{{animationOne}}"></image>
+    <image wx:if="{{isCatch}}" src="../../img/bubbles/{{catchOne}}.png" class="catchone" animation="{{animationOne}}"></image>
     <view class="catchbtn" loading="{{loading}}" disabled="{{disabled}}" bindtap="onClickCatch">
       捕捞
     </view>
