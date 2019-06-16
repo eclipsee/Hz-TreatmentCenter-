@@ -32,7 +32,8 @@ Component({
   data: {
     recorderManager: null,
     audioContext: null,
-    t1: {}
+    t1: {},
+    fileID:''
   },
 
   ready() {
@@ -163,19 +164,26 @@ Component({
     recordSend() {
       let src = this.data.audioSrc
       console.log('src', src)
-      this.uploadFile(src)
-      setTimeout(function () {
-        wx.navigateTo({
-          url: '/pages/index/index?flag',
-        })
-      }, 500)
+      let timeStr = (new Date()).getTime();
+      wx.cloud.uploadFile({
+        cloudPath: timeStr + 'example.png', // 上传至云端的路径
+        filePath: src, // 小程序临时文件路径
+        success: res => {
+          // 返回文件 ID
+          console.log(res.fileID)
+          this.setData({
+            fileID: res.fileID
+          })
+        },
+        fail: console.error
+      })
       this.setData({
         recordSecond: '00',
         recordMinute: '00',
         recordStatus: 0
       })
       this.triggerEvent('bubbles', {
-        audioUrl: src
+        audioId: this.data.fileID
       })
     },
 
@@ -191,44 +199,60 @@ Component({
       clearInterval(this.data.t1)
     },
 
-    uploadFile(path) {
-      console.log(path)
-      let that = this
-      let authorize = encodeURIComponent(
-        '308503&51668374EE8D4NdV6664EBB7CE22ABF701A668130895ACAFD43CEBE5DEED04A7401C560B86C81BF6'
-      )
-      wx.uploadFile({
-        url:
-          'https://ranxinxiang.cn/api/upload/girl',
-        filePath: path,
-        name: 'file',
-        header: {
-          "Content-Type": "multipart/form-data"
-        },
-        success: function(res) {
-          if (res.statusCode == '200') {
-            console.log('datadata', res)
-          } else {
-            wx.showToast({
-              title: '上传失败，请重试',
-              icon: 'none'
-            })
-          }
-          if (res.msg) {
-            wx.showToast({
-              title: res.msg,
-              icon: 'none'
-            })
-          }
-        },
-        fail: function(res) {
-          wx.showToast({
-            title: '上传出错，请重试',
-            icon: 'none'
-          })
-        }
-      })
-    },
+    // uploadFile(path){
+    //   let timeStr = (new Date()).getTime();
+    //   wx.cloud.uploadFile({
+    //     cloudPath: timeStr + 'example.png', // 上传至云端的路径
+    //     filePath: path, // 小程序临时文件路径
+    //     success: res => {
+    //       // 返回文件 ID
+    //       console.log(res.fileID)
+    //       this.setData({
+    //         fileID: res.fileID
+    //       })
+    //     },
+    //     fail: console.error
+    //   })
+    // },
+
+    // uploadFile(path) {
+    //   console.log(path)
+    //   let that = this
+    //   let authorize = encodeURIComponent(
+    //     '308503&51668374EE8D4NdV6664EBB7CE22ABF701A668130895ACAFD43CEBE5DEED04A7401C560B86C81BF6'
+    //   )
+    //   wx.uploadFile({
+    //     url:
+    //       'https://ranxinxiang.cn/api/upload/girl',
+    //     filePath: path,
+    //     name: 'file',
+    //     header: {
+    //       "Content-Type": "multipart/form-data"
+    //     },
+    //     success: function(res) {
+    //       if (res.statusCode == '200') {
+    //         console.log('datadata', res)
+    //       } else {
+    //         wx.showToast({
+    //           title: '上传失败，请重试',
+    //           icon: 'none'
+    //         })
+    //       }
+    //       if (res.msg) {
+    //         wx.showToast({
+    //           title: res.msg,
+    //           icon: 'none'
+    //         })
+    //       }
+    //     },
+    //     fail: function(res) {
+    //       wx.showToast({
+    //         title: '上传出错，请重试',
+    //         icon: 'none'
+    //       })
+    //     }
+    //   })
+    // },
 
     recordTime: function() {
       let that = this

@@ -12,7 +12,7 @@
   <view class="moodContent">
     <view class="moodTitle">
       <image src='../../img/moodTtile.png'></image>
-      <input></input>
+      <input bindinput='inputHandle'></input>
     </view>
     <view class="moodTitle2">
       <image src='../../img/moodLevel.png'></image>

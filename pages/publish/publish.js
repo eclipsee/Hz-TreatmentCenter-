@@ -1,10 +1,4 @@
-// pages/publish/publish.js
-// import  recordBg1 from '../../img/1.png'
-// import  recordBg2  from '../../img/2.png'
-// import  recordBg3  from '../../img/3.png'
-// import  recordBg4  from '../../img/4.png'
-// import  recordBg5  from '../../img/5.png'
-// import  recordBg6  from '../../img/6.png'
+import { dbRequests } from '../../requests/request';
 Page({
   /**
    * 页面的初始数据
@@ -28,7 +22,9 @@ Page({
     t1: {},
     tag: 1,
     recordStatus: 0,
-    audioSrc: ''
+    audioSrc: '',
+    titleTxt:'',
+    level:0
   },
 
   /**
@@ -118,6 +114,9 @@ Page({
         star4: false,
         star5: false
       })
+      this.setData({
+        level:1
+      })
     } else if (index == 2) {
       this.setData({
         star1: true,
@@ -125,6 +124,9 @@ Page({
         star3: false,
         star4: false,
         star5: false
+      })
+      this.setData({
+        level: 2
       })
     } else if (index == 3) {
       this.setData({
@@ -134,6 +136,9 @@ Page({
         star4: false,
         star5: false
       })
+      this.setData({
+        level: 3
+      })
     } else if (index == 4) {
       this.setData({
         star1: true,
@@ -142,6 +147,9 @@ Page({
         star4: true,
         star5: false
       })
+      this.setData({
+        level: 4
+      })
     } else if (index == 5) {
       this.setData({
         star1: true,
@@ -149,6 +157,9 @@ Page({
         star3: true,
         star4: true,
         star5: true
+      })
+      this.setData({
+        level: 5
       })
     }
 
@@ -184,7 +195,7 @@ Page({
   },
 
 
-  onBubbles() {
+  onBubbles(e) {
     let animationPub = wx.createAnimation({
       duration: 1000,
       timingFunction: 'ease',
@@ -197,6 +208,51 @@ Page({
     this.setData({
       animationPublish: animationPub.export()
     })
+
+    let audioId = e.detail.audioId
+    // user_id: param.user_id,
+    //   user_name: param.user_name,
+    //     avatar: param.avatar,
+    //       url: param.url,
+    //         title: param.title,
+    //           tag: param.tag, // 0,1,2,3,4,5
+    //             level: param.level, //1,2,3,4,5
+
+    let params = {
+      user_id: wx.getStorageSync('uid'),
+      user_name: wx.getStorageSync('user_name'),
+      avatar: wx.getStorageSync('avatar'),
+      url: audioId,
+      title: this.data.titleTxt,
+      tag: this.data.tag,
+      level: this.data.level
+    }
+
+    console.log("params", params)
+
+    dbRequests.addBubble(params).then((res) => {
+      console.log("添加录音res", res);
+    }).catch(() => {
+      wx.showModal({
+        title: '获取失败',
+        showCancel: false,
+      });
+    });
+
+    // setTimeout(function () {
+    //   wx.navigateTo({
+    //     url: '/pages/index/index?flag',
+    //   })
+    // }, 500)
+
+    // addBubble
+  },
+
+  inputHandle(e){
+      console.log("eee",e.detail.value)
+      this.setData({
+        titleTxt: e.detail.value
+      })
   },
 
   /**
