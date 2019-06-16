@@ -17,12 +17,12 @@
 
 .catchone {
   position: fixed;
-  width: 2rpx;
-  height: 2rpx;
+  width: 100rpx;
+  height: 100rpx;
   bottom: 450rpx;
   border-radius: 50%;
-  right: calc(50% - 1rpx);
-  opacity: 1;
+  right: 50%;
+  transform: translateX(50%)
 }
 
 .image5 {
