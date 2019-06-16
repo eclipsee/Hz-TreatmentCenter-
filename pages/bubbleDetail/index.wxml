@@ -1,7 +1,11 @@
 <!--pages/bubbleDetail/index.wxml-->
 <view class="bubble-detail">
-  <bubble-brief user="{{user}}" bubble="{{bubble}}"></bubble-brief>
-  <replies comments="{{comments}}"></replies>
+  <view class="brief-wrap">
+    <bubble-brief user="{{user}}" bubble="{{bubble}}"></bubble-brief>
+  </view>
+  <view class="replies-wrap">
+    <replies comments="{{comments}}"></replies>
+  </view>
   <view class="bottom-replies">
     <view class="btns-wrap">
       <view class="close" data-type="close" bindtap="changeType" wx:if="{{isExpand}}">
@@ -17,7 +21,7 @@
         <image class="icon" src="../../img/icons/arrow-right.png" />
       </view>
     </view>
-    <view class="reply-content" style="height: {{isExpand ? '660rpx' : '0rpx'}}">
+    <view class="reply-content" style="height: {{isExpand ? '660rpx' : '0'}}">
       <reply-keyboard
         bindrandomevent="randomReplay"
         currentItem="{{currentReplay}}"

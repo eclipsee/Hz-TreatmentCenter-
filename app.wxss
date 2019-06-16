@@ -9,5 +9,5 @@
   box-sizing: border-box;
 } 
 page {
-  background-color: #DDECF2;
+  background-image: url('http://fdfs.xmcdn.com/group62/M04/21/FE/wKgMZ10GDg-BGUNVAABfU42zDSA373.png');
 }

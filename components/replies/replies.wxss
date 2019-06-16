@@ -6,6 +6,7 @@
 .comment-audio .user-info {
   display: flex;
   flex-direction: column;
+  max-width: 120rpx;
 }
 .comment-audio .user-info .avatar {
   width: 80rpx;

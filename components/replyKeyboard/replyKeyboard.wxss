@@ -37,6 +37,9 @@
 }
 .reply-keyboard .content-card.voice {
   margin-top: 100rpx;
+  background-color: transparent;
+  text-align: center;
+  color: #666;
 }
 .reply-keyboard .send-btn {
   text-align: center;
