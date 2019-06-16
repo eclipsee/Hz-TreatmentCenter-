@@ -50,6 +50,7 @@ Page({
   onShow: function() {
     let _this = this
     this.topAnimation()
+    this.animationPublish()
   },
 
   //泡泡上下飘动画
