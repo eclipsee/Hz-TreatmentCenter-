@@ -50,7 +50,7 @@ Page({
   onShow: function() {
     let _this = this
     this.topAnimation()
-    this.animationPublish()
+    // this.animationPublish()
   },
 
   //泡泡上下飘动画
@@ -174,7 +174,7 @@ Page({
       strMinutes = '0' + strMinutes
     }
     if (strHour > 12) {
-      strHourString = (strHour - 12) + ':' + strMinutes + ' PM'
+      strHourString = strHour - 12 + ':' + strMinutes + ' PM'
     } else {
       strHourString = strHour.toString() + ':' + strMinutes.toString() + ' AM'
     }
@@ -192,7 +192,7 @@ Page({
 
     animation
       .opacity(0)
-      .scale(20)
+      .scale(2000)
       .bottom(400)
       .step()
 
@@ -209,7 +209,7 @@ Page({
     animation
       .opacity(1)
       .scale(1)
-      .bottom(0)
+      .top('calc(50vh + 200rpx)')
       .step()
 
     return animation
@@ -217,6 +217,13 @@ Page({
 
   animationPublish() {
     const animationPublish = this.drawPublishStart()
+    this.setData({
+      animationPublish
+    })
+  },
+
+  onBubbles() {
+    const animationPublish = this.drawPublish()
     this.setData({
       animationPublish
     })

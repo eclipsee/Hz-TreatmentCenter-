@@ -18,6 +18,11 @@ Component({
       wx.navigateTo({
         url: '../../pages/publish/publish'
       })
-    }
+    },
+    onClickCalendar() {
+      wx.navigateTo({
+        url: '../../pages/emotionCalendar/index'
+      })
+    },
   }
 })

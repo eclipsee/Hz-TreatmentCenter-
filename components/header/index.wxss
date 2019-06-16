@@ -1,10 +1,6 @@
 /**index.wxss**/
 .header {
-  height: 80rpx;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  height: 110rpx;
 }
 
 .headerCenter {
@@ -15,8 +11,11 @@
   flex-grow: 4;
 }
 
-.calendar {
-  border-left: solid 2rpx #fff;
+.line {
+  height: 50rpx;
+  width: 4rpx;
+  margin-top: 10rpx;
+  background-color: #fff;
 }
 
 .newo,
@@ -25,10 +24,18 @@
   background-repeat: no-repeat;
   background-size: 60rpx 60rpx;
   background-position: top center;
-  -moz-background-size: 50rpx 50rpx;
+  -moz-background-size: 60rpx 60rpx;
   padding: 5px;
   font-size: 24rpx;
   margin-top: 5rpx;
-  padding: 55rpx 15rpx 0 15rpx;
-  line-height: 20rpx;
+  padding: 70rpx 15rpx 0 15rpx;
+}
+
+.newo {
+  position: fixed;
+  top: 5rpx;
+  right: 0rpx;
+  background-size: 50rpx 50rpx;
+  -moz-background-size: 50rpx 50rpx;
+  padding: 65rpx 15rpx 0 15rpx;
 }

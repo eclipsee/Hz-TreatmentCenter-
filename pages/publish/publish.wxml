@@ -1,13 +1,13 @@
-<!--pages/publish/publish.wxml-->
+<!-- pages/publish/publish.wxml -->
 <view class="wrapper">
   <view class="timeModule">
-    <image class="cloud1"  animation="{{animationDataCloud}}" src='../../img/cloud2.png'></image>
-     <image  class="cloud2"  animation="{{animationDataCloud}}"  src='../../img/cloud1.png'></image>
-     <view class="timeWrapper">
+    <image class="cloud1" animation="{{animationDataCloud}}" src='../../img/cloud2.png'></image>
+    <image class="cloud2" animation="{{animationDataCloud}}" src='../../img/cloud1.png'></image>
+    <view class="timeWrapper">
       <view class="timeTxt">{{timeStr}}</view>
       <view class="timeTxt2">选择你此刻的心情</view>
       <view class="timeTxt2">用声音发送给更多的人听到吧～</view>
-     </view>
+    </view>
   </view>
   <view class="moodContent">
     <view class="moodTitle">
@@ -17,16 +17,17 @@
     <view class="moodTitle2">
       <image src='../../img/moodLevel.png'></image>
       <view class="starWrapper">
-        <image src='{{star1 == true?"../../img/star.png": "../../img/starGrey.png" }}' bindtap='chooseStar' data-index="1" class="starGrey" ></image>
-        <image src='{{star2 == true?"../../img/star.png": "../../img/starGrey.png" }}'  bindtap='chooseStar' data-index="2"  class="starGrey" ></image>
-        <image src='{{star3 == true?"../../img/star.png": "../../img/starGrey.png" }}'  bindtap='chooseStar' data-index="3"  class="starGrey" ></image>
-        <image src='{{star4 == true?"../../img/star.png": "../../img/starGrey.png" }}'  bindtap='chooseStar' data-index="4"  class="starGrey" ></image>
-        <image src='{{star5 == true?"../../img/star.png": "../../img/starGrey.png" }}'  bindtap='chooseStar' data-index="5"  class="starGrey" ></image>
+        <image src='{{star1 == true?"../../img/star.png": "../../img/starGrey.png" }}' bindtap='chooseStar' data-index="1" class="starGrey"></image>
+        <image src='{{star2 == true?"../../img/star.png": "../../img/starGrey.png" }}' bindtap='chooseStar' data-index="2" class="starGrey"></image>
+        <image src='{{star3 == true?"../../img/star.png": "../../img/starGrey.png" }}' bindtap='chooseStar' data-index="3" class="starGrey"></image>
+        <image src='{{star4 == true?"../../img/star.png": "../../img/starGrey.png" }}' bindtap='chooseStar' data-index="4" class="starGrey"></image>
+        <image src='{{star5 == true?"../../img/star.png": "../../img/starGrey.png" }}' bindtap='chooseStar' data-index="5" class="starGrey"></image>
       </view>
     </view>
   </view>
   <view>
-    <Record tag='{{tag}}' recordStatus='{{recordStatus}}' recordMinute='{{recordMinute}}' recordSecond='{{recordSecond}}'></Record>
+    <Record tag='{{tag}}' bind:bubbles="onBubbles" recordStatus='{{recordStatus}}' recordMinute='{{recordMinute}}' recordSecond='{{recordSecond}}'></Record>
+    <image class='publishOne' src="../../img/{{tag}}.png" animation="{{animationPublish}}"></image>
   </view>
   <!-- <view class='recordWrapper'>
     <view class='record' bindtap="recordStart">
@@ -37,34 +38,34 @@
     <image src='../../img/send.png' bindtap="recordSend"  class="send">发送</image>
   </view>
   <view class='recordTime'>{{recordMinute}}:{{recordSecond}}/10:00</view> -->
-  <view class="moodChoose"  animation="{{animationPanel}}">
-      <view class="moodlist">
-        <view class="moodItem" bindtap='chooseMood' data-tag='1'>
-          <image src='../../img/bubbles/1.png'  animation="{{animationData}}"></image>
-          <view class="moodItemTxt">生气</view>
-        </view>
-        <view class="moodItem" bindtap='chooseMood' data-tag='2'>
-          <image src='../../img/bubbles/2.png'  animation="{{animationData}}"></image>
-          <view class="moodItemTxt">快乐</view>
-        </view>
-        <view class="moodItem" bindtap='chooseMood' data-tag='3'>
-          <image src='../../img/bubbles/3.png'  animation="{{animationData}}"></image>
-          <view class="moodItemTxt">伤心</view>
-        </view>
+  <view class="moodChoose" animation="{{animationPanel}}">
+    <view class="moodlist">
+      <view class="moodItem" bindtap='chooseMood' data-tag='1'>
+        <image src='../../img/bubbles/1.png' animation="{{animationData}}"></image>
+        <view class="moodItemTxt">生气</view>
       </view>
-      <view class="moodlist">
-        <view class="moodItem" bindtap='chooseMood' data-tag='4'>
-          <image src='../../img/bubbles/4.png'  animation="{{animationData}}"></image>
-          <view class="moodItemTxt">烦躁</view>
-        </view>
-        <view class="moodItem" bindtap='chooseMood' data-tag='5'>
-          <image src='../../img/bubbles/5.png'  animation="{{animationData}}"></image>
-          <view class="moodItemTxt">苦恼</view>
-        </view>
-        <view class="moodItem" bindtap='chooseMood' data-tag='6'>
-          <image src='../../img/bubbles/6.png'  animation="{{animationData}}"></image>
-          <view class="moodItemTxt">纠结</view>
-        </view>
+      <view class="moodItem" bindtap='chooseMood' data-tag='2'>
+        <image src='../../img/bubbles/2.png' animation="{{animationData}}"></image>
+        <view class="moodItemTxt">快乐</view>
       </view>
+      <view class="moodItem" bindtap='chooseMood' data-tag='3'>
+        <image src='../../img/bubbles/3.png' animation="{{animationData}}"></image>
+        <view class="moodItemTxt">伤心</view>
+      </view>
+    </view>
+    <view class="moodlist">
+      <view class="moodItem" bindtap='chooseMood' data-tag='4'>
+        <image src='../../img/bubbles/4.png' animation="{{animationData}}"></image>
+        <view class="moodItemTxt">烦躁</view>
+      </view>
+      <view class="moodItem" bindtap='chooseMood' data-tag='5'>
+        <image src='../../img/bubbles/5.png' animation="{{animationData}}"></image>
+        <view class="moodItemTxt">苦恼</view>
+      </view>
+      <view class="moodItem" bindtap='chooseMood' data-tag='6'>
+        <image src='../../img/bubbles/6.png' animation="{{animationData}}"></image>
+        <view class="moodItemTxt">纠结</view>
+      </view>
+    </view>
   </view>
 </view>

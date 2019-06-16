@@ -1,6 +1,6 @@
 <!--components/replies/replies.wxml-->
 <view>
-  <view class="comment-audio {{item.isSelf ? 'right' : ''}}" wx:for="{{comments}}" wx:if="{{comments.length}}">
+  <view class="comment-audio {{item.isSelf ? 'right' : ''}}" wx:for="{{comments}}" wx:key="index" wx:if="{{comments.length}}">
     <view class="user-info">
       <image class="avatar" src="{{item.user.avatar}}" />
       <text class="name">{{item.user.username}}</text>

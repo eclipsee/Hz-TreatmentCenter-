@@ -28,16 +28,16 @@
             <view class="day">{{item.day}}</view>
             <view class="time">{{item.time}}</view>
           </view>
-          <bubble url="{{item.voice}}" class="bubble" />
+          <bubble url="{{item.voice}}" class="bubble" size="xsmall"/>
           <view class="itemC flex">
             <view class="itemcontent">
               <view>{{item.title}}</view>
               <view class="flex between emotion">
                 <view class="isok">{{item.status ? '已治愈': ''}}</view>
-                <view class="isok bc" style="background-image: url('../../img/icons/palm.png')" wx:if="{{item.type}}">
+                <view class="isok bc" style="background-image: url('http://fdfs.xmcdn.com/group62/M01/17/A3/wKgMZ10FrVKjDnZ0AAAXPanjbYk453.png')" wx:if="{{item.type}}">
                   {{item.agree}}
                 </view>
-                <view class="isok bc" style="background-image: url('../../img/icons/message.png')" wx:else>
+                <view class="isok bc" style="background-image: url('http://fdfs.xmcdn.com/group62/M01/17/B8/wKgMcV0FrTmAaz92AAAjzoKADAs085.png')" wx:else>
                   {{item.mlenth}}
                 </view>
               </view>

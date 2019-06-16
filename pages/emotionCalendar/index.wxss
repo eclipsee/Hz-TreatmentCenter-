@@ -37,7 +37,7 @@
 }
 
 .around view {
-  width: 80rpx;
+  width: 120rpx;
 }
 
 .userinfo {
@@ -78,6 +78,7 @@
   position: relative;
   width: 25%;
   z-index: 100;
+  background-color: #ddecf2;
 }
 
 .bubble::after {
@@ -88,7 +89,7 @@
   z-index: 1;
   background-color: #fff;
   bottom: -100rpx;
-  left: calc(50% - 30rpx);
+  left: calc(50% - 45rpx);
 }
 
 .item:last-of-type .bubble::after {

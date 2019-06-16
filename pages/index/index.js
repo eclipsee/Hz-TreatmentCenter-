@@ -76,8 +76,8 @@ Page({
 
   drawAnimation(type) {
     var animation = wx.createAnimation({
-      duration: 4500,
-      timingFunction: 'ease',
+      duration: 5000,
+      timingFunction: 'ease-out',
       delay: 0
     })
 
@@ -115,13 +115,13 @@ Page({
   drawCatch() {
     var animation = wx.createAnimation({
       duration: 5000,
-      timingFunction: 'linear',
+      timingFunction: 'ease',
       delay: 0
     })
 
     animation
       .opacity(0)
-      .scale(1000)
+      .scale(800)
       .step()
 
     return animation
@@ -130,7 +130,7 @@ Page({
   drawCatchStart() {
     var animation = wx.createAnimation({
       duration: 0,
-      timingFunction: 'linear',
+      timingFunction: 'ease',
       delay: 0
     })
 
@@ -150,7 +150,7 @@ Page({
   },
 
   onClickCatch() {
-    const catchOne = Math.ceil(1 + Math.random() * (6 + 1 - 1))
+    const catchOne = Math.ceil(Math.random() * 6)
     this.setData({
       catchOne
     })
