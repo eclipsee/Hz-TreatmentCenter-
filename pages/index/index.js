@@ -160,14 +160,14 @@ Page({
     })
     setTimeout(() => {
       wx.navigateTo({
-        url: '../emotionCalendar/index'
+        url: '../bubbleReceive/index'
       })
     }, 3000)
   },
 
   onClickNew() {
     wx.navigateTo({
-      url: '../emotionCalendar/index'
+      url: '../publish/index'
     })
   }
 })
