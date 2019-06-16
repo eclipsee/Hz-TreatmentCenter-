@@ -1,10 +1,10 @@
 <view class="header">
   <view class="headerCenter">
-    <view class="catch" bindtap="onClickCatch" style="background-image: url('http://fdfs.xmcdn.com/group63/M03/17/B9/wKgMcl0FrKSSoklZAAAY6JdZ5R0250.png')">
+    <view class="catch" style="cursor: {{isHome ? 'pointer' : 'not-allowed'}}" bindtap="onClickCatch" style="background-image: url('http://fdfs.xmcdn.com/group63/M03/17/B9/wKgMcl0FrKSSoklZAAAY6JdZ5R0250.png')">
       情绪泡泡
     </view>
     <view class="line"></view>
-    <view class="calendar" bindtap="onClickCalendar" style="background-image: url('http://fdfs.xmcdn.com/group61/M00/17/44/wKgMZl0FrNfyvMHfAAAQJWhZ8yk551.png')">
+    <view class="calendar" style="cursor: {{isHome ? 'not-allowed' : 'pointer'}}" bindtap="onClickCalendar" style="background-image: url('http://fdfs.xmcdn.com/group61/M00/17/44/wKgMZl0FrNfyvMHfAAAQJWhZ8yk551.png')">
       情绪日历
     </view>
   </view>

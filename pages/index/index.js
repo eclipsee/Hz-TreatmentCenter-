@@ -142,13 +142,6 @@ Page({
     return animation
   },
 
-  // 跳转至情绪日历
-  onClickCalendar() {
-    wx.navigateTo({
-      url: '../emotionCalendar/index'
-    })
-  },
-
   onClickCatch() {
     const catchOne = Math.ceil(Math.random() * 6)
     this.setData({
