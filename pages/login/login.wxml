@@ -1,0 +1,12 @@
+<!--pages/login/login.wxml-->
+<view class='loginWrapper'>
+ <!-- <view class='titleImg'>
+    <image src='../../img/loginTitle.png'></image>
+  </view>
+      <image class='ball' src='../../img/ball.gif'></image> -->
+      <image class='loginBg' src='../../img/loginBg3.png'></image>
+      <view class='loginTitle'>赫兹治疗所
+        <view class='loginTitle2'>听见更多治愈你</view>
+      </view>
+      <button class="loginBtn" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">开启治愈之旅</button>
+</view>
