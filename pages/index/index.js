@@ -16,7 +16,7 @@ Page({
       wx.showToast({
         title: '发布成功\t\n 先听别的，很快就会有回应啦～'
       })
-    this.drawEmotion()
+    this.drawEmotion(1, false)
     this.regularDraw()
   },
 
@@ -28,7 +28,7 @@ Page({
   },
 
   regularDraw() {
-    let flag = 0
+    let flag = 1
     setInterval(() => {
       const symbol = (flag % 3) + 1
       const random = Math.ceil(Math.random() * 6)
