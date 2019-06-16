@@ -3,9 +3,6 @@ import music from '../../data/music';
 import cure from '../../data/voice';
 import { dbRequests } from '../../requests/request';
 
-const testUrl = 'http://yss.yisell.com/yisell/ybys2018050819052088/sound/yisell_sound_2014031622091974505_88366.mp3';
-const testAvatar = 'http://img.wxcha.com/file/201807/13/9bbc369f6e.jpg';
-
 Page({
   /**
    * 页面的初始数据
@@ -17,21 +14,9 @@ Page({
     recordSecond: '00',
     recordStatus: '0',
     recordMinute: '00',
-    user: {
-      username: 'lizifen',
-      avatar: testAvatar,
-    },
-    bubble: {
-      title: '分手求安慰',
-      url: testUrl,
-      duration: 10,
-      tag: 1,
-    },
-    comments: [
-      { user: { username: 'lizifen', avatar: testAvatar }, bubble: { url: testUrl, duration: 10, comment_type: 1, tag: 6 } },
-      { user: { username: 'lizifen', avatar: testAvatar }, bubble: { url: testUrl, duration: 10, comment_type: 2, tag: 6 } },
-      { user: { username: 'lizifen', avatar: testAvatar }, isSelf: true, bubble: { url: testUrl, duration: 10, comment_type: 3, tag: 6 } },
-    ],
+    user: {},
+    bubble: {},
+    comments: [],
     replyTypes: [
       { name: '语音', value: 'voice', icon: '../../img/icons/voice.png' },
       { name: '歌曲', value: 'music', icon: '../../img/icons/music.png' },
@@ -86,17 +71,20 @@ Page({
   getBubble(id) {
     dbRequests.getBubble(id).then((bubble) => {
       this.setData({
+        user: {
+          username: bubble.user_name,
+          avatar: bubble.avatar,
+        },
         bubble,
       });
     }).catch(this.onReqErr);
   },
   getComments(id) {
     dbRequests.getComments(id).then((res) => {
-      console.log(res);
       this.setData({
         comments: res.map(item => ({
           ...item,
-          isSelf: item.user_id === wx.getStorageSync('user_id'),
+          isSelf: item.user_id === wx.getStorageSync('uid'),
           bubble: {
             url: item.sound_url,
             duration: 10,
@@ -105,6 +93,23 @@ Page({
         })),
       });
     }).catch(this.onReqErr);
+  },
+  addcomment(e) {
+    dbRequests.addBubbleComment({
+      user_id: wx.getStorageSync('uid'),
+      user_name: wx.getStorageSync('user_name'),
+      avatar: wx.getStorageSync('avatar'),
+      bubble_id: this.data.bubble._id,
+      comment_type: this.data.replyType, // voice music joke cure
+      sound_url: e.detail.url,
+    }).then((res) => {
+      console.log(res);
+    }).catch(() => {
+      wx.showModal({
+        title: '获取失败',
+        showCancel: false,
+      });
+    });
   },
   onLoad(options) {
     this.getBubble(options.bubble_id);

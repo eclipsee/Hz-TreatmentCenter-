@@ -14,7 +14,6 @@ Page({
   },
 
   randomBubble() {
-    console.log('randomBubble');
     this.getBubble();
   },
 
@@ -24,14 +23,16 @@ Page({
   },
 
   giveFive() {
-    console.log('giveFive');
+    this.setData({
+      bubble: { ...this.data.bubble, like_count: this.data.bubble.like_count + 1 },
+    });
   },
 
   getBubble() {
     dbRequests.getLuckyBubble().then((res) => {
       dbRequests.getComments(res._id).then((comments) => {
         this.setData({
-          bubble: { ...res, comments, tagName: this.getBubbleTxt(res.tag) },
+          bubble: { ...res, comments, tagName: this.getBubbleTxt(res.tag), isPositive: res.tag === 1 },
         });
       });
     }).catch(() => {
@@ -46,12 +47,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-    // dbRequests.addUser({
-    //   user_name: 'lizifen04',
-    //   avatar: 'http://img.wxcha.com/file/201807/13/9bbc369f6e.jpg',
-    // }).then((res) => {
-    //   console.log(res);
-    // });
     this.getBubble();
   },
 });

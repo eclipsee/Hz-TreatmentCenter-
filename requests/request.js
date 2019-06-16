@@ -130,7 +130,8 @@ export const dbRequests = {
       }).get({
         success(res) {
           console.log('[数据库] [查询记录] 成功: ', res);
-          resolve(res.data.shift());
+          const luckyIndex = Math.floor(Math.random() * (res.data.length - 1));
+          resolve(res.data.splice(luckyIndex, 1).shift());
         },
         fail(err) {
           wx.showToast({
@@ -210,6 +211,24 @@ export const dbRequests = {
       });
     });
   },
+  // updateBubble(bubbleId, data) {
+  //   console.log(bubbleId, data);
+  //   const db = wx.cloud.database();
+  //   return new Promise((resolve, reject) => {
+  //     // 查询当前用户信息
+  //     db.collection('hz_bubble').doc(bubbleId).update({
+  //       data: { like_count: 2 },
+  //       success(res) {
+  //         console.log('[数据库] [修改记录] 成功: ', res);
+  //         resolve(res.data);
+  //       },
+  //       fail(err) {
+  //         console.error('[数据库] [修改记录] 失败：', err);
+  //         reject();
+  //       },
+  //     });
+  //   });
+  // },
 };
 
 export default {};

@@ -41,7 +41,7 @@ Component({
       this.triggerEvent('randomevent', {});
     },
     sendVoice() {
-      console.log('sendVoice');
+      this.triggerEvent('addcommentevent', { url: this.data.currentItem.url });
     },
   },
 });

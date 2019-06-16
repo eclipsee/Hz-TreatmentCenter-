@@ -25,6 +25,7 @@
         recordStatus="{{recordStatus}}"
         recordMinute="{{recordMinute}}"
         recordSecond="{{recordSecond}}"
+        bindaddcommentevent="addcomment"
         ></reply-keyboard>
     </view>
   </view>
