@@ -31,14 +31,14 @@
           <bubble bubble="{{item.bubble}}" class="bubble" size="xsmall" />
           <view class="itemC flex">
             <view class="itemcontent">
-              <view>{{item.title}}</view>
+              <view># {{item.title}}</view>
               <view class="flex between emotion">
-                <view class="isok">{{item.status ? '已治愈': ''}}</view>
-                <view class="isok bc" style="background-image: url('http://fdfs.xmcdn.com/group62/M01/17/A3/wKgMZ10FrVKjDnZ0AAAXPanjbYk453.png')" wx:if="{{item.type}}">
-                  {{item.agree}}
+                <view class="isok">{{item.closed ? '已治愈': ''}}</view>
+                <view class="isok bc" style="background-image: url('http://fdfs.xmcdn.com/group62/M01/17/A3/wKgMZ10FrVKjDnZ0AAAXPanjbYk453.png')" wx:if="{{item.tag === 1}}">
+                  {{item.like_count}}
                 </view>
                 <view class="isok bc" style="background-image: url('http://fdfs.xmcdn.com/group62/M01/17/B8/wKgMcV0FrTmAaz92AAAjzoKADAs085.png')" wx:else>
-                  {{item.mlenth}}
+                  {{item.like_count}}
                 </view>
               </view>
             </view>

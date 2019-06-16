@@ -69,6 +69,7 @@
 
 .date {
   width: 15%;
+  line-height: 1.4em;
 }
 
 .day {
@@ -90,10 +91,10 @@
   position: absolute;
   content: '';
   width: 2rpx;
-  height: 78rpx;
+  height: 85rpx;
   z-index: 1;
   background-color: #fff;
-  bottom: -78rpx;
+  bottom: -85rpx;
   left: calc(50% - 47rpx);
 }
 

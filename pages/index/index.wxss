@@ -83,9 +83,9 @@
 
 .body {
   background-repeat: no-repeat;
-  background-size: 100% 500rpx;
+  background-size: 100% 450rpx;
   background-position: bottom center;
-  -moz-background-size: 100% 500rpx;
+  -moz-background-size: 100% 450rpx;
   height: calc(100vh - 110rpx);
   background-image: url('http://fdfs.xmcdn.com/group63/M07/1D/9E/wKgMaF0F5LWxZVJkAACcnObvLc4962.png')
 }
