@@ -8,7 +8,7 @@
         <image class="icon" src="../../img/icons/arrow-down.png" />
       </view>
       <view class="btns">
-       <view class="btn {{item.value === replyType ? 'active' : ''}}" data-type="{{item.value}}" bindtap="changeType" wx:for="{{replyTypes}}">
+       <view class="btn {{item.value === replyType ? 'active' : ''}}" data-type="{{item.value}}" bindtap="changeType" wx:for="{{replyTypes}}" wx:key="index">
         <image class="icon" src="{{item.icon}}" />
         <text>{{item.name}}</text>
        </view>

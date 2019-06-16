@@ -1,12 +1,19 @@
 /* components/bubble/bubble.wxss */
 .bubble {
-  position: relative;
   display: inline-block;
   width: 120rpx;
   height: 120rpx;
   border-radius: 100%;
   text-align: center;
   background-size: cover;
+  position: relative;
+}
+.bubble .bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .bubble .playBtn {
   position: relative;
