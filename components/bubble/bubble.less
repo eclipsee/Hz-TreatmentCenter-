@@ -1,14 +1,21 @@
 /* components/bubble/bubble.wxss */
 @small-size: 100rpx;
+@xsmall-size: 80rpx;
 @large-size: 160rpx;
 @middle-size: 120rpx;
+
 @small-process-width: 40rpx;
+@xsmall-process-width: 30rpx;
 @large-process-width: 80rpx;
 @middle-process-width: 60rpx;
+
 @small-btn: 40rpx;
+@xsmall-btn: 30rpx;
 @large-btn: 80rpx;
 @middle-btn: 56rpx;
+
 @small-to-top: 30rpx;
+@xsmall-to-top: 24rpx;
 @large-to-top: 40rpx;
 @middle-to-top: 30rpx;
 
@@ -114,6 +121,26 @@
     .left, .right{
       width: @large-process-width;
       height: @large-size;
+    }
+  }
+}
+
+.bubble.xsmall {
+  width: @xsmall-size;
+  height: @xsmall-size;
+  .playBtn {
+    margin-top: @xsmall-to-top;
+    width: @xsmall-btn;
+    height: @xsmall-btn;
+  }
+  .process {
+    .circle {
+      width: @xsmall-size;
+      height: @xsmall-size;
+    }
+    .left, .right{
+      width: @xsmall-process-width;
+      height: @xsmall-size;
     }
   }
 }

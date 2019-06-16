@@ -97,3 +97,21 @@
   width: 80rpx;
   height: 160rpx;
 }
+.bubble.xsmall {
+  width: 80rpx;
+  height: 80rpx;
+}
+.bubble.xsmall .playBtn {
+  margin-top: 24rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+.bubble.xsmall .process .circle {
+  width: 80rpx;
+  height: 80rpx;
+}
+.bubble.xsmall .process .left,
+.bubble.xsmall .process .right {
+  width: 30rpx;
+  height: 80rpx;
+}
