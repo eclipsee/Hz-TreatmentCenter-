@@ -59,10 +59,18 @@ Page({
     if (e.detail.userInfo) {
     
       // this.loginApp(e.detail);
-      let nickname = e.detail.userInfo.nickname;
+      let nickname = e.detail.userInfo.nickName;
       let avatarUrl = e.detail.userInfo.avatarUrl;
       let openid = app.globalData.openid;
-      console.log("有授权", openid)
+      console.log("有授权", nickname)
+      wx.setStorage({
+        key: 'user_name',
+        data: nickname,
+      })
+      wx.setStorage({
+        key: 'avatar',
+        data: avatarUrl,
+      })
       dbRequests.getUser(openid).then((res) => {
         console.log("res",res);
         if(res == null){
@@ -85,6 +93,7 @@ Page({
             key: 'uid',
             data: res._id,
           })
+         
           wx.redirectTo({
             url: '/pages/index/index',
           })

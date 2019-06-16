@@ -5,6 +5,7 @@
   /* background: #fff; */
   position: relative;
   box-sizing: border-box;
+  padding-top: 60rpx;
 }
  .ball{
   height:10vh;
