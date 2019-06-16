@@ -1,7 +1,7 @@
 /**index.wxss**/
 .index-page {
   background-color: #DCEAF0;
-  background-image: url('http://fdfs.xmcdn.com/group61/M05/1C/D3/wKgMZl0F4z-Te1Z1AAAvdVxwn0I580.png');
+  background-image: url('http://fdfs.xmcdn.com/group62/M04/21/FE/wKgMZ10GDg-BGUNVAABfU42zDSA373.png');
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: top center;
@@ -17,12 +17,12 @@
 
 .catchone {
   position: fixed;
-  width: 2rpx;
-  height: 2rpx;
+  width: 100rpx;
+  height: 100rpx;
   bottom: 450rpx;
   border-radius: 50%;
-  right: calc(50% - 1rpx);
-  opacity: 1;
+  right: 50%;
+  transform: translateX(50%)
 }
 
 .image5 {

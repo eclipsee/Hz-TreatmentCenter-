@@ -1,14 +1,20 @@
 <view class="header">
   <view class="headerCenter">
-    <view class="catch" style="cursor: {{isHome ? 'pointer' : 'not-allowed'}}" bindtap="onClickCatch" style="background-image: url('http://fdfs.xmcdn.com/group63/M03/17/B9/wKgMcl0FrKSSoklZAAAY6JdZ5R0250.png')">
+    <view class="catch small" wx:if="{{isHome == '1'}}" style="cursor: 'pointer';" bindtap="onClickCatch" style="background-image: url('http://fdfs.xmcdn.com/group61/M08/1F/18/wKgMZl0F96PCQST9AABCCeAq2cs265.png')">
+      情绪泡泡
+    </view>
+    <view class="catch" wx:else style="cursor: 'not-allowed';" bindtap="onClickCatch" style="background-image: url('http://fdfs.xmcdn.com/group63/M03/17/B9/wKgMcl0FrKSSoklZAAAY6JdZ5R0250.png')">
       情绪泡泡
     </view>
     <view class="line"></view>
-    <view class="calendar" style="cursor: {{isHome ? 'not-allowed' : 'pointer'}}" bindtap="onClickCalendar" style="background-image: url('http://fdfs.xmcdn.com/group61/M00/17/44/wKgMZl0FrNfyvMHfAAAQJWhZ8yk551.png')">
+    <view class="calendar" wx:if="{{isHome == '1'}}" style="cursor: 'not-allowed';" bindtap="onClickCalendar" style="background-image: url('http://fdfs.xmcdn.com/group61/M00/17/44/wKgMZl0FrNfyvMHfAAAQJWhZ8yk551.png')">
+      情绪日历
+    </view>
+    <view class="calendar small" wx:else style="cursor: 'pointer';" bindtap="onClickCalendar" style="background-image: url('http://fdfs.xmcdn.com/group62/M02/1F/88/wKgMcV0F94Oz5C0nAAA0VScgbMA314.png')">
       情绪日历
     </view>
   </view>
-  <view class="newo" bindtap="onClickNew" style="background-image: url('http://fdfs.xmcdn.com/group61/M04/17/4C/wKgMZl0FrPii0B_cAAAi__SsxTI478.png')">
+  <view class="newo" bindtap="onClickNew" style="background-image: url('http://fdfs.xmcdn.com/group63/M0A/1F/C4/wKgMaF0F91_xmM37AAAYrFQVlhY216.png')">
     发布泡泡
   </view>
 </view>

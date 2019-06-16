@@ -7,15 +7,17 @@ Page({
     catchOne: 1,
     loading: false,
     disabled: false,
-    emotionList: []
+    emotionList: [],
+    isCatch: false
   },
 
   onLoad: function(options) {
     const { flag } = options
     if (flag)
       wx.showToast({
-        icon: '',
-        title: '发布成功\t\n先听别的，很快就会有回应啦～'
+        icon: 'none',
+        title: '发布成功\r\n先听别的，很快就会有回应啦～',
+        duration: 3000
       })
     this.drawEmotion(1, false)
     this.regularDraw()
@@ -24,7 +26,8 @@ Page({
   onShow() {
     const animationOne = this.drawCatchStart()
     this.setData({
-      animationOne
+      animationOne,
+      isCatch: false
     })
   },
 
@@ -115,14 +118,15 @@ Page({
 
   drawCatch() {
     var animation = wx.createAnimation({
-      duration: 5000,
+      duration: 3000,
       timingFunction: 'ease',
-      delay: 0
+      delay: 0,
+      transformOrigin: '50% 50%'
     })
 
     animation
       .opacity(0)
-      .scale(800)
+      .scale(50, 50)
       .step()
 
     return animation
@@ -137,7 +141,7 @@ Page({
 
     animation
       .opacity(1)
-      .scale(1)
+      .scale(1, 1)
       .step()
 
     return animation
@@ -146,7 +150,8 @@ Page({
   onClickCatch() {
     const catchOne = Math.ceil(Math.random() * 6)
     this.setData({
-      catchOne
+      catchOne,
+      isCatch: true
     })
     const animationOne = this.drawCatch()
     this.setData({
@@ -156,7 +161,7 @@ Page({
       wx.navigateTo({
         url: '../bubbleReceive/index'
       })
-    }, 3000)
+    }, 1000)
   },
 
   onClickNew() {

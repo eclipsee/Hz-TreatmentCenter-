@@ -31,6 +31,13 @@
   padding: 70rpx 15rpx 0 15rpx;
 }
 
+.small {
+  background-size: 45rpx auto;
+  -moz-background-size: 45rpx auto;
+  margin-top: 10rpx;
+  padding: 65rpx 15rpx 0 15rpx;
+}
+
 .newo {
   position: fixed;
   top: 5rpx;

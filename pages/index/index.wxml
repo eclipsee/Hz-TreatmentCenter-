@@ -1,5 +1,5 @@
 <view class="index-page">
-  <header isHome="true"></header>
+  <header isHome="1"></header>
   <view class="body">
     <block wx:for="{{emotionList1}}" wx:for-item="item" wx:for-index="idx" wx:key="{{item.key}}">
       <view class="{{item.viewClass}}" animation="{{animationData1[idx]}}">
@@ -17,7 +17,7 @@
       </view>
     </block>
     <!-- <image src="../../img/7.png" class="catchimage"></image> -->
-    <image src="../../img/{{catchOne}}.png" class="catchone" animation="{{animationOne}}"></image>
+    <image wx:if="{{isCatch}}" src="../../img/bubbles/{{catchOne}}.png" class="catchone" animation="{{animationOne}}"></image>
     <view class="catchbtn" loading="{{loading}}" disabled="{{disabled}}" bindtap="onClickCatch">
       捕捞
     </view>
