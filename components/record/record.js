@@ -190,18 +190,19 @@ Component({
     },
 
     uploadFile(path) {
-      console.log('shangchuan')
+      console.log(path)
       let that = this
       let authorize = encodeURIComponent(
         '308503&51668374EE8D4NdV6664EBB7CE22ABF701A668130895ACAFD43CEBE5DEED04A7401C560B86C81BF6'
       )
       wx.uploadFile({
         url:
-          'https://upload.test.ximalaya.com/dtres/audio/upload?_token=' +
-          authorize +
-          '&callerSource=ambassador',
+          'https://ranxinxiang.cn/api/upload/girl',
         filePath: path,
-        name: 'myfile',
+        name: 'file',
+        header: {
+          "Content-Type": "multipart/form-data"
+        },
         success: function(res) {
           if (res.statusCode == '200') {
             console.log('datadata', res)
@@ -211,9 +212,9 @@ Component({
               icon: 'none'
             })
           }
-          if (msg) {
+          if (res.msg) {
             wx.showToast({
-              title: msg,
+              title: res.msg,
               icon: 'none'
             })
           }

@@ -10,17 +10,10 @@ export const dbRequests = {
           update_time: new Date(),
         },
         success(res) {
-          wx.showToast({
-            title: '新增记录成功',
-          });
           console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id);
           resolve(res._id);
         },
         fail(err) {
-          wx.showToast({
-            icon: 'none',
-            title: '新增记录失败',
-          });
           console.error('[数据库] [新增记录] 失败：', err);
           reject();
         },
@@ -46,17 +39,10 @@ export const dbRequests = {
         },
         success(res) {
           // 在返回结果中会包含新创建的记录的 _id
-          wx.showToast({
-            title: '新增记录成功',
-          });
           console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id);
           resolve(res._id);
         },
         fail(err) {
-          wx.showToast({
-            icon: 'none',
-            title: '新增记录失败',
-          });
           console.error('[数据库] [新增记录] 失败：', err);
           reject();
         },
@@ -81,17 +67,10 @@ export const dbRequests = {
         },
         success(res) {
           // 在返回结果中会包含新创建的记录的 _id
-          wx.showToast({
-            title: '新增记录成功',
-          });
           console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id);
           resolve(res._id);
         },
         fail(err) {
-          wx.showToast({
-            icon: 'none',
-            title: '新增记录失败',
-          });
           console.error('[数据库] [新增记录] 失败：', err);
           reject();
         },
@@ -110,10 +89,6 @@ export const dbRequests = {
           resolve(res.data.length > 0 ? res.data.shift() : null)
         },
         fail(err) {
-          wx.showToast({
-            icon: 'none',
-            title: '查询记录失败',
-          });
           console.error('[数据库] [查询记录] 失败：', err);
           reject();
         },
@@ -134,10 +109,6 @@ export const dbRequests = {
           resolve(res.data.splice(luckyIndex, 1).shift());
         },
         fail(err) {
-          wx.showToast({
-            icon: 'none',
-            title: '查询记录失败',
-          });
           console.error('[数据库] [查询记录] 失败：', err);
           reject();
         },
@@ -156,10 +127,6 @@ export const dbRequests = {
           resolve(res.data.shift());
         },
         fail(err) {
-          wx.showToast({
-            icon: 'none',
-            title: '查询记录失败',
-          });
           console.error('[数据库] [查询记录] 失败：', err);
           reject();
         },
@@ -178,10 +145,6 @@ export const dbRequests = {
           resolve(res.data);
         },
         fail(err) {
-          wx.showToast({
-            icon: 'none',
-            title: '查询记录失败',
-          });
           console.error('[数据库] [查询记录] 失败：', err);
           reject();
         },
@@ -201,34 +164,12 @@ export const dbRequests = {
           resolve(res.data);
         },
         fail(err) {
-          wx.showToast({
-            icon: 'none',
-            title: '查询记录失败',
-          });
           console.error('[数据库] [查询记录] 失败：', err);
           reject();
         },
       });
     });
   },
-  // updateBubble(bubbleId, data) {
-  //   console.log(bubbleId, data);
-  //   const db = wx.cloud.database();
-  //   return new Promise((resolve, reject) => {
-  //     // 查询当前用户信息
-  //     db.collection('hz_bubble').doc(bubbleId).update({
-  //       data: { like_count: 2 },
-  //       success(res) {
-  //         console.log('[数据库] [修改记录] 成功: ', res);
-  //         resolve(res.data);
-  //       },
-  //       fail(err) {
-  //         console.error('[数据库] [修改记录] 失败：', err);
-  //         reject();
-  //       },
-  //     });
-  //   });
-  // },
 };
 
 export default {};

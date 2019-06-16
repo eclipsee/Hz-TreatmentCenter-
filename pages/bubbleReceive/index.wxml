@@ -3,6 +3,7 @@
   <view class="bubble-info">
     <view class="bubble-wrap">
       <image class="bubble" src="../../img/bubbles/{{bubble.tag + 1}}.png" wx:if="{{bubble.tag !== undefined}}"></image>
+      <view class="bubble" wx:if="{{bubble.tag === undefined}}"></view>
       <text>捕捉到一个</text>
       <text>#{{bubble.tagName}}泡泡</text>
     </view>

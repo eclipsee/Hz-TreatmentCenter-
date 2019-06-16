@@ -50,16 +50,16 @@
 }
 .bubble .process .left .circle {
   left: 0;
-  border-bottom: 4rpx solid green;
-  border-left: 4rpx solid green;
+  border-bottom: 4rpx solid #fff;
+  border-left: 4rpx solid #fff;
 }
 .bubble .process .right {
   right: 0;
 }
 .bubble .process .right .circle {
   right: 0;
-  border-top: 4rpx solid green;
-  border-right: 4rpx solid green;
+  border-top: 4rpx solid #fff;
+  border-right: 4rpx solid #fff;
 }
 .bubble.small {
   width: 100rpx;
@@ -76,7 +76,7 @@
 }
 .bubble.small .process .left,
 .bubble.small .process .right {
-  width: 40rpx;
+  width: 50rpx;
   height: 100rpx;
 }
 .bubble.large {
@@ -112,6 +112,6 @@
 }
 .bubble.xsmall .process .left,
 .bubble.xsmall .process .right {
-  width: 30rpx;
+  width: 40rpx;
   height: 80rpx;
 }

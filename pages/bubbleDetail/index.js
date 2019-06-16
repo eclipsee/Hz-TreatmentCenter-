@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    bubbleId: '',
     isExpand: false,
     replyType: '',
     currentReplay: {},
@@ -75,7 +76,10 @@ Page({
           username: bubble.user_name,
           avatar: bubble.avatar,
         },
-        bubble,
+        bubble: {
+          ...bubble,
+          duration: 10,
+        },
       });
     }).catch(this.onReqErr);
   },
@@ -102,8 +106,16 @@ Page({
       bubble_id: this.data.bubble._id,
       comment_type: this.data.replyType, // voice music joke cure
       sound_url: e.detail.url,
-    }).then((res) => {
-      console.log(res);
+    }).then(() => {
+      wx.showToast({
+        title: '发送成功',
+        icon: 'success',
+        duration: 2000,
+      });
+      this.getComments(this.data.bubbleId);
+      this.setData({
+        isExpand: false,
+      });
     }).catch(() => {
       wx.showModal({
         title: '获取失败',
@@ -112,6 +124,9 @@ Page({
     });
   },
   onLoad(options) {
+    this.setData({
+      bubbleId: options.bubble_id,
+    });
     this.getBubble(options.bubble_id);
     this.getComments(options.bubble_id);
   },
