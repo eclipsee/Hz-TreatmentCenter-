@@ -19,7 +19,11 @@ Component({
     recordSecond: {
       type: String,
       value: '00',
-    }
+    },
+    theme: {
+      type: String,
+      value: '',
+    },
   },
 
   /**

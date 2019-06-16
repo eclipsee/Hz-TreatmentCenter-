@@ -16,10 +16,15 @@
     <view class="star-wrap">
       <star rate="4"></star>
     </view>
-    <view class="replies">{{bubble.comments.length}}条回应</view>
+    <view class="replies" wx:if="{{!bubble.isPositive}}">{{bubble.comments.length}}条回应</view>
+    <view class="replies" wx:if="{{bubble.isPositive}}">{{bubble.like_count}}条High five</view>
   </view>
   <view class="bottom-btns">
-    <view class="btn-wrap" bindtap="goReply">
+    <view class="btn-wrap" bindtap="giveFive" wx:if="{{bubble.isPositive}}">
+      <image class="icon" src="../../img/icons/palm.png" />
+      <text>给我5</text>
+    </view>
+    <view class="btn-wrap" bindtap="goReply" wx:if="{{!bubble.isPositive}}">
       <image class="icon" src="../../img/icons/message.png" />
       <text>回应</text>
     </view>

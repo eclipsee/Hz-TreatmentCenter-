@@ -40,7 +40,6 @@
 }
 .reply-keyboard .send-btn {
   text-align: center;
-  background-color: #eee;
   margin-top: 100rpx;
 }
 .reply-keyboard .send-btn .icon {

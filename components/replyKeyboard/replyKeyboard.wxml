@@ -17,12 +17,12 @@
     </view>
   </view>
   <view class="content-card voice" wx:if="{{type === 'voice'}}">
-    <text>生活需要勇气～～</text>
+    <text>生活需要勇气～给TA打打气吧～</text>
   </view>
   <view wx:if="{{type !== 'cure'}}">
-    <record recordStatus="{{recordStatus}}" recordMinute="{{recordMinute}}" recordSecond="{{recordSecond}}"></record>
+    <record theme="deep" recordStatus="{{recordStatus}}" recordMinute="{{recordMinute}}" recordSecond="{{recordSecond}}"></record>
   </view>
   <view class="send-btn" wx:if="{{type === 'cure'}}">
-    <image class="icon" src="../../img/send.png" bindtap="sendVoice"></image>
+    <image class="icon" src="../../img/send_blue.png" bindtap="sendVoice"></image>
   </view>
 </view>
