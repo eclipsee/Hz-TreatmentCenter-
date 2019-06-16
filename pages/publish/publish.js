@@ -173,9 +173,9 @@ Page({
       strMinutes = '0' + strMinutes
     }
     if (strHour > 12) {
-      strHourString = strHour - 12 + ':' + strMinutes + ' PM'
+      strHourString = (strHour - 12) + ':' + strMinutes + ' PM'
     } else {
-      strHourString = strHour + strMinutes + ' AM'
+      strHourString = strHour.toString() + ':' + strMinutes.toString() + ' AM'
     }
     console.log('strHourString', strHourString)
     let currentdate = month + '月' + strDate + '日 ' + strHourString
