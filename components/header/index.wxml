@@ -1,13 +1,14 @@
 <view class="header">
   <view class="headerCenter">
-    <view class="catch" bindtap="onClickCatch" style="background-image: url('../../img/icons/spaceship.png')">
+    <view class="catch" bindtap="onClickCatch" style="background-image: url('http://fdfs.xmcdn.com/group63/M03/17/B9/wKgMcl0FrKSSoklZAAAY6JdZ5R0250.png')">
       情绪泡泡
     </view>
-    <view class="calendar" bindtap="onClickCalendar" style="background-image: url('../../img/icons/calendar.png')">
+    <view class="line"></view>
+    <view class="calendar" bindtap="onClickCalendar" style="background-image: url('http://fdfs.xmcdn.com/group61/M00/17/44/wKgMZl0FrNfyvMHfAAAQJWhZ8yk551.png')">
       情绪日历
     </view>
   </view>
-  <view class="newo" bindtap="onClickNew" style="background-image: url('../../img/icons/release.png')">
+  <view class="newo" bindtap="onClickNew" style="background-image: url('http://fdfs.xmcdn.com/group61/M04/17/4C/wKgMZl0FrPii0B_cAAAi__SsxTI478.png')">
     发布泡泡
   </view>
 </view>

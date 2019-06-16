@@ -37,7 +37,7 @@
 }
 
 .around view {
-  width: 80rpx;
+  width: 120rpx;
 }
 
 .userinfo {
