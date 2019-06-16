@@ -12,10 +12,11 @@
 
 .catchone {
   position: fixed;
-  width: 1rpx;
-  height: 1rpx;
-  bottom: 700rpx;
-  right: 50%;
+  width: 2rpx;
+  height: 2rpx;
+  bottom: 450rpx;
+  border-radius: 50%;
+  right: calc(50% - 1rpx);
   opacity: 1;
 }
 
@@ -51,7 +52,7 @@
 
 .emotion {
   position: fixed;
-  bottom: 400rpx;
+  bottom: 500rpx;
   left: 50%;
   opacity: 1;
   transform: scale(1)
@@ -59,7 +60,7 @@
 
 .emotion1 {
   position: fixed;
-  bottom: 400rpx;
+  bottom: 500rpx;
   right: 50%;
   opacity: 1;
   transform: scale(1)

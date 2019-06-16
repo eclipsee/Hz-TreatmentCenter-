@@ -230,5 +230,6 @@
   height: 1rpx;
   top: calc(50vh + 200rpx);
   left: 50%;
+  border-radius: 50%;
   position: fixed;
 }
