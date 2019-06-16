@@ -4,5 +4,6 @@ Page({
   data: {
     voiceList: arrayList
   },
+
   onLoad: function() {}
 })

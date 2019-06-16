@@ -6,28 +6,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bubble: {
-      title: '谁来安慰安慰我～',
-      url: 'http://yss.yisell.com/yisell/ybys2018050819052088/sound/yisell_sound_2014031622091974505_88366.mp3',
-      level: 3,
-      tag: 1,
-      tagName: '开心',
-      isPositive: false,
-      comments: [1, 2, 3],
-      like_count: 3,
-      user: {
-        username: '布丁',
-        avatar: '../../img/avatar/user2.png',
-      },
-    },
+    bubble: {},
   },
 
   goReply() {
-    wx.navigateTo({ url: '../bubbleDetail/index' });
+    wx.navigateTo({ url: `../bubbleDetail/index?bubble_id=${this.data.bubble._id}` });
   },
 
   randomBubble() {
     console.log('randomBubble');
+    this.getBubble();
   },
 
   getBubbleTxt(tag) {
@@ -37,6 +25,21 @@ Page({
 
   giveFive() {
     console.log('giveFive');
+  },
+
+  getBubble() {
+    dbRequests.getLuckyBubble().then((res) => {
+      dbRequests.getComments(res._id).then((comments) => {
+        this.setData({
+          bubble: { ...res, comments, tagName: this.getBubbleTxt(res.tag) },
+        });
+      });
+    }).catch(() => {
+      wx.showModal({
+        title: '获取失败',
+        showCancel: false,
+      });
+    });
   },
 
   /**
@@ -49,16 +52,6 @@ Page({
     // }).then((res) => {
     //   console.log(res);
     // });
-    dbRequests.getLuckyBubble({}).then((res) => {
-      this.setData({
-        bubble: res,
-      });
-      console.log(res);
-    }).catch(() => {
-      wx.showModal({
-        title: '获取失败',
-        showCancel: false,
-      });
-    });
+    this.getBubble();
   },
 });

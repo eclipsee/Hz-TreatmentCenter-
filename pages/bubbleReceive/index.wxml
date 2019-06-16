@@ -2,7 +2,7 @@
 <view class="bubble-receive">
   <view class="bubble-info">
     <view class="bubble-wrap">
-      <image class="bubble" src="../../img/bubbles/{{bubble.tag + 1}}.png"></image>
+      <image class="bubble" src="../../img/bubbles/{{bubble.tag + 1}}.png" wx:if="{{bubble.tag !== undefined}}"></image>
       <text>捕捉到一个</text>
       <text>#{{bubble.tagName}}泡泡</text>
     </view>
@@ -14,7 +14,7 @@
     </view>
     <view class="title">#{{bubble.title}}</view>
     <view class="star-wrap">
-      <star rate="4"></star>
+      <star rate="{{bubble.level}}" wx:if="{{bubble.level}}"></star>
     </view>
     <view class="replies" wx:if="{{!bubble.isPositive}}">{{bubble.comments.length}}条回应</view>
     <view class="replies" wx:if="{{bubble.isPositive}}">{{bubble.like_count}}条High five</view>
