@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/bubbleReceive/index",
     "pages/index/index",
     "pages/publish/publish",
     "pages/emotionCalendar/index"

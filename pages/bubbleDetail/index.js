@@ -1,6 +1,7 @@
 import joke from '../../data/joke';
 import music from '../../data/music';
 import cure from '../../data/voice';
+import { dbRequests } from '../../requests/request';
 
 const testUrl = 'http://yss.yisell.com/yisell/ybys2018050819052088/sound/yisell_sound_2014031622091974505_88366.mp3';
 const testAvatar = 'http://img.wxcha.com/file/201807/13/9bbc369f6e.jpg';
@@ -75,5 +76,38 @@ Page({
         this.randomReplay();
       });
     }
+  },
+  onReqErr() {
+    wx.showModal({
+      title: '获取失败',
+      showCancel: false,
+    });
+  },
+  getBubble(id) {
+    dbRequests.getBubble(id).then((bubble) => {
+      this.setData({
+        bubble,
+      });
+    }).catch(this.onReqErr);
+  },
+  getComments(id) {
+    dbRequests.getComments(id).then((res) => {
+      console.log(res);
+      this.setData({
+        comments: res.map(item => ({
+          ...item,
+          isSelf: item.user_id === wx.getStorageSync('user_id'),
+          bubble: {
+            url: item.sound_url,
+            duration: 10,
+            tag: item.tag,
+          },
+        })),
+      });
+    }).catch(this.onReqErr);
+  },
+  onLoad(options) {
+    this.getBubble(options.bubble_id);
+    this.getComments(options.bubble_id);
   },
 });
