@@ -57,7 +57,7 @@
 
 .emotion {
   position: fixed;
-  bottom: 565rpx;
+  bottom: 580rpx;
   left: 50%;
   opacity: 1;
   transform: scale(1)
@@ -65,7 +65,7 @@
 
 .emotion1 {
   position: fixed;
-  bottom: 565rpx;
+  bottom: 580rpx;
   right: 50%;
   opacity: 1;
   transform: scale(1)
@@ -85,7 +85,7 @@
   background-repeat: no-repeat;
   background-size: 100% 500rpx;
   background-position: bottom center;
-  -moz-background-size: 100% anto;
+  -moz-background-size: 100% 500rpx;
   height: calc(100vh - 110rpx);
   background-image: url('http://fdfs.xmcdn.com/group63/M07/1D/9E/wKgMaF0F5LWxZVJkAACcnObvLc4962.png')
 }
