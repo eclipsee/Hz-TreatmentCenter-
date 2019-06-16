@@ -1,5 +1,5 @@
 <view class="index-page">
-  <header></header>
+  <header isHome="true"></header>
   <view class="body">
     <block wx:for="{{emotionList1}}" wx:for-item="item" wx:for-index="idx" wx:key="{{item.key}}">
       <view class="{{item.viewClass}}" animation="{{animationData1[idx]}}">

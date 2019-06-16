@@ -8,7 +8,9 @@ Component({
   /**
    * 组件的初始数据
    */
-  data: {},
+  data: {
+    isHome: true
+  },
 
   /**
    * 组件的方法列表
@@ -19,10 +21,16 @@ Component({
         url: '../../pages/publish/publish'
       })
     },
+    // 跳转至情绪日历
     onClickCalendar() {
       wx.navigateTo({
         url: '../../pages/emotionCalendar/index'
       })
     },
+    onClickCatch() {
+      wx.navigateTo({
+        url: '../../pages/index/index'
+      })
+    }
   }
 })

@@ -51,8 +51,8 @@
 				},
 				{
 					"id": -1,
-					"name": "登录页",
-					"pathName": "pages/login/login",
+					"name": "pages/emotionCalendar/index",
+					"pathName": "pages/emotionCalendar/index",
 					"scene": null
 				}
 			]

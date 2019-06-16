@@ -85,11 +85,11 @@
   position: absolute;
   content: '';
   width: 2rpx;
-  height: 100rpx;
+  height: 60rpx;
   z-index: 1;
   background-color: #fff;
-  bottom: -100rpx;
-  left: calc(50% - 45rpx);
+  bottom: -60rpx;
+  left: calc(50% - 38rpx);
 }
 
 .item:last-of-type .bubble::after {
