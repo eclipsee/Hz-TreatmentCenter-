@@ -1,4 +1,6 @@
 // pages/login/login.js
+import { dbRequests } from '../../requests/request';
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -55,8 +57,45 @@ Page({
     var that = this;
     console.log("点击登录", e)
     if (e.detail.userInfo) {
-      console.log("有授权")
+    
       // this.loginApp(e.detail);
+      let nickname = e.detail.userInfo.nickname;
+      let avatarUrl = e.detail.userInfo.avatarUrl;
+      let openid = app.globalData.openid;
+      console.log("有授权", openid)
+      dbRequests.getUser(openid).then((res) => {
+        console.log("res",res);
+        if(res == null){
+          console.log("没有该用户")
+          let params={
+            nickname: nickname,
+            avatarUrl: avatarUrl
+          }
+          dbRequests.addUser({params}).then((res) => {
+            console.log("添加用户res", res);
+          }).catch(() => {
+            wx.showModal({
+              title: '获取失败',
+              showCancel: false,
+            });
+          });
+        }else{
+          console.log("res.update_time._id", res._id)
+          wx.setStorage({
+            key: 'uid',
+            data: res._id,
+          })
+          wx.redirectTo({
+            url: '/pages/index/index',
+          })
+        }
+      }).catch(() => {
+        wx.showToast({
+          title: '获取失败',
+          icon:none
+        });
+      });
+
     }
   },
 

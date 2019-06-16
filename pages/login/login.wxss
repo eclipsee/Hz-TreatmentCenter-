@@ -23,8 +23,8 @@
   height:8vh;
 }
 .loginBg{
-  width:50vw;
-  height:17vh;
+  width:180px;
+  height:100px;
   margin: 6vh 25vw 0;
 }
 .loginTitle{
@@ -46,15 +46,15 @@
   left:-211px;
 }
 .loginBtn{
-  width:50vw;
+  width:48vw;
   height:7vh;
-  line-height: 7vh;
+  line-height: 6.5vh;
   border: 0.5px solid #7689b6;
   text-align: center;
   color:#7689b6;
   font-size: 36rpx;
   margin:300rpx auto 0;
-  border-radius:0;
+  border-radius:7px;
   background: rgba(255, 255, 255, 0)
 }
 
