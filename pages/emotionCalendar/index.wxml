@@ -28,7 +28,7 @@
             <view class="day">{{item.day}}</view>
             <view class="time">{{item.time}}</view>
           </view>
-          <bubble bubble="{{item.bubble}}" class="bubble" size="small" />
+          <bubble bubble="{{item.bubble}}" class="bubble" size="xsmall" />
           <view class="itemC flex">
             <view class="itemcontent">
               <view>{{item.title}}</view>

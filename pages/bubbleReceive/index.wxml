@@ -9,8 +9,8 @@
   </view>
   <view class="user">
     <view class="info">
-      <image class="avatar" src="{{bubble.user.avatar}}"></image>
-      <text class="name">{{bubble.user.username}}</text>
+      <image class="avatar" src="{{bubble.avatar}}"></image>
+      <text class="name">{{bubble.user_name}}</text>
     </view>
     <view class="title">#{{bubble.title}}</view>
     <view class="star-wrap">
