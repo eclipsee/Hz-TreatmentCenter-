@@ -1,10 +1,6 @@
 /**index.wxss**/
 .header {
   height: 110rpx;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
 }
 
 .headerCenter {
@@ -33,4 +29,13 @@
   font-size: 24rpx;
   margin-top: 5rpx;
   padding: 70rpx 15rpx 0 15rpx;
+}
+
+.newo {
+  position: fixed;
+  top: 5rpx;
+  right: 0rpx;
+  background-size: 50rpx 50rpx;
+  -moz-background-size: 50rpx 50rpx;
+  padding: 65rpx 15rpx 0 15rpx;
 }
