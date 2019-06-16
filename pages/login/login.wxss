@@ -23,16 +23,81 @@
   width:50vw;
   height:8vh;
 }
-.loginBg{
+.loginBgWrapper{
   width:180px;
   height:100px;
   margin: 6vh 25vw 0;
+  position: relative;
+}
+.loginBg{
+  width:180px;
+  height:100px;
+  position: relative;
+  z-index:10;
+  /* animation-name: viewImg;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite; */
+}
+/* .loginBgOne{
+  width:100px;
+  height:100px;
+  background: #fff;
+  border-radius: 50px;
+  position: absolute;
+  top:0;
+  left:40px;
+  animation: viewlinear;
+} */
+.loginBgOne{
+  width:100px;
+  height:100px;
+  border-radius: 50px;
+  position: absolute;
+  top:0;
+  left:40px;
+  background: #fff;
+  animation-name: viewlinear;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  /* opacity: 0.1; */
+}
+.loginBgTwo{
+  width:100px;
+  height:100px;
+  border-radius: 50px;
+  position: absolute;
+  top:0;
+  left:40px;
+  background: #fff;
+  animation-name: viewlinear;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay: 1s;
+  /* opacity: 0.1; */
+}
+.loginBgThree{
+  width:100px;
+  height:100px;
+  position: absolute;
+  top:0;
+  left:40px;
+  border-radius: 50px;
+  background: #fff;
+  animation-name: viewlinear;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay: 2s;
+  /* opacity: 0.1; */
 }
 .loginTitle{
   width:8vw;
   height:300rpx;
   font-size: 20px;
-  margin: 10px 49vw;
+  margin: 20px 47vw;
   color:#7689b6;
   position: relative;
 }
@@ -57,5 +122,30 @@
   margin:300rpx auto 0;
   border-radius:7px;
   background: rgba(255, 255, 255, 0)
+}
+.loginBtn:active{
+  background: #fff;
+}
+@keyframes viewlinear {
+  from {
+    opacity: 1;
+    transform:scale(1,1);
+    background-color: rgb(171，221，230)
+  }
+  /*结束的角度*/
+  to {
+    opacity: 0;
+    transform:scale(1.5,1.5);
+    background-color: #fff;
+  } 
+}
+@keyframes viewImg {
+  from {
+    transform:rotate(0);
+  }
+  /*结束的角度*/
+  to {
+    transform:rotate(360deg);
+  } 
 }
 
