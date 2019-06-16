@@ -57,7 +57,7 @@
 
 .emotion {
   position: fixed;
-  bottom: 500rpx;
+  bottom: 565rpx;
   left: 50%;
   opacity: 1;
   transform: scale(1)
@@ -65,7 +65,7 @@
 
 .emotion1 {
   position: fixed;
-  bottom: 500rpx;
+  bottom: 565rpx;
   right: 50%;
   opacity: 1;
   transform: scale(1)
