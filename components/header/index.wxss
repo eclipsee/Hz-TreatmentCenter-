@@ -23,11 +23,11 @@
 .catch,
 .calendar {
   background-repeat: no-repeat;
-  background-size: 45rpx 45rpx;
+  background-size: 60rpx 60rpx;
   background-position: top center;
   -moz-background-size: 50rpx 50rpx;
   padding: 5px;
-  font-size: 12rpx;
+  font-size: 24rpx;
   margin-top: 5rpx;
   padding: 55rpx 15rpx 0 15rpx;
   line-height: 20rpx;
