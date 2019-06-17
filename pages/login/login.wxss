@@ -1,4 +1,7 @@
 /* pages/login/login.wxss */
+page {
+  background-color: #DDECF2;
+}
 .loginWrapper{
   height:100vh;
   width:100vw;
