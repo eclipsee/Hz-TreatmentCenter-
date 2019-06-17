@@ -239,11 +239,11 @@ Page({
       });
     });
 
-    // setTimeout(function () {
-    //   wx.navigateTo({
-    //     url: '/pages/index/index?flag',
-    //   })
-    // }, 500)
+    setTimeout(function () {
+      wx.navigateTo({
+        url: '/pages/index/index?flag',
+      })
+    }, 500)
 
     // addBubble
   },
