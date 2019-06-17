@@ -24,7 +24,7 @@ Page({
 
   giveFive() {
     this.setData({
-      bubble: { ...this.data.bubble, like_count: this.data.bubble.like_count + 1 },
+      bubble: { ...this.data.bubble,like_count: this.data.bubble.like_count + 1 },
     });
   },
 
@@ -32,7 +32,7 @@ Page({
     dbRequests.getLuckyBubble().then((res) => {
       dbRequests.getComments(res._id).then((comments) => {
         this.setData({
-          bubble: { ...res, comments, tagName: this.getBubbleTxt(res.tag), isPositive: res.tag === 1 },
+          bubble: { ...res, comments, tag: parseInt(res.tag, 10), tagName: this.getBubbleTxt(res.tag), isPositive: res.tag === 1 },
         });
       });
     }).catch(() => {

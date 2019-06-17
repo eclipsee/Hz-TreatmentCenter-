@@ -40,6 +40,9 @@ Component({
     randomItem() {
       this.triggerEvent('randomevent', {});
     },
+    onBubblesSend(e) {
+      this.triggerEvent('addcommentevent', { url: e.detail.audioId });
+    },
     sendVoice() {
       this.triggerEvent('addcommentevent', { url: this.data.currentItem.url });
     },

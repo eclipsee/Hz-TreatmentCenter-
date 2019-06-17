@@ -20,7 +20,13 @@
     <text>生活需要勇气～给TA打打气吧～</text>
   </view>
   <view wx:if="{{type !== 'cure'}}">
-    <record theme="deep" recordStatus="{{recordStatus}}" recordMinute="{{recordMinute}}" recordSecond="{{recordSecond}}"></record>
+    <record
+      theme="deep"
+      recordStatus="{{recordStatus}}"
+      recordMinute="{{recordMinute}}"
+      recordSecond="{{recordSecond}}"
+      bindbubbles="onBubblesSend"
+      ></record>
   </view>
   <view class="send-btn" wx:if="{{type === 'cure'}}">
     <image class="icon" src="../../img/send_blue.png" bindtap="sendVoice"></image>

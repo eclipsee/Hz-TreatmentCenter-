@@ -166,25 +166,25 @@ Component({
       console.log('src', src)
       let timeStr = (new Date()).getTime();
       wx.cloud.uploadFile({
-        cloudPath: timeStr + 'example.png', // 上传至云端的路径
+        cloudPath: timeStr + '/Hz/voices', // 上传至云端的路径
         filePath: src, // 小程序临时文件路径
         success: res => {
           // 返回文件 ID
-          console.log(res.fileID)
           this.setData({
-            fileID: res.fileID
-          })
+            fileID: res.fileID,
+          });
+          this.triggerEvent('bubbles', {
+            audioId: this.data.fileID
+          });
         },
         fail: console.error
-      })
+      });
+
       this.setData({
         recordSecond: '00',
         recordMinute: '00',
         recordStatus: 0
-      })
-      this.triggerEvent('bubbles', {
-        audioId: this.data.fileID
-      })
+      });
     },
 
     recordRestart() {

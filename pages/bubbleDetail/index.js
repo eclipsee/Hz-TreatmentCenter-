@@ -79,6 +79,7 @@ Page({
         bubble: {
           ...bubble,
           duration: 10,
+          tag: parseInt(bubble.tag, 10),
         },
       });
     }).catch(this.onReqErr);

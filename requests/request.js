@@ -33,6 +33,7 @@ export const dbRequests = {
           tag: param.tag, // 0,1,2,3,4,5
           level: param.level, //1,2,3,4,5
           like_count: 0,
+          duration: param.duration || 0,
           closed: false,
           create_time: new Date(),
           update_time: new Date(),
@@ -61,6 +62,7 @@ export const dbRequests = {
           bubble_id: param.bubble_id,
           comment_type: param.comment_type, // voice music joke cure
           sound_url: param.sound_url,
+          duration: param.duration || 0,
           bubble_owner_like: false,
           create_time: new Date(),
           update_time: new Date(),

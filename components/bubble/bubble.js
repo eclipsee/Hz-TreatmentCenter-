@@ -26,6 +26,7 @@ Component({
   ready() {
     this.audioCtx = wx.createInnerAudioContext();
     this.audioCtx.onEnded(() => {
+      console.log('onEnded');
       clearInterval(this.data.timer);
       this.setData({ playing: false, time: 0 });
     });
@@ -34,24 +35,46 @@ Component({
   detached() {
     clearInterval(this.data.timer);
   },
-
   /**
    * 组件的方法列表
    */
   methods: {
+    getBubbleUrl(url) {
+      return new Promise((resolve, reject) => {
+        if (url.match(/^http/)) {
+          resolve(url);
+        } else {
+          wx.cloud.downloadFile({
+            fileID: url,
+            success: res => {
+              console.log(res.tempFilePath);
+              resolve(res.tempFilePath);
+            },
+            fail: err => {
+              console.log('获取音频失败');
+              reject();
+            },
+          });
+        }
+      });
+    },
     togglePlay() {
       let timer = null;
       if (this.data.playing) {
         this.audioCtx.pause();
         clearInterval(this.data.timer);
+        this.setData({ playing: !this.data.playing });
       } else {
-        this.audioCtx.src = this.data.bubble.url;
-        this.audioCtx.play();
-        timer = setInterval(() => {
-          this.setData({ time: this.data.time + 1 });
-        }, 1000);
+        console.log('bubble:', this.data.bubble);
+        this.getBubbleUrl(this.data.bubble.url).then((url) => {
+          this.audioCtx.src = url;
+          this.audioCtx.play();
+          timer = setInterval(() => {
+            this.setData({ time: this.data.time + 1 });
+          }, 1000);
+          this.setData({ playing: !this.data.playing, timer });
+        });
       }
-      this.setData({ playing: !this.data.playing, timer });
     },
   },
 });
