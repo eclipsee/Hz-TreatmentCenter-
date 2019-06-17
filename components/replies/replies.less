@@ -1,7 +1,16 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .comment-audio {
   display: flex;
   align-items: center;
   padding: 30rpx 40rpx;
+  animation: fadeIn 0.3s linear;
   .user-info {
     display: flex;
     flex-direction: column;

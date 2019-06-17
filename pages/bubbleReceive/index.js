@@ -7,6 +7,7 @@ Page({
    */
   data: {
     bubble: {},
+    isFishing: false,
   },
 
   goReply() {
@@ -29,16 +30,23 @@ Page({
   },
 
   getBubble() {
-    dbRequests.getLuckyBubble().then((res) => {
-      dbRequests.getComments(res._id).then((comments) => {
-        this.setData({
-          bubble: { ...res, comments, tag: parseInt(res.tag, 10), tagName: this.getBubbleTxt(res.tag), isPositive: res.tag === 1 },
+    this.setData({ isFishing: true }, () => {
+      dbRequests.getLuckyBubble().then((res) => {
+        dbRequests.getComments(res._id).then((comments) => {
+          this.setData({
+            isFishing: false,
+            bubble: { ...res, comments, tag: parseInt(res.tag, 10), tagName: this.getBubbleTxt(res.tag), isPositive: res.tag === 1 },
+          });
         });
-      });
-    }).catch(() => {
-      wx.showModal({
-        title: '获取失败',
-        showCancel: false,
+      }).catch(() => {
+        wx.showToast({
+          title: '获取失败',
+          icon: 'success',
+          duration: 2000
+        })
+        this.setData({
+          isFishing: false,
+        });
       });
     });
   },

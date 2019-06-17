@@ -1,4 +1,7 @@
 /* pages/publish/publish.wxss */
+page {
+  background-image: url('http://fdfs.xmcdn.com/group62/M04/21/FE/wKgMZ10GDg-BGUNVAABfU42zDSA373.png');
+}
 .wrapper {
   width: 100vw;
   height: 100vh;

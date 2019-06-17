@@ -1,3 +1,14 @@
+page {
+  background-image: url('http://fdfs.xmcdn.com/group62/M04/21/FE/wKgMZ10GDg-BGUNVAABfU42zDSA373.png');
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .bubble-detail {
   .brief-wrap {
     position: fixed;
@@ -6,10 +17,14 @@
     right: 0;
     z-index: 50;
     background-color: #ddecf2;
+    opacity: 1;
+    animation: fadeIn 0.3s linear;
   }
   .replies-wrap {
     padding-top: 200rpx;
     padding-bottom: 120rpx;
+    opacity: 1;
+    animation: fadeIn 0.3s linear;
   }
   .bottom-replies {
     position: fixed;

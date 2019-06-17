@@ -1,3 +1,6 @@
+page {
+  background-image: url('http://fdfs.xmcdn.com/group62/M04/21/FE/wKgMZ10GDg-BGUNVAABfU42zDSA373.png');
+}
 .history-page {
   font-size: 28rpx;
   line-height: 1.6em;

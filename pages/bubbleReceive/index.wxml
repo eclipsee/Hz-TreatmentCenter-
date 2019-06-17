@@ -1,6 +1,6 @@
 <!--pages/bubble/bubbleFishing.wxml-->
 <view class="bubble-receive">
-  <view class="bubble-info">
+  <view class="bubble-info" wx:if="{{!isFishing}}">
     <view class="bubble-wrap">
       <image class="bubble" src="../../img/bubbles/{{bubble.tag + 1}}.png" wx:if="{{bubble.tag !== undefined}}"></image>
       <view class="bubble" wx:if="{{bubble.tag === undefined}}"></view>
@@ -8,7 +8,7 @@
       <text>#{{bubble.tagName}}泡泡</text>
     </view>
   </view>
-  <view class="user">
+  <view class="user" wx:if="{{!isFishing}}">
     <view class="info">
       <image class="avatar" src="{{bubble.avatar}}"></image>
       <text class="name">{{bubble.user_name}}</text>
@@ -19,6 +19,10 @@
     </view>
     <view class="replies" wx:if="{{!bubble.isPositive}}">{{bubble.comments.length}}条回应</view>
     <view class="replies" wx:if="{{bubble.isPositive}}">{{bubble.like_count}}条High five</view>
+  </view>
+  <view class="loading" wx:if="{{isFishing}}">
+    <image class="icon" src="../../img/icons/haitun.png"></image>
+    <text>正在捕捞...</text>
   </view>
   <view class="bottom-btns">
     <view class="btn-wrap" bindtap="giveFive" wx:if="{{bubble.isPositive}}">

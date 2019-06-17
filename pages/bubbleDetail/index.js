@@ -24,11 +24,9 @@ Page({
       { name: '段子', value: 'joke', icon: '../../img/icons/joke.png' },
       { name: '治愈音', value: 'cure', icon: '../../img/icons/dog.png' },
     ],
-    library: {
-      music,
-      joke,
-      cure,
-    },
+    library: { music, joke, cure },
+    loadingBubble: false,
+    loadingComment: false,
   },
 
   randomReplay() {
@@ -70,34 +68,54 @@ Page({
     });
   },
   getBubble(id) {
-    dbRequests.getBubble(id).then((bubble) => {
-      this.setData({
-        user: {
-          username: bubble.user_name,
-          avatar: bubble.avatar,
-        },
-        bubble: {
-          ...bubble,
-          duration: 10,
-          tag: parseInt(bubble.tag, 10),
-        },
-      });
-    }).catch(this.onReqErr);
-  },
-  getComments(id) {
-    dbRequests.getComments(id).then((res) => {
-      this.setData({
-        comments: res.map(item => ({
-          ...item,
-          isSelf: item.user_id === wx.getStorageSync('uid'),
-          bubble: {
-            url: item.sound_url,
-            duration: 10,
-            tag: item.tag,
+    this.setData({
+      loadingBubble: true,
+    }, () => {
+      dbRequests.getBubble(id).then((bubble) => {
+        this.setData({
+          loadingBubble: false,
+          user: {
+            username: bubble.user_name,
+            avatar: bubble.avatar,
           },
-        })),
+          bubble: {
+            ...bubble,
+            duration: 10,
+            tag: parseInt(bubble.tag, 10),
+          },
+        });
+      }).catch(() => {
+        this.setData({
+          loadingBubble: false,
+        });
+        this.onReqErr();
       });
-    }).catch(this.onReqErr);
+    });
+  },
+  getComments(id, isFirst = true) {
+    this.setData({
+      loadingComment: isFirst,
+    }, () => {
+      dbRequests.getComments(id).then((res) => {
+        this.setData({
+          loadingComment: false,
+          comments: res.map(item => ({
+            ...item,
+            isSelf: item.user_id === wx.getStorageSync('uid'),
+            bubble: {
+              url: item.sound_url,
+              duration: 10,
+              tag: item.tag,
+            },
+          })),
+        });
+      }).catch(() => {
+        this.setData({
+          loadingComment: false,
+        });
+        this.onReqErr();
+      });
+    });
   },
   addcomment(e) {
     dbRequests.addBubbleComment({
@@ -113,7 +131,7 @@ Page({
         icon: 'success',
         duration: 2000,
       });
-      this.getComments(this.data.bubbleId);
+      this.getComments(this.data.bubbleId, false);
       this.setData({
         isExpand: false,
       });

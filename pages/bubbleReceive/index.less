@@ -1,9 +1,35 @@
+page {
+  background-image: url('http://fdfs.xmcdn.com/group62/M04/21/FE/wKgMZ10GDg-BGUNVAABfU42zDSA373.png');
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .bubble-receive {
   padding: 0 40rpx;
   position: relative;
+  .loading {
+    margin-top: 300rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #343c50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .icon {
+      width: 50rpx;
+      height: 50rpx;
+    }
+  }
   .bubble-info {
     display: flex;
     flex-direction: row-reverse;
+    opacity: 1;
+    animation: fadeIn 0.3s linear;
     .bubble-wrap {
       display: flex;
       flex-direction: column;
@@ -25,6 +51,8 @@
     flex-direction: column;
     font-size: 30rpx;
     color: #343c50;
+    opacity: 1;
+    animation: fadeIn 0.3s linear;
     .info {
       display: flex;
       align-items: center;

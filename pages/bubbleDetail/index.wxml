@@ -1,9 +1,9 @@
 <!--pages/bubbleDetail/index.wxml-->
 <view class="bubble-detail">
-  <view class="brief-wrap">
+  <view class="brief-wrap" wx:if="{{!loadingBubble}}">
     <bubble-brief user="{{user}}" bubble="{{bubble}}"></bubble-brief>
   </view>
-  <view class="replies-wrap">
+  <view class="replies-wrap" wx:if="{{!loadingComment}}">
     <replies comments="{{comments}}"></replies>
   </view>
   <view class="bottom-replies">
